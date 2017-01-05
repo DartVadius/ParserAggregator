@@ -29,6 +29,7 @@ class curlItem {
         $this->data['source'] = $urlArr['host'];
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
+        //настраиваем curl из сетапа
         foreach ($setup as $key => $value) {
             curl_setopt($ch, $key, $value);
         }
@@ -42,6 +43,6 @@ class curlItem {
 
     public function getCurlSource() {
         return $this->data['source'];
-    }
-
+    }    
+    
 }

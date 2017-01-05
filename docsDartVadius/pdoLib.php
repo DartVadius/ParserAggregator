@@ -31,12 +31,12 @@ final class pdoLib {
      *
      */
     private function __construct() {
-        $dsn = "mysql:host=" . HOST_NAME . ";dbname=" . DB_NAME . ";charset=utf8";
+        $dsn = "mysql:host=localhost;dbname=agregator;charset=utf8";
         $opt = array(
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
         );
-        $this->pdo = new PDO($dsn, USER_NAME, PASSWORD, $opt);
+        $this->pdo = new PDO($dsn, 'root', '', $opt);
     }
 
     private function __clone() {

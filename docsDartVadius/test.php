@@ -4,8 +4,7 @@ require_once 'curlItem.php';
 require_once 'parserRSS.php';
 require_once 'phpQuery-onefile.php';
 require_once 'rssItem.php';
-require_once 'pdoLib';
-
+require_once 'pdoLib.php';
 
 $setup = [
     CURLOPT_HEADER => FALSE,
@@ -33,11 +32,15 @@ $sites = [
     'http://censor.net.ua/includes/news_ru.xml',
     'https://lenta.ru/rss/news',
     'http://www.pravda.com.ua/rus/rss/',
-    'http://fakty.ua/rss_feed/all',    
+    'http://fakty.ua/rss_feed/all',
 ];
 foreach ($sites as $site) {
     $data = new curlItem($site, $setup);
     $posts = new parserRSS($data, $rules);
-    print_r($posts->getRSS());
+    $uniquePosts = $posts->getUniquePosts();
+    print_r($uniquePosts);
+    foreach ($uniquePosts as $value) {
+        $value->save();
+    }
 }
 
