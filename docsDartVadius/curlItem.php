@@ -25,6 +25,7 @@ class curlItem {
     private $data = null;
 
     public function __construct($url, $setup) {
+        $this->data['url'] = $url;
         $urlArr = parse_url($url);
         $this->data['source'] = $urlArr['host'];
         $ch = curl_init();
@@ -45,4 +46,7 @@ class curlItem {
         return $this->data['source'];
     }    
     
+    public function getCurlUrl() {
+        return $this->data['url'];
+    }
 }
