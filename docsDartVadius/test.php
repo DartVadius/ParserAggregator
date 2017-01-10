@@ -6,9 +6,10 @@ require_once 'phpQuery-onefile.php';
 require_once 'rssItem.php';
 require_once 'pdoLib.php';
 require_once 'parserPost.php';
+require_once 'phantomJsItem.php';
 
 function show($arr) {
-    echo print_r($arr, 1);
+    echo '<pre>' . print_r($arr, 1) . '</pre>';
 }
 
 $sites = [
@@ -34,8 +35,13 @@ $sites = [
 //http://www.pravda.com.ua/rus/news/2017/01/7/7131846/
 
 
-$url = 'http://www.pravda.com.ua/rus/news/2017/01/7/7131846/';
+/*$url = 'http://news.liga.net/news/capital/14521665-voditeley_prosyat_ne_ezdit_po_kievu_na_vremya_snegouborochnykh_rabot.htm';
 $data = new curlItem($url, $setup);
-$post = new parserPost($data, $rule1);
-show($post->getPost());
+print_r($data);
+$post = new parserPost($data, $rule2);
+show($post->getPost());*/
 
+$url = 'http://news.liga.net/news/capital/14521665-voditeley_prosyat_ne_ezdit_po_kievu_na_vremya_snegouborochnykh_rabot.htm';
+$phantom = new phantomJsItem($url, PHANTOMPATH, JSPATH);
+$post = new parserPost($phantom, $rule2, 2);
+show($post->getPost());

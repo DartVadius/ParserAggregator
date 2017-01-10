@@ -42,9 +42,7 @@ $rule2 = [
         'text' => '._ga1_on_',
         'img' => '#material-image',
     ],
-    'remove' => [
-        'text' => 'b:last',
-    ],
+    'remove' => 'b, a',    
     'prefix' => 'http://news.liga.net',
     'property' => [
         'img' => 'imgClass',
@@ -68,6 +66,11 @@ class parserPost {
             $this->post['source'] = $data->getCurlSource();
             $document = phpQuery::newDocument($data->getCurlBody());
         }
+        if ($method === 2) {
+            $this->post['url'] = $data->getPhantomUrl();
+            $this->post['source'] = $data->getPhantomSource();
+            $document = phpQuery::newDocument($data->getPhantomBody());
+        }
         //img
         foreach (pq($document)->find($rules['find']['img']) as $img) {
 
@@ -85,7 +88,7 @@ class parserPost {
         $attr = $rules['property']['text'];
         pq($document)->find($rules['find']['text'])->find('p')->removeAttr('style')->attr('class', $attr);
         if (!empty($rules['remove'])) {
-            pq($document)->find($rules['remove']['text'])->remove();
+            pq($document)->find($rules['remove'])->remove();
         }
         pq($document)->find('p:empty')->remove();
         $text = pq($document)->find($rules['find']['text'])->html();
