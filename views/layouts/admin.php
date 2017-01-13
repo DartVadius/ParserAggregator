@@ -28,8 +28,9 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     $menuItems = [
-        ['label' => 'Главная', 'url' => ['/admin/default/index']],
+        ['label' => 'Главная', 'url' => ['/admin/']],
         ['label' => 'Посты', 'url' => ['/admin/post/index']],
+        ['label' => 'Сайты', 'url' => ['/admin/sites/index']],
         ['label' => 'Пользователи', 'url' => ['/rbac/default/index']],
         Yii::$app->user->isGuest ? (
         ['label' => 'Войти', 'url' => ['/site/login']]

@@ -4,13 +4,13 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\models\PostsRss */
+/* @var $model app\models\Sites */
 
-$this->title = 'Create Posts';
-$this->params['breadcrumbs'][] = ['label' => 'Posts', 'url' => ['index']];
+$this->title = 'Create Sites';
+$this->params['breadcrumbs'][] = ['label' => 'Sites', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="posts-rss-create">
+<div class="sites-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
