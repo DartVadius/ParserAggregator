@@ -113,3 +113,12 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+thead tr{
+    background-color: rgb(244, 244, 248);
+}
+
+td{
+    padding: 11px;
+    border: 1px solid #DDDDDD;
+}
