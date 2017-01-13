@@ -9,7 +9,7 @@ require_once 'parserPost.php';
 require_once 'phantomJsItem.php';
 
 function show($arr) {
-    echo '<pre>' . print_r($arr, 1) . '</pre>';
+    echo '<pre>' . print_r($arr, TRUE) . '</pre>';
 }
 
 $sites = [
@@ -35,13 +35,12 @@ $sites = [
 //http://www.pravda.com.ua/rus/news/2017/01/7/7131846/
 
 
-/*$url = 'http://news.liga.net/news/capital/14521665-voditeley_prosyat_ne_ezdit_po_kievu_na_vremya_snegouborochnykh_rabot.htm';
+/*$url = 'http://fakty.ua/228590-savchenko-obecshayut-sotrudnichat-s-sbu-no-ne-otchityvatsya';
 $data = new curlItem($url, $setup);
-print_r($data);
-$post = new parserPost($data, $rule2);
+$post = new parserPost($data, $rule);
 show($post->getPost());*/
 
 $url = 'http://news.liga.net/news/capital/14521665-voditeley_prosyat_ne_ezdit_po_kievu_na_vremya_snegouborochnykh_rabot.htm';
 $phantom = new phantomJsItem($url, PHANTOMPATH, JSPATH);
 $post = new parserPost($phantom, $rule2, 2);
-show($post->getPost());
+show($post);
