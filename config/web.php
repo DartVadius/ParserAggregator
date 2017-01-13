@@ -77,7 +77,7 @@ $config = [
             'mainLayout' => '@app/views/layouts/admin.php',
         ]
     ],
-    'as access' => [
+    /*'as access' => [
         'class' => 'mdm\admin\components\AccessControl',
         'allowActions' => [
             'site/*',
@@ -85,7 +85,7 @@ $config = [
 //            'rbac/*',
 //            'post/index',
         ]
-    ],
+    ],*/
     'params' => $params,
 ];
 
