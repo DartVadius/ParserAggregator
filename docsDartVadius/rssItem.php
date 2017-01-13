@@ -49,7 +49,7 @@ class rssItem {
             if (!empty($newCat)) {
                 //перебираем категории из БД
                 foreach ($category as $value) {
-                    //разбираем строкуе из поля "синонимы"
+                    //разбираем строку из поля "синонимы"
                     $cat = explode(',', $value['synonyms']);
                     //и обрабатываем ее
                     $cat = array_map(array($this, 'strProcessing'), $cat);

@@ -42,7 +42,7 @@ $rule2 = [
         'text' => '._ga1_on_',
         'img' => '#material-image',
     ],
-    'remove' => 'b, a',    
+    'remove' => 'b, a, p::contains("Читайте также:")',
     'prefix' => 'http://news.liga.net',
     'property' => [
         'img' => 'imgClass',
@@ -58,17 +58,21 @@ $rule2 = [
  */
 class parserPost {
 
-    private $post = [];
+    private $url;
+    private $source;
+    private $title;
+    private $text;
+    private $img = [];
 
     public function __construct($data, $rules, $method = 1) {
         if ($method === 1) {
-            $this->post['url'] = $data->getCurlUrl();
-            $this->post['source'] = $data->getCurlSource();
+            $this->url = $data->getCurlUrl();
+            $this->source = $data->getCurlSource();
             $document = phpQuery::newDocument($data->getCurlBody());
         }
         if ($method === 2) {
-            $this->post['url'] = $data->getPhantomUrl();
-            $this->post['source'] = $data->getPhantomSource();
+            $this->url = $data->getPhantomUrl();
+            $this->source = $data->getPhantomSource();
             $document = phpQuery::newDocument($data->getPhantomBody());
         }
         //img
@@ -76,29 +80,30 @@ class parserPost {
 
             if (!empty($rules['prefix'])) {
                 $src = $rules['prefix'] . pq($img)->attr('src');
-                pq($img)->attr('src', $src);
+                //pq($img)->attr('src', $src);
             }
-            $newImg .= "<img class='" . $rules['property']['img'] . "' src='" . pq($img)->attr('src') . "'>";
+            //$newImg .= "<img class='" . $rules['property']['img'] . "' src='" . pq($img)->attr('src') . "'>";
+            array_push($this->img, $src);
         }
         pq($document)->find($rules['find']['img'])->remove();
         //title
-        $title = pq($document)->find($rules['find']['title'])->text();
-        $title = "<h1 class='" . $rules['property']['title'] . "'>$title</h1>";
+        $this->title = pq($document)->find($rules['find']['title'])->text();
+        //$title = "<h1 class='" . $rules['property']['title'] . "'>$title</h1>";
         //text
         $attr = $rules['property']['text'];
-        pq($document)->find($rules['find']['text'])->find('p')->removeAttr('style')->attr('class', $attr);
+        pq($document)->find($rules['find']['text'])->find('p')->removeAttr('style')->removeAttr('class')->removeAttr('id');
         if (!empty($rules['remove'])) {
             pq($document)->find($rules['remove'])->remove();
         }
         pq($document)->find('p:empty')->remove();
-        $text = pq($document)->find($rules['find']['text'])->html();
-        //full post
-        $post = $title . $newImg . $text;
-        $this->post['post'] = $post;
+        $this->text = pq($document)->find($rules['find']['text'])->html();
+//        full post
+//        $post = $title . $newImg . $text;
+//        $this->post['post'] = $post;
     }
 
-    public function getPost() {
-        return $this->post;
+    public function __get($name) {
+        return $this->$name;
     }
 
 }
