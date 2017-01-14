@@ -7,7 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'yii\\swiftmailer\\' => array($vendorDir . '/yiisoft/yii2-swiftmailer'),
-    'yii\\gii\\' => array($vendorDir . '/yiisoft/yii2-gii'),
+    'yii\\gii\\' => array($baseDir . '/', $vendorDir . '/yiisoft/yii2-gii'),
     'yii\\faker\\' => array($vendorDir . '/yiisoft/yii2-faker'),
     'yii\\debug\\' => array($vendorDir . '/yiisoft/yii2-debug'),
     'yii\\composer\\' => array($vendorDir . '/yiisoft/yii2-composer'),
@@ -28,6 +28,7 @@ return array(
     'Symfony\\Component\\BrowserKit\\' => array($vendorDir . '/symfony/browser-kit'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
+    'PhantomInstaller\\Test\\' => array($vendorDir . '/jakoch/phantomjs-installer/tests'),
     'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
     'GuzzleHttp\\Promise\\' => array($vendorDir . '/guzzlehttp/promises/src'),
     'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),

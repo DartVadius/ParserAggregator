@@ -75,7 +75,12 @@ $config = [
             ],
             'layout' => 'left-menu',
             'mainLayout' => '@app/views/layouts/admin.php',
-        ]
+        ],
+        'parser' => [
+
+            'class' => 'app\modules\parser\ParserModule',
+
+        ],
     ],
     /*'as access' => [
         'class' => 'mdm\admin\components\AccessControl',
