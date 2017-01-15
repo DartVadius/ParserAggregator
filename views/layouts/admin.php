@@ -28,7 +28,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     $menuItems = [
-        ['label' => 'Главная', 'url' => ['/admin/']],
+//        ['label' => 'Главная', 'url' => ['/admin/']],
         ['label' => 'Посты', 'url' => ['/admin/post/index']],
         ['label' => 'Сайты', 'url' => ['/admin/sites/index']],
         ['label' => 'Пользователи', 'url' => ['/rbac/default/index']],
@@ -47,7 +47,7 @@ AppAsset::register($this);
     ];
 
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => 'Agregator',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -71,7 +71,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">&copy; Agregator <?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>

@@ -20,7 +20,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'parsing_settings')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'make_parsing')->textInput() ?>
+    <?= $form->field($model, 'make_parsing')->checkbox() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

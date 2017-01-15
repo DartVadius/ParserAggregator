@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'source',
             'method_of_parsing',
             'parsing_settings:ntext',
-            // 'make_parsing',
+             'make_parsing',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
