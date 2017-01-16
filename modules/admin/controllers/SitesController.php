@@ -64,7 +64,6 @@ class SitesController extends Controller
     public function actionCreate()
     {
         $model = new Sites();
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->site_id]);
         } else {

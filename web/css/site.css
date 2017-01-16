@@ -122,3 +122,10 @@ td{
     padding: 11px;
     border: 1px solid #DDDDDD;
 }
+.settings div {
+    display: inline-block;
+}
+.settings input {
+    width: 80%;
+    position: relative;
+}
