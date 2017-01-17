@@ -1,7 +1,7 @@
 <?php
 
-namespace app\modules\parser\models;
-
+namespace app\modules\parser\lib;
+use app\modules\parser\ParserModule;
 /**
  * parser
  *
@@ -18,7 +18,7 @@ class PageParser {
      * @param string $url
      */
     public function __construct($url) {
-        $this->appConfig = \app\modules\parser\ParserModule::$configPageParser;        
+        $this->appConfig = ParserModule::$config;        
         $this->url = $url;
         $urlArr = parse_url($url);
         $this->source = $urlArr['host'];

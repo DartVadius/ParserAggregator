@@ -14,7 +14,7 @@ return [
         CURLOPT_SSL_VERIFYPEER => FALSE,
         CURLOPT_SSL_VERIFYHOST => FALSE
     ],
-    'phantomJSsetup' => [        
-        'jsPath' => 'js/myjs.js'
+    'jssetup' => [        
+        'js' => 'js/myjs.js'
     ]
 ];

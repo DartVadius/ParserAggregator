@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\parser\models;
+namespace app\modules\parser\lib;
 
 /**
  * ParserCurl: obtain the content of the page using cURL library
@@ -8,18 +8,20 @@ namespace app\modules\parser\models;
  * @author DartVadius
  */
 class PageParserCurl extends PageParser {
+
     /**
-     *      
+     *
      * @param string $url
      */
     public function __construct($url) {
         parent::__construct($url);
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);        
+        curl_setopt($ch, CURLOPT_URL, $url);
         foreach ($this->appConfig['cURLsetup'] as $key => $value) {
             curl_setopt($ch, $key, $value);
         }
         $this->body = curl_exec($ch);
         curl_close($ch);
-    }    
+    }
+
 }
