@@ -2,6 +2,7 @@
 
 namespace app\modules\parser\lib;
 use PhantomInstaller\PhantomBinary;
+
 /**
  * ParserPhantom: obtain the content of the page using phantomJS headless browser
  *
@@ -9,14 +10,14 @@ use PhantomInstaller\PhantomBinary;
  */
 class PageParserPhantom extends PageParser {
     /**
-     * 
+     *
      * @param string $url
      */
     public function __construct($url) {
         parent::__construct($url);
         $bin = PhantomBinary::getBin();
-        $jsPath = $this->appConfig['jssetup']['js'];        
-        $this->body = shell_exec("$bin $jsPath $url");
+        $jsPath = $this->appConfig['jsSetup']['jsPath'];
+        $this->body = __FILE__ . " " . shell_exec("$bin  $jsPath $url");
     }
 
 }

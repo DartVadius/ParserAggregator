@@ -23,66 +23,70 @@ class ParserController extends Controller {
      * @return string
      */
     public function actionTest() {
-        $url = '';
-        $parser = new PageParserCurl($url);
-        //$parser = new PageParserPhantom($url);
+        $url = 'http://news.liga.net/news/politics/14672429-poroshenko_obratil_vnimanie_frantsii_i_frg_na_situatsiyu_s_plennymi.htm/';
+        //$parser = new PageParserCurl($url);
+        $parser = new PageParserPhantom($url);
 
+        //$data = new ContentParser($parser, $rules);
         return $this->render('test', ['info' => $parser]);
     }
-    
+
     /**
-     * 
+     *
      * @return type
      */
     public function actionRss() {
         /**
-         * 
+         *
          * @todo сделать конфиг для дефолтной категории?!
          */
         $defaultCategory = 1;
-        
+
         $sites = Sites::find()->where([
                     'make_parsing' => '1'
                 ])->all();
-        foreach ($sites as $site) {
+        if (!empty($sites)) {
+            foreach ($sites as $site) {
 
-            if ($site->method_of_parsing == 'Phantom') {
-                $page = new PageParserPhantom($site->source);
-            }
-            if ($site->method_of_parsing == 'cURL') {
-                $page = new PageParserCurl($site->source);
-            }
-            if (!empty($page->getBody())) {
-                $rss = new RssParser($page);
-            }      
-                        
-            $rss = $rss->getUniquePosts();
-            
-            foreach ($rss as $rssItem) {
-                $category = Category::find()->all();
-                $newCat = $this->strProcessing($rssItem->category);                
-                if (!empty($newCat)) {                    
-                    foreach ($category as $value) {                        
-                        $cat = explode(',', $value['synonyms']);
-                        $cat = array_map(array($this, 'strProcessing'), $cat);
-                        $k = array_search($newCat, $cat);
-                        if ($k !== NULL && $k !== FALSE) {
-                            $k = $value['id'];
-                            break;
+                if ($site->method_of_parsing == 'Phantom') {
+                    $page = new PageParserPhantom($site->source);
+                }
+                if ($site->method_of_parsing == 'cURL') {
+                    $page = new PageParserCurl($site->source);
+                }
+                if (!empty($page->getBody())) {
+                    $rss = new RssParser($page);
+                }
+
+                $rss = $rss->getUniquePosts();
+
+                foreach ($rss as $rssItem) {
+                    $category = Category::find()->all();
+                    $newCat = $this->strProcessing($rssItem->category);
+                    if (!empty($newCat)) {
+                        foreach ($category as $value) {
+                            $cat = explode(',', $value['synonyms']);
+                            $cat = array_map(array($this, 'strProcessing'), $cat);
+                            $k = array_search($newCat, $cat);
+                            if ($k !== NULL && $k !== FALSE) {
+                                $k = $value['id'];
+                                break;
+                            }
                         }
                     }
-                }                 
-                if ($k) {
-                    $rssItem->category = $k;
-                } else {                    
-                    $rssItem->category = $defaultCategory;
-                }                
-                $rssItem->save();                
+                    if ($k) {
+                        $rssItem->category = $k;
+                    } else {
+                        $rssItem->category = $defaultCategory;
+                    }
+                    $rssItem->save();
+                }
             }
         }
+
         return $this->render('index', ['info' => $rssItem]);
     }
-    
+
     private function strProcessing($str) {
         $str = trim($str);
         return mb_strtolower($str);
