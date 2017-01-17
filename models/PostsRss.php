@@ -14,21 +14,19 @@ use Yii;
  * @property string $link
  * @property string $date
  */
-class PostsRss extends \yii\db\ActiveRecord
-{
+class PostsRss extends \yii\db\ActiveRecord {
+
     /**
      * @inheritdoc
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'posts_rss';
     }
 
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
             [['title', 'category', 'link'], 'required'],
             [['category'], 'integer'],
@@ -41,8 +39,7 @@ class PostsRss extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'id' => 'ID',
             'title' => 'Title',
@@ -52,4 +49,5 @@ class PostsRss extends \yii\db\ActiveRecord
             'date' => 'Date',
         ];
     }
+
 }
