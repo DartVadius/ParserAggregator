@@ -30,8 +30,8 @@ class PostsRss extends \yii\db\ActiveRecord {
         return [
             [['title', 'category', 'link'], 'required'],
             [['category'], 'integer'],
-            [['date'], 'safe'],
             [['title', 'source', 'link'], 'string', 'max' => 255],
+            [['date'], 'string', 'max' => 125],
             [['link'], 'unique'],
         ];
     }

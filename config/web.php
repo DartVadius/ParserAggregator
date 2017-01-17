@@ -15,7 +15,6 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '-2Ui2ft83t9i1SRlrgEr9635Eitauvy6',
-
             'baseURL'=>'',
         ],
         'cache' => [
@@ -60,9 +59,6 @@ $config = [
         'admin' => [
             'class' => 'app\modules\admin\Module',
         ],
-        'user' => [
-            'class' => 'app\modules\user\Module',
-        ],
         'rbac' => [
             'class' => 'mdm\admin\Module',
             'controllerMap' => [
@@ -82,7 +78,7 @@ $config = [
 
         ],
     ],
-    /*'as access' => [
+    'as access' => [
         'class' => 'mdm\admin\components\AccessControl',
         'allowActions' => [
             'site/*',
@@ -90,7 +86,7 @@ $config = [
 //            'rbac/*',
 //            'post/index',
         ]
-    ],*/
+    ],
     'params' => $params,
 ];
 

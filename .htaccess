@@ -1,0 +1,4 @@
+RewriteEngine on 
+# Если запрос не начинается с web, добавляем его
+RewriteCond %{REQUEST_URI} !^/(web)
+RewriteRule (.*) /web/$1

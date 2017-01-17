@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm as Login;
 use app\models\Signup;
+use app\models\PostsRss;
 use app\models\ContactForm;
 
 
@@ -63,7 +64,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $model = PostsRss::find()->all();
+        return $this->render('index', ['model'=>$model]);
     }
 
     
@@ -88,10 +90,11 @@ class SiteController extends Controller
 //                'model' => $model,
 //            ]);
 //        }
+        
         $model = new Login();
         if ($model->load(Yii::$app->getRequest()->post()) && $model->login()) {
             if (Yii::$app->user->getId() == 1) {
-                return $this->redirect('/web/index.php/admin', 302);
+                return $this->redirect('/admin/sites/', 302);
             }else{
                 return $this->goBack();
             }

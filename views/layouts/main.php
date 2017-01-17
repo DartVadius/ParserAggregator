@@ -27,7 +27,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => 'Agregator',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -37,8 +37,7 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
 //            ['label' => 'Gii', 'url' => ['/site/index.php?r=gii']],
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'Посты', 'url' => ['/post/index']],
+//            ['label' => 'Посты', 'url' => ['/site/index']],
 //            ['label' => 'Contact', 'url' => ['/site/contact']],
             ['label' => 'Регистрация', 'url' => ['/site/signup']],
             Yii::$app->user->isGuest ? (
@@ -68,7 +67,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">&copy; Agregator <?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
