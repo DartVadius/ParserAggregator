@@ -92,22 +92,13 @@ class SymfonyQuestionHelperTest extends AbstractQuestionHelperTest
         $this->assertOutputContains('Can I have a backslash? [\]', $output);
     }
 
-    public function testAskEscapeAndFormatLabel()
-    {
-        $helper = new SymfonyQuestionHelper();
-        $input = $this->createStreamableInputInterfaceMock($this->getInputStream('Foo\\Bar'));
-        $helper->ask($input, $output = $this->createOutputInterface(), new Question('Do you want to use Foo\\Bar <comment>or</comment> Foo\\Baz\\?', 'Foo\\Baz'));
-
-        $this->assertOutputContains('Do you want to use Foo\\Bar or Foo\\Baz\\? [Foo\\Baz]:', $output);
-    }
-
-    public function testLabelTrailingBackslash()
+    public function testAskEscapeLabel()
     {
         $helper = new SymfonyQuestionHelper();
         $input = $this->createStreamableInputInterfaceMock($this->getInputStream('sure'));
-        $helper->ask($input, $output = $this->createOutputInterface(), new Question('Question with a trailing \\'));
+        $helper->ask($input, $output = $this->createOutputInterface(), new Question('Do you want a \?'));
 
-        $this->assertOutputContains('Question with a trailing \\', $output);
+        $this->assertOutputContains('Do you want a \?', $output);
     }
 
     /**
@@ -139,7 +130,7 @@ class SymfonyQuestionHelperTest extends AbstractQuestionHelperTest
 
     protected function createInputInterfaceMock($interactive = true)
     {
-        $mock = $this->getMockBuilder('Symfony\Component\Console\Input\InputInterface')->getMock();
+        $mock = $this->getMock('Symfony\Component\Console\Input\InputInterface');
         $mock->expects($this->any())
             ->method('isInteractive')
             ->will($this->returnValue($interactive));

@@ -5,7 +5,7 @@ namespace app\modules\parser;
 /**
  * parser module definition class
  */
-class Module extends \yii\base\Module {
+class ParserModule extends \yii\base\Module {
     public static $config;
     /**
      * @inheritdoc

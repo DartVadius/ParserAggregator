@@ -121,7 +121,7 @@ class Cookie
      * @param string $cookie A Set-Cookie header value
      * @param string $url    The base URL
      *
-     * @return static
+     * @return Cookie A Cookie instance
      *
      * @throws \InvalidArgumentException
      */

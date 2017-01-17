@@ -19,7 +19,7 @@ class Terminal
     /**
      * Gets the terminal width.
      *
-     * @return int
+     * @return int|null
      */
     public function getWidth()
     {
@@ -37,7 +37,7 @@ class Terminal
     /**
      * Gets the terminal height.
      *
-     * @return int
+     * @return int|null
      */
     public function getHeight()
     {

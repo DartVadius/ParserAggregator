@@ -29,7 +29,7 @@ class ParserController extends Controller {
 
         return $this->render('test', ['info' => $parser]);
     }
-    
+
     /**
      * 
      * @return type

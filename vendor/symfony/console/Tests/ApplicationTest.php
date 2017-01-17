@@ -454,7 +454,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
 
     public function testFindNamespaceDoesNotFailOnDeepSimilarNamespaces()
     {
-        $application = $this->getMockBuilder('Symfony\Component\Console\Application')->setMethods(array('getNamespaces'))->getMock();
+        $application = $this->getMock('Symfony\Component\Console\Application', array('getNamespaces'));
         $application->expects($this->once())
             ->method('getNamespaces')
             ->will($this->returnValue(array('foo:sublong', 'bar:sub')));
@@ -701,7 +701,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
     {
         $exception = new \Exception('', 4);
 
-        $application = $this->getMockBuilder('Symfony\Component\Console\Application')->setMethods(array('doRun'))->getMock();
+        $application = $this->getMock('Symfony\Component\Console\Application', array('doRun'));
         $application->setAutoExit(false);
         $application->expects($this->once())
             ->method('doRun')
@@ -716,7 +716,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
     {
         $exception = new \Exception('', 0);
 
-        $application = $this->getMockBuilder('Symfony\Component\Console\Application')->setMethods(array('doRun'))->getMock();
+        $application = $this->getMock('Symfony\Component\Console\Application', array('doRun'));
         $application->setAutoExit(false);
         $application->expects($this->once())
             ->method('doRun')
