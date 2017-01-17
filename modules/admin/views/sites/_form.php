@@ -16,9 +16,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'source')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'method_of_parsing')->dropDownList([ 'PhpQuery' => 'PhpQuery', 'cURL' => 'CURL', ], ['prompt' => '']) ?>
-<div class="settings">
-    <?= $form->field($model, 'parsing_settings'.'[find]')->textInput(['maxlength' => true])->label('find') ?>
+    <?= $form->field($model, 'method_of_parsing')->dropDownList([ 'Phantom' => 'Phantom', 'cURL' => 'CURL', ], ['prompt' => '']) ?>
+<div class="settings">    
     <?= $form->field($model, 'parsing_settings'.'[title]')->textInput(['maxlength' => true])->label('title') ?>
     <?= $form->field($model, 'parsing_settings'.'[textShort]')->textInput(['maxlength' => true])->label('textShort') ?>
     <?= $form->field($model, 'parsing_settings'.'[textFull]')->textInput(['maxlength' => true])->label('textFull') ?>
@@ -27,8 +26,9 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'parsing_settings'.'[author]')->textInput(['maxlength' => true])->label('author') ?>
     <?= $form->field($model, 'parsing_settings'.'[img]')->textInput(['maxlength' => true])->label('img') ?>
     <?= $form->field($model, 'parsing_settings'.'[links]')->textInput(['maxlength' => true])->label('links') ?>
+    <?= $form->field($model, 'parsing_settings'.'[tags]')->textInput(['maxlength' => true])->label('tags') ?>
     <?= $form->field($model, 'parsing_settings'.'[remove]')->textInput(['maxlength' => true])->label('remove') ?>
-    <?= $form->field($model, 'parsing_settings'.'[prefix]')->textInput(['maxlength' => true])->label('prefix') ?>
+    <?= $form->field($model, 'parsing_settings'.'[prefix]')->textInput(['maxlength' => true])->label('prefix') ?>    
 </div>
 
     <?= $form->field($model, 'make_parsing')->checkbox() ?>
