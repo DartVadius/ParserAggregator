@@ -5,12 +5,12 @@ namespace app\modules\parser;
 /**
  * parser module definition class
  */
-class ParserModule extends \yii\base\Module {
+class Module extends \yii\base\Module {
     public static $config;
     /**
      * @inheritdoc
      */
-    public $controllerNamespace = 'app\modules\parser\controllers';    
+    public $controllerNamespace = 'app\modules\parser\controllers';
     /**
      * @inheritdoc
      */
