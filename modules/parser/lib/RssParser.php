@@ -12,6 +12,13 @@ use app\models\PostsRss;
  */
 class RssParser {
     private $rss = [];
+    /**
+     * array with rss parser config
+     * the array keys are column names in the database table
+     * the array values are phpQuery selectors
+     * 
+     * @var array 
+     */
     private $rules = [
         'title' => 'title',
         'link' => 'link',
@@ -38,11 +45,8 @@ class RssParser {
     }
 
     /**
-     * проверяем объекты на уникальность по записям в БД
-     * получаем массив уникальных объектов
-     * нужно для записи в БД, чтобы не делать дубли новостей
-     *
-     * @todo remove pdo
+     * Check RSS duplication in the database and make a selection of unique links
+     * 
      * @return array
      */
     public function getUniquePosts() {

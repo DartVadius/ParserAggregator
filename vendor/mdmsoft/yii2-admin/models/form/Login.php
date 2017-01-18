@@ -72,8 +72,8 @@ class Login extends Model
     {
         if ($this->_user === false) {
             $this->_user = User::findByUsername($this->username);
-
         }
+
         return $this->_user;
     }
 }

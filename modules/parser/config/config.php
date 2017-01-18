@@ -1,6 +1,6 @@
 <?php
 
-return [    
+return [
     'cURLsetup' => [
         CURLOPT_HEADER => FALSE,
         CURLOPT_REFERER => 'https://www.google.com',
@@ -14,7 +14,7 @@ return [
         CURLOPT_SSL_VERIFYPEER => FALSE,
         CURLOPT_SSL_VERIFYHOST => FALSE
     ],
-    'jssetup' => [        
-        'js' => 'js/myjs.js'
+    'jsSetup' => [
+        'jsPath' => __DIR__ . '/js/myjs.js',
     ]
 ];

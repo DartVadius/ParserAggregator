@@ -10,15 +10,21 @@ use yii\widgets\ActiveForm;
 
 <div class="sites-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'enableAjaxValidation'   => false,
+        'enableClientValidation' => false,
+        'validateOnBlur'         => false,
+//        'validateOnType'         => false,
+        'validateOnChange'       => false,
+        'validateOnSubmit'       => true,
+    ]); ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'source')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'method_of_parsing')->dropDownList([ 'PhpQuery' => 'PhpQuery', 'cURL' => 'CURL', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'method_of_parsing')->dropDownList([ 'Phantom' => 'Phantom', 'cURL' => 'CURL', ], ['prompt' => '']) ?>
 <div class="settings">
-    <?= $form->field($model, 'parsing_settings'.'[find]')->textInput(['maxlength' => true])->label('find') ?>
     <?= $form->field($model, 'parsing_settings'.'[title]')->textInput(['maxlength' => true])->label('title') ?>
     <?= $form->field($model, 'parsing_settings'.'[textShort]')->textInput(['maxlength' => true])->label('textShort') ?>
     <?= $form->field($model, 'parsing_settings'.'[textFull]')->textInput(['maxlength' => true])->label('textFull') ?>

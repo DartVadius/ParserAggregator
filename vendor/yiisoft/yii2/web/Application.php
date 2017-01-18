@@ -127,7 +127,6 @@ class Application extends \yii\base\Application
                 return $this->getRequest()->getBaseUrl() . '/';
             }
         } else {
-            
             return $this->_homeUrl;
         }
     }

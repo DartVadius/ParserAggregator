@@ -14,6 +14,7 @@ use phpQuery;
   'author' => '',
   'img' => '#material-image',
   'links' => '',
+  'tags' => '',
   ],
   'remove' => 'b, a, p::contains("Читайте также:")',
   'prefix' => 'http://news.liga.net',
@@ -34,6 +35,7 @@ class ContentParser {
     private $textFull = null;
     private $img = [];
     private $links = [];
+    private $tags = [];
     private $category = null;
     private $date = null;
     private $author = null;
@@ -42,7 +44,7 @@ class ContentParser {
 
         $this->url = $data->getUrl();
         $this->source = $data->getSource();
-        //$this->html = 
+        $this->html = $data->getBody();
         $document = phpQuery::newDocument($data->getBody());
         $body = pq($document)->find('body');        
         if (!empty($rules['find']['img'])) {            
@@ -61,12 +63,18 @@ class ContentParser {
             }
         }        
         
+        if (!empty($rules['find']['tags'])) {            
+            foreach (pq($body)->find($rules['find']['tags']) as $tag) {
+                array_push($this->tags, pq($tag)->text());
+            }
+        } 
+        
         pq($document)->find($rules['find']['img'])->remove();
         
         if (!empty($rules['remove'])) {
             pq($body)->find($rules['remove'])->remove();
         }
-        pq($body)->find('*:empty')->remove();        
+        pq($body)->find('*:empty')->remove(); 
 
         if (!empty($rules['find']['title'])) {
             $this->title = pq($body)->find($rules['find']['title'])->text();

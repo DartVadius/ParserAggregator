@@ -140,13 +140,14 @@ CREATE TABLE IF NOT EXISTS `Agregator`.`Sites` (
   `site_id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   `source` VARCHAR(255) NOT NULL,
-  `method_of_parsing` ENUM('PhpQuery', 'cURL') NOT NULL,
-  `parsing_settings` JSON NOT NULL,
+  `method_of_parsing` ENUM('Phantom', 'cURL') NOT NULL,
+  `parsing_settings` TEXT NOT NULL,
   `make_parsing` TINYINT(1) NOT NULL,
   PRIMARY KEY (`site_id`))
 ENGINE = MyISAM;
 
-
+http://censor.net.ua/includes/news_ru.xml
+http://news.liga.net/all/rss.xml
 -- -----------------------------------------------------
 -- Table `Agregator`.`Images`
 -- -----------------------------------------------------

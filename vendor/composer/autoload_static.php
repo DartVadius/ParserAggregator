@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit7cc9c0870c34c8ed1ac5433035fd9977
+class ComposerStaticInitd4f6a058c72d812da4aa89b66ec6821f
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -12,8 +12,8 @@ class ComposerStaticInit7cc9c0870c34c8ed1ac5433035fd9977
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
-        '180092cfc969a12e06f2132a203a3184' => __DIR__ . '/..' . '/codeception/verify/src/Codeception/function.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        '180092cfc969a12e06f2132a203a3184' => __DIR__ . '/..' . '/codeception/verify/src/Codeception/function.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -59,6 +59,7 @@ class ComposerStaticInit7cc9c0870c34c8ed1ac5433035fd9977
         array (
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
+            'PhantomInstaller\\Test\\' => 22,
         ),
         'G' => 
         array (
@@ -89,7 +90,8 @@ class ComposerStaticInit7cc9c0870c34c8ed1ac5433035fd9977
         ),
         'yii\\gii\\' => 
         array (
-            0 => __DIR__ . '/..' . '/yiisoft/yii2-gii',
+            0 => __DIR__ . '/../..' . '/',
+            1 => __DIR__ . '/..' . '/yiisoft/yii2-gii',
         ),
         'yii\\faker\\' => 
         array (
@@ -173,6 +175,10 @@ class ComposerStaticInit7cc9c0870c34c8ed1ac5433035fd9977
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
+        'PhantomInstaller\\Test\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jakoch/phantomjs-installer/tests',
+        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
@@ -213,6 +219,10 @@ class ComposerStaticInit7cc9c0870c34c8ed1ac5433035fd9977
             'Prophecy\\' => 
             array (
                 0 => __DIR__ . '/..' . '/phpspec/prophecy/src',
+            ),
+            'PhantomInstaller\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/jakoch/phantomjs-installer/src',
             ),
         ),
         'H' => 
@@ -707,10 +717,10 @@ class ComposerStaticInit7cc9c0870c34c8ed1ac5433035fd9977
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit7cc9c0870c34c8ed1ac5433035fd9977::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit7cc9c0870c34c8ed1ac5433035fd9977::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit7cc9c0870c34c8ed1ac5433035fd9977::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit7cc9c0870c34c8ed1ac5433035fd9977::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitd4f6a058c72d812da4aa89b66ec6821f::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitd4f6a058c72d812da4aa89b66ec6821f::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitd4f6a058c72d812da4aa89b66ec6821f::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitd4f6a058c72d812da4aa89b66ec6821f::$classMap;
 
         }, null, ClassLoader::class);
     }

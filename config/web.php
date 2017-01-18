@@ -64,7 +64,7 @@ $config = [
             'controllerMap' => [
                 'assignment' => [
                     'class' => 'mdm\admin\controllers\AssignmentController',
-                    /* 'userClassName' => 'app\models\User', */
+                    //'userClassName' => 'app\models\User', 
                     'idField' => 'id',
                     'usernameField' => 'username',
                 ],
@@ -85,7 +85,7 @@ $config = [
 ////            'admin/*',
 ////            'rbac/*',
 ////            'post/index',
-//        ],
+//        ]
 //    ],
     'params' => $params,
 ];
