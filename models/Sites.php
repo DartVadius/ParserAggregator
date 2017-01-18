@@ -30,7 +30,7 @@ class Sites extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'source', 'method_of_parsing', 'parsing_settings'], 'required'],
+            [['name', 'source', 'method_of_parsing', 'parsing_settings', 'make_parsing'], 'required'],
             [['method_of_parsing', 'parsing_settings'], 'safe'],
             [['make_parsing'], 'integer'],
             [['name', 'source'], 'string', 'max' => 255],
