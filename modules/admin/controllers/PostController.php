@@ -8,7 +8,6 @@ use app\models\PostSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
 /**
  * PostController implements the CRUD actions for PostsRss model.
  */
@@ -28,7 +27,6 @@ class PostController extends Controller
             ],
         ];
     }
-
     /**
      * Lists all PostsRss models.
      * @return mixed
@@ -37,13 +35,11 @@ class PostController extends Controller
     {
         $searchModel = new PostSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
-
     /**
      * Displays a single PostsRss model.
      * @param string $id
@@ -55,7 +51,6 @@ class PostController extends Controller
             'model' => $this->findModel($id),
         ]);
     }
-
     /**
      * Creates a new PostsRss model.
      * If creation is successful, the browser will be redirected to the 'view' page.
@@ -64,7 +59,6 @@ class PostController extends Controller
     public function actionCreate()
     {
         $model = new PostsRss();
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
@@ -73,7 +67,6 @@ class PostController extends Controller
             ]);
         }
     }
-
     /**
      * Updates an existing PostsRss model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -83,7 +76,6 @@ class PostController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
@@ -92,7 +84,6 @@ class PostController extends Controller
             ]);
         }
     }
-
     /**
      * Deletes an existing PostsRss model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
@@ -102,10 +93,8 @@ class PostController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-
         return $this->redirect(['index']);
     }
-
     /**
      * Finds the PostsRss model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

@@ -51,7 +51,6 @@ class Signup extends Model
             if ($user->save()) {
                 return $user;
             }
-            
         }
 
         return null;

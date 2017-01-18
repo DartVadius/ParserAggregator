@@ -10,7 +10,7 @@ class ParserModule extends \yii\base\Module {
     /**
      * @inheritdoc
      */
-    public $controllerNamespace = 'app\modules\parser\controllers';    
+    public $controllerNamespace = 'app\modules\parser\controllers';
     /**
      * @inheritdoc
      */

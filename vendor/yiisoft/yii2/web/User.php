@@ -242,9 +242,6 @@ class User extends Component
      * Note that if [[enableSession]] is false, this parameter will be ignored.
      * @return boolean whether the user is logged in
      */
-
-
-
     public function login(IdentityInterface $identity, $duration = 0)
     {
         if ($this->beforeLogin($identity, false, $duration)) {
@@ -256,7 +253,6 @@ class User extends Component
             } else {
                 $log = "User '$id' logged in from $ip. Session not enabled.";
             }
-
             Yii::info($log, __METHOD__);
             $this->afterLogin($identity, false, $duration);
         }
@@ -378,6 +374,7 @@ class User extends Component
                 $url = null;
             }
         }
+
         return $url === null ? Yii::$app->getHomeUrl() : $url;
     }
 
