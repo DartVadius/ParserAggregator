@@ -64,10 +64,8 @@ class SitesController extends Controller
     public function actionCreate()
     {
         $model = new Sites();
-        $arr = Yii::$app->request->post();
-        $arr['Sites']['parsing_settings'] = json_encode($arr['Sites']['parsing_settings']);
-//print_r(   $arr); die;
-        if ($model->load($arr) && $model->save()) {
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->site_id]);
         } else {
             return $this->render('create', [
@@ -84,6 +82,7 @@ class SitesController extends Controller
      */
     public function actionUpdate($id)
     {
+
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
