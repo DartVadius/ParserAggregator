@@ -2,23 +2,10 @@
 
 namespace app\modules\parser\lib;
 
+use app\models\Articles;
+use app\models\Images;
+use app\models\Tags;
 use phpQuery;
-
-/* $rule = [
-  'find' => [
-  'title' => '.news_content h1',
-  'textShort' => '',
-  'textFull' => '._ga1_on_',
-  'category' => '',
-  'date' => '',
-  'author' => '',
-  'img' => '#material-image',
-  'links' => '',
-  'tags' => '',
-  ],
-  'remove' => 'b, a, p::contains("Читайте также:")',
-  'prefix' => 'http://news.liga.net',
-  ]; */
 
 /**
  * ContentParser
@@ -27,65 +14,71 @@ use phpQuery;
  */
 class ContentParser {
 
-    private $url = null;
-    private $source = null;
-    private $html = null;
-    private $title = null;
+    private $content = null;
     private $textShort = null;
-    private $textFull = null;
     private $img = [];
     private $links = [];
     private $tags = [];
+    private $video = [];
     private $category = null;
     private $date = null;
     private $author = null;
 
     public function __construct($data, $rules) {
-
-        $this->url = $data->getUrl();
-        $this->source = $data->getSource();
-        $this->html = $data->getBody();
+        $article = new Articles();
+        $article->link_to_article = $data->getUrl();
+        $article->sourse = $data->getSource();
+        //$article->Article_JSON = json_encode($data->getBody());
+        $article->Article_JSON = '{}';
         $document = phpQuery::newDocument($data->getBody());
-        $body = pq($document)->find('body');        
-        if (!empty($rules['find']['img'])) {            
-            foreach (pq($body)->find($rules['find']['img']) as $img) {
-                
-                if (!empty($rules['prefix'])) {
-                    $src = $rules['prefix'] . pq($img)->attr('src');
-                }
-                array_push($this->img, $src);
-            }
-        }
-        
-        if (!empty($rules['find']['links'])) {            
-            foreach (pq($body)->find($rules['find']['links']) as $link) {
-                array_push($this->links, pq($link)->attr('href'));
-            }
-        }        
-        
-        if (!empty($rules['find']['tags'])) {            
-            foreach (pq($body)->find($rules['find']['tags']) as $tag) {
-                array_push($this->tags, pq($tag)->text());
-            }
-        } 
-        
-        pq($document)->find($rules['find']['img'])->remove();
+        $body = pq($document)->find('body');
         
         if (!empty($rules['remove'])) {
             pq($body)->find($rules['remove'])->remove();
         }
-        pq($body)->find('*:empty')->remove(); 
+        
+        if (!empty($rules['find']['img'])) {
+            foreach (pq($body)->find($rules['find']['img']) as $img) {
+                $images = new Images();
+                if (!empty($rules['prefix'])) {
+                    $images->link_to_image = $rules['prefix'] . pq($img)->attr('src');
+                } else {
+                    $images->link_to_image = pq($img)->attr('src');
+                }
+                array_push($this->img, $images);
+            }
+        }
+
+        if (!empty($rules['find']['video'])) {
+            foreach (pq($body)->find($rules['find']['video']) as $vid) {
+                array_push($this->video, pq($vid)->attr('href'));
+            }
+        }
+        
+        if (!empty($rules['find']['links'])) {
+            foreach (pq($body)->find($rules['find']['links']) as $link) {
+                array_push($this->links, pq($link)->attr('href'));
+            }
+        }
+
+        if (!empty($rules['find']['tags'])) {
+            foreach (pq($body)->find($rules['find']['tags']) as $tag) {
+                $newTag = new Tags();
+                $newTag->tag = pq($tag)->text();
+                array_push($this->tags, $newTag);
+            }
+        }
+
+        pq($document)->find($rules['find']['img'])->remove();        
+        pq($body)->find('div:empty, p:empty')->remove();
 
         if (!empty($rules['find']['title'])) {
-            $this->title = pq($body)->find($rules['find']['title'])->text();
+            $article->title = pq($body)->find($rules['find']['title'])->text();
         }
         if (!empty($rules['find']['textShort'])) {
             $this->textShort = pq($body)->find($rules['find']['textShort'])->text();
         }
-        if (!empty($rules['find']['textFull'])) {
-            pq($body)->find('a')->attr('href', '#');
-            $this->textFull = pq($body)->find($rules['find']['textFull'])->html();
-        }
+
         if (!empty($rules['find']['category'])) {
             $this->category = pq($body)->find($rules['find']['category'])->text();
         }
@@ -94,7 +87,27 @@ class ContentParser {
         }
         if (!empty($rules['find']['author'])) {
             $this->author = pq($body)->find($rules['find']['author'])->text();
-        }        
+        }
+        pq($body)->find('div:empty')->remove();        
+        if (!empty($rules['find']['textFull'])) {
+            pq($body)->find('a')->attr('href', '#');            
+            pq($body)->find('a, p, h1, h2, h3, h4, h5, h6')->removeAttr('itemprop')->removeAttr('class')->removeAttr('id');
+            //pq($body)->find('p')->removeAttr('style')->removeAttr('class')->removeAttr('id');
+            $article->text = pq($body)->find($rules['find']['textFull'])->html();
+        }
+        $this->content = $article;
+    }
+
+    public function getContent() {
+        return $this->content;
+    }
+
+    public function getImg() {
+        return $this->img;
+    }
+
+    public function getTags() {
+        return $this->tags;
     }
 
 }

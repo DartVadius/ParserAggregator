@@ -16,21 +16,19 @@ use Yii;
  * @property string $Article_JSON
  * @property string $sourse
  */
-class Articles extends \yii\db\ActiveRecord
-{
+class Articles extends \yii\db\ActiveRecord {
+
     /**
      * @inheritdoc
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'Articles';
     }
 
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
             [['title', 'text', 'article_create_datetime', 'link_to_article', 'category_id', 'Article_JSON', 'sourse'], 'required'],
             [['text', 'Article_JSON'], 'string'],
@@ -44,8 +42,7 @@ class Articles extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'article_id' => 'Article ID',
             'title' => 'Title',
@@ -56,5 +53,6 @@ class Articles extends \yii\db\ActiveRecord
             'Article_JSON' => 'Article  Json',
             'sourse' => 'Sourse',
         ];
-    }
+    }   
+
 }
