@@ -95,6 +95,7 @@ class SiteController extends Controller
         $model = new Login();
         if ($model->load(Yii::$app->getRequest()->post()) && $model->login()) {
             if (Yii::$app->user->getId() == 1) {
+                
                 return $this->redirect('/admin/sites/', 302);
             }else{
                 return $this->goBack();

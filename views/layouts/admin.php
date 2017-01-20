@@ -31,6 +31,7 @@ AppAsset::register($this);
 //        ['label' => 'Главная', 'url' => ['/admin/']],
         ['label' => 'Сайты', 'url' => ['/admin/sites/index']],
         ['label' => 'Посты', 'url' => ['/admin/post/index']],
+        ['label' => 'Парсер', 'url' => ['../parser/parser/rss']],
         ['label' => 'Пользователи', 'url' => ['/rbac/default/index']],
         Yii::$app->user->isGuest ? (
         ['label' => 'Войти', 'url' => ['/site/login']]

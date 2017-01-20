@@ -73,16 +73,14 @@ $config = [
             'mainLayout' => '@app/views/layouts/admin.php',
         ],
         'parser' => [
-
             'class' => 'app\modules\parser\ParserModule',
-
         ],
     ],
 //    'as access' => [
 //        'class' => 'mdm\admin\components\AccessControl',
 //        'allowActions' => [
 //            'site/*',
-////            'admin/*',
+//            'admin/*',
 ////            'rbac/*',
 ////            'post/index',
 //        ]
