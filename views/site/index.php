@@ -1,3 +1,5 @@
+<?php print_r($locate);
+print_r($radius); ?>
 <?php if (count($model)): ?>
     <?php foreach ($model as $item): ?>
 

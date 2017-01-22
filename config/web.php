@@ -74,7 +74,7 @@ $config = [
         ],
         'parser' => [
             'class' => 'app\modules\parser\ParserModule',
-        ],
+        ],       
     ],
 //    'as access' => [
 //        'class' => 'mdm\admin\components\AccessControl',

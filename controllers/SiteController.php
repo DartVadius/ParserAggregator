@@ -12,14 +12,12 @@ use app\models\Signup;
 use app\models\PostsRss;
 use app\models\ContactForm;
 
+class SiteController extends Controller {
 
-class SiteController extends Controller
-{
     /**
      * @inheritdoc
      */
-    public function behaviors()
-    {
+    public function behaviors() {
         return [
             'access' => [
                 'class' => AccessControl::className(),
@@ -44,8 +42,7 @@ class SiteController extends Controller
     /**
      * @inheritdoc
      */
-    public function actions()
-    {
+    public function actions() {
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
@@ -62,17 +59,13 @@ class SiteController extends Controller
      *
      * @return string
      */
-    public function actionIndex()
-    {
-        $model = \app\models\Articles::find()->orderBy('article_create_datetime desc')->all();
+    public function actionIndex() {
+        $model = \app\models\Articles::find()->orderBy('article_create_datetime desc')->all();        
         return $this->render('index', compact('model'));
     }
 
-    
-
-    public function actionLogin()
-    {
-        if(!Yii::$app->getUser()->isGuest){
+    public function actionLogin() {
+        if (!Yii::$app->getUser()->isGuest) {
             return $this->goHome();
         }
 
@@ -90,24 +83,23 @@ class SiteController extends Controller
 //                'model' => $model,
 //            ]);
 //        }
-        
+
         $model = new Login();
         if ($model->load(Yii::$app->getRequest()->post()) && $model->login()) {
             if (Yii::$app->user->getId() == 1) {
-                
+
                 return $this->redirect('/admin/sites/', 302);
-            }else{
+            } else {
                 return $this->goBack();
             }
         } else {
             return $this->render('login', [
-                'model' => $model,
+                        'model' => $model,
             ]);
         }
     }
 
-    public function actionSignup()
-    {
+    public function actionSignup() {
         $model = new Signup();
         if ($model->load(Yii::$app->getRequest()->post())) {
             if ($user = $model->signup()) {
@@ -116,12 +108,11 @@ class SiteController extends Controller
         }
 
         return $this->render('signup', [
-            'model' => $model,
+                    'model' => $model,
         ]);
     }
 
-    public function actionLogout()
-    {
+    public function actionLogout() {
         Yii::$app->user->logout();
 
         return $this->goHome();
@@ -155,17 +146,16 @@ class SiteController extends Controller
 //        return $this->render('about');
 //    }
 
-    
 
-    public function actionEntry(){
+
+    public function actionEntry() {
         $model = new EntryForm();
 
-        if($model->load(Yii::$app->request->post()) && $model->validate()){
-            return $this->render('entry-confirm', ['model'=>$model]);
-        }else{
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            return $this->render('entry-confirm', ['model' => $model]);
+        } else {
             return $this->render('entry', ['model' => $model]);
         }
-
     }
 
 //    public function actionParser()
@@ -173,7 +163,4 @@ class SiteController extends Controller
 //        $array = Agregator::getAll();
 //        return $this->render('parser', ['array'=>$array]);
 //    }
-
-
-
 }
