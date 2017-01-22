@@ -15,7 +15,7 @@ use app\models\Tags;
 class ArticleController extends \yii\web\Controller {
 
     public function actionView($link) {
-        $article = Articles::findOne(['link_to_article' => $link]);
+        $article = Articles::findOne(['article_id' => $link]);
         $img = Images::findAll(['article_id' => $article->article_id]);
         $tags = (new \yii\db\Query())
                 ->select(['Articles.article_id', 'Tags.tag', 'Tags.tag_id'])
@@ -24,7 +24,6 @@ class ArticleController extends \yii\web\Controller {
                 ->leftJoin('Tags', 'Articles_To_Tags.tag_id = Tags.tag_id')
                 ->where("Articles.article_id = $article->article_id")
                 ->all();
-        print_r($tags);
         return $this->render('article', compact('article', 'img', 'tags'));
     }
 

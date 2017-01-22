@@ -30,21 +30,22 @@ class ParserController extends Controller {
     public function actionTest() {
         $rule = [
             'find' => [
-                'title' => '.entry-title',
+                'title' => '.news_content h1, .datail_photo_class h1',
                 'textShort' => '',
-                'textFull' => 'div.text',
+                'textFull' => '._ga1_on_',
                 'category' => '',
                 'date' => '',
                 'author' => '',
-                'img' => 'a.top_img_loader img',
+                'img' => '.news_content img',
                 'links' => '',
                 'tags' => '.tags a',
+                'video' => '',
             ],
-            'remove' => 'b::contains("Читайте также"), b::contains("Читайте на"), b::contains("Также читайте"), b::contains("Читайте:"), b::contains("Смотрите на"), b::contains("Смотрите также"), .tags span',
-            'prefix' => '',
+            'remove' => '"b, a, p::contains(\"\u0427\u0438\u0442\u0430\u0439\u0442\u0435 \u0442\u0430\u043a\u0436\u0435:\")',
+            'prefix' => 'http://news.liga.net',
         ];
         $ex = json_encode($rule);
-        $url = 'http://censor.net.ua/photo_news/424009/poroshenko_poprosil_glavu_krasnogo_kresta_maurera_o_sodeyistvii_v_osvobojdenii_ukrainskih_zalojnikov';
+        $url = 'http://news.liga.net/news/world/14674869-tramp_nameren_podpisat_pervye_ukazy_v_den_inauguratsii.htm';
         $parser = new PageParserCurl($url);
         //$parser = new PageParserPhantom($url);
         $data = new ContentParser($parser, $rule);
@@ -107,9 +108,15 @@ class ParserController extends Controller {
                 ])->all();
 
         if (!empty($sites)) {
-            foreach ($sites as $site) {                
+            foreach ($sites as $site) {
                 $list = (new \yii\db\Query())
-                                ->select(['posts_rss.source', 'posts_rss.link', 'posts_rss.category', 'posts_rss.date', 'Articles.link_to_article'])
+                                ->select([
+                                    'posts_rss.source', 
+                                    'posts_rss.link', 
+                                    'posts_rss.category', 
+                                    'posts_rss.date', 
+                                    'Articles.link_to_article'
+                                    ])
                                 ->from('posts_rss')
                                 ->leftJoin('Articles', 'link = link_to_article')
                                 ->where([
@@ -160,6 +167,8 @@ class ParserController extends Controller {
                                         $postToTag->save();
                                     }
                                 }
+                            } else {
+                                
                             }
                         }
                     }

@@ -32,11 +32,11 @@ class ContentParser {
         $article->Article_JSON = '{}';
         $document = phpQuery::newDocument($data->getBody());
         $body = pq($document)->find('body');
-        
+
         if (!empty($rules['remove'])) {
             pq($body)->find($rules['remove'])->remove();
         }
-        
+
         if (!empty($rules['find']['img'])) {
             foreach (pq($body)->find($rules['find']['img']) as $img) {
                 $images = new Images();
@@ -54,7 +54,7 @@ class ContentParser {
                 array_push($this->video, pq($vid)->attr('href'));
             }
         }
-        
+
         if (!empty($rules['find']['links'])) {
             foreach (pq($body)->find($rules['find']['links']) as $link) {
                 array_push($this->links, pq($link)->attr('href'));
@@ -69,7 +69,7 @@ class ContentParser {
             }
         }
 
-        pq($document)->find($rules['find']['img'])->remove();        
+        pq($document)->find($rules['find']['img'])->remove();
         pq($body)->find('div:empty, p:empty')->remove();
 
         if (!empty($rules['find']['title'])) {
@@ -88,9 +88,9 @@ class ContentParser {
         if (!empty($rules['find']['author'])) {
             $this->author = pq($body)->find($rules['find']['author'])->text();
         }
-        pq($body)->find('div:empty')->remove();        
+        pq($body)->find('div:empty')->remove();
         if (!empty($rules['find']['textFull'])) {
-            pq($body)->find('a')->attr('href', '#');            
+            pq($body)->find('a')->attr('href', '#');
             pq($body)->find('a, p, h1, h2, h3, h4, h5, h6')->removeAttr('itemprop')->removeAttr('class')->removeAttr('id');
             //pq($body)->find('p')->removeAttr('style')->removeAttr('class')->removeAttr('id');
             $article->text = pq($body)->find($rules['find']['textFull'])->html();
