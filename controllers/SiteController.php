@@ -64,9 +64,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $model = PostsRss::find()->all();
-        
-        return $this->render('index', ['model'=>$model]);
+        $model = \app\models\Articles::find()->orderBy('article_create_datetime desc')->all();
+        return $this->render('index', compact('model'));
     }
 
     

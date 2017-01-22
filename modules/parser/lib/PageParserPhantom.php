@@ -17,7 +17,7 @@ class PageParserPhantom extends PageParser {
         parent::__construct($url);
         $bin = PhantomBinary::getBin();
         $jsPath = $this->appConfig['jsSetup']['jsPath'];
-        $this->body = shell_exec("$bin  $jsPath $url");
+        $this->body = shell_exec("$bin $jsPath $url");
     }
 
 }
