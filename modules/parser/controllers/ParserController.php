@@ -30,22 +30,22 @@ class ParserController extends Controller {
     public function actionTest() {
         $rule = [
             'find' => [
-                'title' => '.news_content h1, .datail_photo_class h1',
+                'title' => '.entry-title',
                 'textShort' => '',
-                'textFull' => '._ga1_on_',
+                'textFull' => 'div.text',
                 'category' => '',
                 'date' => '',
                 'author' => '',
-                'img' => '.news_content img',
+                'img' => 'a.top_img_loader img',
                 'links' => '',
                 'tags' => '.tags a',
                 'video' => '',
             ],
-            'remove' => '"b, a, p::contains(\"\u0427\u0438\u0442\u0430\u0439\u0442\u0435 \u0442\u0430\u043a\u0436\u0435:\")',
-            'prefix' => 'http://news.liga.net',
+            'remove' => 'i::contains("Фото"), .related-news, b::contains(\"\u0427\u0438\u0442\u0430\u0439\u0442\u0435 \u0442\u0430\u043a\u0436\u0435\"), b::contains(\"\u0427\u0438\u0442\u0430\u0439\u0442\u0435 \u043d\u0430\"), b::contains(\"\u0422\u0430\u043a\u0436\u0435 \u0447\u0438\u0442\u0430\u0439\u0442\u0435\"), b::contains(\"\u0427\u0438\u0442\u0430\u0439\u0442\u0435:\"), b::contains(\"\u0421\u043c\u043e\u0442\u0440\u0438\u0442\u0435 \u043d\u0430\"), b::contains(\"\u0421\u043c\u043e\u0442\u0440\u0438\u0442\u0435 \u0442\u0430\u043a\u0436\u0435\"), .tags span',
+            'prefix' => '',
         ];
         $ex = json_encode($rule);
-        $url = 'http://news.liga.net/news/world/14674869-tramp_nameren_podpisat_pervye_ukazy_v_den_inauguratsii.htm';
+        $url = 'http://censor.net.ua/photo_news/424362/tri_debila_eto_sila_v_okkupirovannom_krymu_raskleili_listovki_s_okkupantami_aksenovym_zaharchenko_i';
         $parser = new PageParserCurl($url);
         //$parser = new PageParserPhantom($url);
         $data = new ContentParser($parser, $rule);
@@ -72,29 +72,31 @@ class ParserController extends Controller {
                 if (!empty($page->getBody())) {
                     $rss = new RssParser($page);
                 }
+                if (!empty($rss)) {
 
-                $rss = $rss->getUniquePosts();
+                    $rss = $rss->getUniquePosts();
 
-                foreach ($rss as $rssItem) {
-                    $category = Category::find()->all();
-                    $newCat = $this->strProcessing($rssItem->category);
-                    if (!empty($newCat)) {
-                        foreach ($category as $value) {
-                            $cat = explode(',', $value['synonyms']);
-                            $cat = array_map(array($this, 'strProcessing'), $cat);
-                            $k = array_search($newCat, $cat);
-                            if ($k !== NULL && $k !== FALSE) {
-                                $k = $value['id'];
-                                break;
+                    foreach ($rss as $rssItem) {
+                        $category = Category::find()->all();
+                        $newCat = $this->strProcessing($rssItem->category);
+                        if (!empty($newCat)) {
+                            foreach ($category as $value) {
+                                $cat = explode(',', $value['synonyms']);
+                                $cat = array_map(array($this, 'strProcessing'), $cat);
+                                $k = array_search($newCat, $cat);
+                                if ($k !== NULL && $k !== FALSE) {
+                                    $k = $value['id'];
+                                    break;
+                                }
                             }
                         }
+                        if ($k) {
+                            $rssItem->category = $k;
+                        } else {
+                            $rssItem->category = $defaultCategory;
+                        }
+                        $rssItem->save();
                     }
-                    if ($k) {
-                        $rssItem->category = $k;
-                    } else {
-                        $rssItem->category = $defaultCategory;
-                    }
-                    $rssItem->save();
                 }
             }
         }
@@ -111,12 +113,12 @@ class ParserController extends Controller {
             foreach ($sites as $site) {
                 $list = (new \yii\db\Query())
                                 ->select([
-                                    'posts_rss.source', 
-                                    'posts_rss.link', 
-                                    'posts_rss.category', 
-                                    'posts_rss.date', 
+                                    'posts_rss.source',
+                                    'posts_rss.link',
+                                    'posts_rss.category',
+                                    'posts_rss.date',
                                     'Articles.link_to_article'
-                                    ])
+                                ])
                                 ->from('posts_rss')
                                 ->leftJoin('Articles', 'link = link_to_article')
                                 ->where([

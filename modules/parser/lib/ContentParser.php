@@ -90,10 +90,28 @@ class ContentParser {
         }
         pq($body)->find('div:empty')->remove();
         if (!empty($rules['find']['textFull'])) {
-            pq($body)->find('a')->attr('href', '#');
-            pq($body)->find('a, p, h1, h2, h3, h4, h5, h6')->removeAttr('itemprop')->removeAttr('class')->removeAttr('id');
-            //pq($body)->find('p')->removeAttr('style')->removeAttr('class')->removeAttr('id');
-            $article->text = pq($body)->find($rules['find']['textFull'])->html();
+            foreach (pq('a') as $link) {
+                if (pq($link)->text() == '') {
+                    pq($link)->remove();
+                } else {
+                    $txt = pq($link)->text();
+                    pq($link)->after($txt);
+                    pq($link)->remove();
+                }
+            }
+
+            $txt = pq($body)->find($rules['find']['textFull']);
+            pq($txt)->find('h1, h2, h3, h4, h5, h6')->wrap('<p></p>');
+            $h = pq($txt)->find('h1, h2, h3, h4, h5, h6')->text();
+            pq($txt)->find('h1, h2, h3, h4, h5, h6')->after($h);
+            $h = pq($txt)->find('h1, h2, h3, h4, h5, h6')->remove();
+            pq($txt)->find('p, div')
+                    ->removeAttr('itemprop')
+                    ->removeAttr('class')
+                    ->removeAttr('id')
+                    ->removeAttr('style');
+            $article->text = pq($txt)->html();
+            $article->text = preg_replace('/(<br[^>]*>\s*)+/i', '\1', $article->text);
         }
         $this->content = $article;
     }

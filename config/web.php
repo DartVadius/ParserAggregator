@@ -74,6 +74,7 @@ $config = [
         ],
         'parser' => [
             'class' => 'app\modules\parser\ParserModule',
+
         ],
         'preview' => [
             'class' => 'app\modules\preview\PreviewModule',
@@ -88,7 +89,8 @@ $config = [
 //            'rbac/*',
 //            'post/index',
         ]
-    ],
+        ],       
+    
     'params' => $params,
 ];
 
