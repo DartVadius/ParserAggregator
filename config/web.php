@@ -75,16 +75,20 @@ $config = [
         'parser' => [
             'class' => 'app\modules\parser\ParserModule',
         ],
+        'preview' => [
+            'class' => 'app\modules\preview\PreviewModule',
+        ],
     ],
-//    'as access' => [
-//        'class' => 'mdm\admin\components\AccessControl',
-//        'allowActions' => [
-//            'site/*',
-//            'admin/*',
-////            'rbac/*',
-////            'post/index',
-//        ]
-//    ],
+    'as access' => [
+        'class' => 'mdm\admin\components\AccessControl',
+        'allowActions' => [
+            'site/*',
+            'admin/*',
+            'user/*',
+//            'rbac/*',
+//            'post/index',
+        ]
+    ],
     'params' => $params,
 ];
 

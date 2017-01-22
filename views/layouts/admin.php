@@ -30,8 +30,10 @@ AppAsset::register($this);
     $menuItems = [
 //        ['label' => 'Главная', 'url' => ['/admin/']],
         ['label' => 'Сайты', 'url' => ['/admin/sites/index']],
-        ['label' => 'Посты', 'url' => ['/admin/post/index']],
+        ['label' => 'RSS', 'url' => ['/admin/post/index']],
+        ['label' => 'Статьи', 'url' => ['/admin/articles/index']],
         ['label' => 'Парсер', 'url' => ['../parser/parser/rss']],
+        ['label' => 'Превью', 'url' => ['../preview/preview/index']],
         ['label' => 'Пользователи', 'url' => ['/rbac/default/index']],
         Yii::$app->user->isGuest ? (
         ['label' => 'Войти', 'url' => ['/site/login']]
@@ -49,7 +51,8 @@ AppAsset::register($this);
 
     NavBar::begin([
         'brandLabel' => 'Agregator',
-        'brandUrl' => Yii::$app->homeUrl,
+//        'brandUrl' => Yii::$app->homeUrl,
+        'brandUrl' => '/admin/sites',
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
