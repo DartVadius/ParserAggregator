@@ -7,11 +7,7 @@ use app\models\Images;
 use app\models\ArticlesToTags;
 use app\models\Tags;
 
-/**
- * ArticleController
- *
- * @author DartVadius
- */
+
 class ArticleController extends \yii\web\Controller {
 
     public function actionView($link) {
