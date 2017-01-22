@@ -50,7 +50,7 @@ class PreviewController extends Controller {
         return $this->render('index', []);
     }
 
-    public function actionPreview()
+    public function actionPrw()
     {
 //        return $this->render('prw', []);
         $url = '';
