@@ -10,13 +10,10 @@
         </select>
         <input type="submit">
     </form>
-
-
 </div>
 <?php
 if(isset($_POST)){
     echo $json . "</br>";
-
     echo "<pre>";
         print_r($info, TRUE);
     echo "</pre>";
