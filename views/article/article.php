@@ -16,6 +16,6 @@
                     <?php endforeach ?>
                 </b></p>
         </div>
-        <div><a href="<?= \yii\helpers\Url::to(['site/index']); ?>">Вернуться</a></div>
+        <div><a href="<?= \yii\helpers\Url::to(['/']); ?>">Вернуться</a></div>
     </div>
 <?php endif; ?>

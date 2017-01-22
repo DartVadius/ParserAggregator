@@ -27,7 +27,7 @@ use yii\widgets\ActiveForm;
 
 
     <?= $form->field($model, 'parsing_settings')->textArea(['maxlength' => true]) ?>
-
+    <?= $form->field($model, 'parsing_settings')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'make_parsing')->checkbox() ?>
 

@@ -15,7 +15,7 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '-2Ui2ft83t9i1SRlrgEr9635Eitauvy6',
-            'baseURL'=>'',
+            //'baseURL'=>'',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -73,16 +73,14 @@ $config = [
             'mainLayout' => '@app/views/layouts/admin.php',
         ],
         'parser' => [
-
             'class' => 'app\modules\parser\ParserModule',
-
         ],
     ],
 //    'as access' => [
 //        'class' => 'mdm\admin\components\AccessControl',
 //        'allowActions' => [
 //            'site/*',
-////            'admin/*',
+//            'admin/*',
 ////            'rbac/*',
 ////            'post/index',
 //        ]
