@@ -50,7 +50,7 @@ AppAsset::register($this);
     ];
 
     NavBar::begin([
-        'brandLabel' => 'Agregator',
+        'brandLabel' => 'Aggregator',
 //        'brandUrl' => Yii::$app->homeUrl,
         'brandUrl' => '/admin/sites',
         'options' => [
