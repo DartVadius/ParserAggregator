@@ -52,9 +52,7 @@ AppAsset::register($this);
                 . Html::endForm()
                 . '</li>'
             ),
-//            if( Yii::$app->user->getId() == 1){
-//                (['label' => 'Admin', 'url' => ['/admin/sites']]);
-//            }
+
             Yii::$app->user->getId() == 1 ? (['label' => 'Admin', 'url' => ['/admin/sites']]) :
                 (['label' => false, 'url' => false]),
         ],

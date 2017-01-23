@@ -37,7 +37,7 @@ class SitesController extends Controller
     {
         $searchModel = new SitesSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+        
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,

@@ -18,6 +18,8 @@
             <option>cURL</option>
             <option>Phantom</option>
         </select>
+        <input type="submit">
     </form>
+    <p><?php echo $json; ?></p>
     <pre><?= print_r($info, TRUE) ?></pre>
 </div>

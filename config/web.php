@@ -11,6 +11,7 @@ $config = [
     'components' => [
         'authManager' => [
             'class' => 'yii\rbac\DbManager', // or use 'yii\rbac\DbManager'
+            'defaultRoles' => ['Guest'],
         ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -74,17 +75,26 @@ $config = [
         ],
         'parser' => [
             'class' => 'app\modules\parser\ParserModule',
-        ],       
+
+        ],
+        'preview' => [
+            'class' => 'app\modules\preview\PreviewModule',
+        ],
     ],
-//    'as access' => [
-//        'class' => 'mdm\admin\components\AccessControl',
-//        'allowActions' => [
-//            'site/*',
-//            'admin/*',
-////            'rbac/*',
-////            'post/index',
-//        ]
-//    ],
+    'as access' => [
+        'class' => 'mdm\admin\components\AccessControl',
+        'allowActions' => [
+            'site/*',
+            'article/*',
+            'admin/*',
+            'user/*',
+//            'rbac/*',
+//            'post/index',
+//            'article/viev',
+        ],
+       
+    ],
+
     'params' => $params,
 ];
 
