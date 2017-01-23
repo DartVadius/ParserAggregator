@@ -65,7 +65,7 @@ $config = [
             'controllerMap' => [
                 'assignment' => [
                     'class' => 'mdm\admin\controllers\AssignmentController',
-                    //'userClassName' => 'app\models\User', 
+                    'userClassName' => 'app\models\User', 
                     'idField' => 'id',
                     'usernameField' => 'username',
                 ],
@@ -85,12 +85,8 @@ $config = [
         'class' => 'mdm\admin\components\AccessControl',
         'allowActions' => [
             'site/*',
-            'article/*',
-            'admin/*',
-            'user/*',
-//            'rbac/*',
-//            'post/index',
-//            'article/viev',
+            'article/*',            
+            'user/*',            
         ],
        
     ],

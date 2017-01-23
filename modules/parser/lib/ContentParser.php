@@ -90,7 +90,7 @@ class ContentParser {
         }
         pq($body)->find('div:empty')->remove();
         if (!empty($rules['find']['textFull'])) {
-            foreach (pq('a') as $link) {
+            foreach (pq($body)->find('a') as $link) {
                 if (pq($link)->text() == '') {
                     pq($link)->remove();
                 } else {
@@ -99,11 +99,18 @@ class ContentParser {
                     pq($link)->remove();
                 }
             }
-            foreach (pq('p') as $p) {
+            foreach (pq($body)->find('p') as $p) {
                 if (pq($p)->text() == '') {
                     pq($p)->remove();
                 }
             }
+            
+            foreach (pq($body)->find('div') as $div) {
+                if (trim(pq($div)->text()) == '') {
+                    pq($div)->remove();
+                }
+            }
+
             $txt = pq($body)->find($rules['find']['textFull']);
             pq($txt)->find('h1, h2, h3, h4, h5, h6')->wrap('<p></p>');
             $h = pq($txt)->find('h1, h2, h3, h4, h5, h6')->text();
@@ -116,6 +123,7 @@ class ContentParser {
                     ->removeAttr('style');
             $article->text = pq($txt)->html();
             $article->text = preg_replace('/(<br[^>]*>\s*)+/i', '\1', $article->text);
+            $article->text = preg_replace("/[\t\r\n]+/", ' ', $article->text);  
         }
         $this->content = $article;
     }
