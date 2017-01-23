@@ -28,7 +28,7 @@ class ParserController extends Controller {
      * @return string
      */
     public function actionTest() {
-        $rule = [
+        /*$rule = [
             'find' => [
                 'title' => '.entry-title',
                 'textShort' => '',
@@ -43,9 +43,27 @@ class ParserController extends Controller {
             ],
             'remove' => 'i::contains("Фото"), .related-news, b::contains(\"\u0427\u0438\u0442\u0430\u0439\u0442\u0435 \u0442\u0430\u043a\u0436\u0435\"), b::contains(\"\u0427\u0438\u0442\u0430\u0439\u0442\u0435 \u043d\u0430\"), b::contains(\"\u0422\u0430\u043a\u0436\u0435 \u0447\u0438\u0442\u0430\u0439\u0442\u0435\"), b::contains(\"\u0427\u0438\u0442\u0430\u0439\u0442\u0435:\"), b::contains(\"\u0421\u043c\u043e\u0442\u0440\u0438\u0442\u0435 \u043d\u0430\"), b::contains(\"\u0421\u043c\u043e\u0442\u0440\u0438\u0442\u0435 \u0442\u0430\u043a\u0436\u0435\"), .tags span',
             'prefix' => '',
+        ];*/
+        
+        $rule = [
+            'find' => [
+                'title' => '.news_content h1, .datail_photo_class h1',
+                'textShort' => '',
+                'textFull' => '._ga1_on_',
+                'category' => '',
+                'date' => '',
+                'author' => '',
+                'img' => '.news_content img',
+                'links' => '',
+                'tags' => '',
+                'video' => '',
+            ],
+            'remove' => 'b, p::contains(\\\"\\u0427\\u0438\\u0442\\u0430\\u0439\\u0442\\u0435 \\u0442\\u0430\\u043a\\u0436\\u0435:\\")',
+            'prefix' => 'http://news.liga.net',
         ];
+        
         $ex = json_encode($rule);
-        $url = 'http://censor.net.ua/photo_news/424362/tri_debila_eto_sila_v_okkupirovannom_krymu_raskleili_listovki_s_okkupantami_aksenovym_zaharchenko_i';
+        $url = 'http://news.liga.net/news/incident/14676369-chto_ostalos_ot_shakhty_butovka_nedaleko_ot_donetska_foto.htm';
         $parser = new PageParserCurl($url);
         //$parser = new PageParserPhantom($url);
         $data = new ContentParser($parser, $rule);
