@@ -6,17 +6,17 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'language'=> 'ru',
-    'defaultRoute'=>'site/index',
+    'language' => 'ru',
+    'defaultRoute' => 'site/index',
     'components' => [
         'authManager' => [
             'class' => 'yii\rbac\DbManager', // or use 'yii\rbac\DbManager'
             'defaultRoles' => ['Guest'],
-        ],
+        ],        
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '-2Ui2ft83t9i1SRlrgEr9635Eitauvy6',
-            //'baseURL'=>'',
+        //'baseURL'=>'',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -47,14 +47,12 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-
     ],
     'modules' => [
         'admin' => [
@@ -65,7 +63,7 @@ $config = [
             'controllerMap' => [
                 'assignment' => [
                     'class' => 'mdm\admin\controllers\AssignmentController',
-                    'userClassName' => 'app\models\User', 
+                    'userClassName' => 'app\models\User',
                     'idField' => 'id',
                     'usernameField' => 'username',
                 ],
@@ -75,7 +73,6 @@ $config = [
         ],
         'parser' => [
             'class' => 'app\modules\parser\ParserModule',
-
         ],
         'preview' => [
             'class' => 'app\modules\preview\PreviewModule',
@@ -85,12 +82,10 @@ $config = [
         'class' => 'mdm\admin\components\AccessControl',
         'allowActions' => [
             'site/*',
-            'article/*',            
-            'user/*',            
+            'article/*',
+            'user/*',
         ],
-       
     ],
-
     'params' => $params,
 ];
 

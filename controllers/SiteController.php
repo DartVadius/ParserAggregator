@@ -5,14 +5,14 @@ namespace app\controllers;
 use app\models\EntryForm;
 use Yii;
 use yii\filters\AccessControl;
-use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm as Login;
 use app\models\Signup;
 use app\models\PostsRss;
 use app\models\ContactForm;
 
-class SiteController extends Controller {
+
+class SiteController extends GlobalController {
 
     /**
      * @inheritdoc
@@ -61,8 +61,12 @@ class SiteController extends Controller {
      */
     public function actionIndex() {
         $model = \app\models\Articles::find()->orderBy('article_create_datetime desc')->all();        
-        return $this->render('index', compact('model'));
-    }
+        $ip = '5.101.112.0';
+        $geo = $this->geoLock($ip);        
+        $artGeo = $this->findArtByGeo($geo);
+        print_r ($artGeo);
+        return $this->render('index', compact('model', 'geo'));
+    } 
 
     public function actionLogin() {
         if (!Yii::$app->getUser()->isGuest) {

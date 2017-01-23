@@ -58,12 +58,12 @@ class ParserController extends Controller {
                 'tags' => '',
                 'video' => '',
             ],
-            'remove' => 'b, p::contains(\\\"\\u0427\\u0438\\u0442\\u0430\\u0439\\u0442\\u0435 \\u0442\\u0430\\u043a\\u0436\\u0435:\\")',
+            'remove' => 'b, p::contains("Читайте интервью:"), p::contains(\\\"\\u0427\\u0438\\u0442\\u0430\\u0439\\u0442\\u0435 \\u0442\\u0430\\u043a\\u0436\\u0435:\\")',
             'prefix' => 'http://news.liga.net',
         ];
         
         $ex = json_encode($rule);
-        $url = 'http://news.liga.net/news/incident/14676369-chto_ostalos_ot_shakhty_butovka_nedaleko_ot_donetska_foto.htm';
+        $url = 'http://news.liga.net/news/politics/14676310-sledkomu_rf_ne_daet_pokoya_pravyy_sektor_otkryli_pyat_proizvodstv.htm';
         $parser = new PageParserCurl($url);
         //$parser = new PageParserPhantom($url);
         $data = new ContentParser($parser, $rule);
