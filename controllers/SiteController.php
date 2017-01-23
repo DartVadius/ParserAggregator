@@ -60,12 +60,13 @@ class SiteController extends GlobalController {
      * @return string
      */
     public function actionIndex() {
-        $model = \app\models\Articles::find()->orderBy('article_create_datetime desc')->all();        
+        $model = \app\models\Articles::find()->orderBy('article_create_datetime desc')->all();
+        $categories =\app\models\Category::find()->orderBy('id')->all();
         $ip = '5.101.112.0';
         $geo = $this->geoLock($ip);        
         $artGeo = $this->findArtByGeo($geo);
         print_r ($artGeo);
-        return $this->render('index', compact('model', 'geo'));
+        return $this->render('index', compact('model', 'geo', 'categories'));
     } 
 
     public function actionLogin() {
