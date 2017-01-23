@@ -26,8 +26,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'method_of_parsing')->dropDownList([ 'Phantom' => 'Phantom', 'cURL' => 'CURL', ], ['prompt' => '']) ?>
 
 
-    <?= $form->field($model, 'parsing_settings')->textArea(['maxlength' => true]) ?>
-    <?= $form->field($model, 'parsing_settings')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'parsing_settings')->textArea(['maxlength' => true]) ?>    
 
     <?= $form->field($model, 'make_parsing')->checkbox() ?>
 

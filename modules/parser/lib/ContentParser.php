@@ -99,7 +99,11 @@ class ContentParser {
                     pq($link)->remove();
                 }
             }
-
+            foreach (pq('p') as $p) {
+                if (pq($p)->text() == '') {
+                    pq($p)->remove();
+                }
+            }
             $txt = pq($body)->find($rules['find']['textFull']);
             pq($txt)->find('h1, h2, h3, h4, h5, h6')->wrap('<p></p>');
             $h = pq($txt)->find('h1, h2, h3, h4, h5, h6')->text();
