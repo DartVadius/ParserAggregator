@@ -32,6 +32,7 @@ AppAsset::register($this);
         ['label' => 'Сайты', 'url' => ['/admin/sites/index']],
         ['label' => 'RSS', 'url' => ['/admin/post/index']],
         ['label' => 'Статьи', 'url' => ['/admin/articles/index']],
+        ['label' => 'Категории', 'url' => ['/admin/category/']],
         ['label' => 'Парсер', 'url' => ['../parser/parser/rss']],
         ['label' => 'Превью', 'url' => ['../preview/preview/index']],
         ['label' => 'Пользователи', 'url' => ['/rbac/default/index']],
