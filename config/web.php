@@ -6,8 +6,13 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+
+    'language'=> 'ru',
+    'defaultRoute'=>'site/index',
+
     'language' => 'ru',
     'defaultRoute' => 'site/index',
+
     'components' => [
         'authManager' => [
             'class' => 'yii\rbac\DbManager', // or use 'yii\rbac\DbManager'
@@ -64,6 +69,7 @@ $config = [
                 'assignment' => [
                     'class' => 'mdm\admin\controllers\AssignmentController',
                     'userClassName' => 'app\models\User',
+
                     'idField' => 'id',
                     'usernameField' => 'username',
                 ],
@@ -87,7 +93,6 @@ $config = [
 //            'rbac/*',
 //            'post/index',
 //            'article/viev',
-
         ],
     ],
     'params' => $params,

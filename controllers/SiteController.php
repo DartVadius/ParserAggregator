@@ -10,7 +10,9 @@ use app\models\LoginForm as Login;
 use app\models\Signup;
 use app\models\PostsRss;
 use app\models\ContactForm;
+use app\models\Category;
 use yii\data\Pagination;
+
 
 
 class SiteController extends GlobalController {
@@ -63,14 +65,17 @@ class SiteController extends GlobalController {
     public function actionIndex() {
         $articles = \app\models\Articles::find()->orderBy('article_create_datetime desc');
         $categories =\app\models\Category::find()->orderBy('id')->all();
-        $pages = new Pagination(['totalCount' => $articles->count(), 'pageSize' => 10, 'pageSizeParam' => false, 'forcePageParam' => false]);
-        $model = $articles->offset($pages->offset)->limit($pages->limit)->all();
-        $ip = '5.101.112.0';
-        $geo = $this->geoLock($ip);        
-        $artGeo = $this->findArtByGeo($geo);
-        print_r ($artGeo);
-        return $this->render('index', compact('model', 'geo', 'categories', 'pages'));
-    } 
+
+            $pages = new Pagination(['totalCount' => $articles->count(), 'pageSize' => 10, 'pageSizeParam' => false, 'forcePageParam' => false]);
+            $model = $articles->offset($pages->offset)->limit($pages->limit)->all();
+            $ip = '5.101.112.0';
+            $geo = $this->geoLock($ip);
+            $artGeo = $this->findArtByGeo($geo);
+            print_r ($artGeo);
+            return $this->render('index', compact('model', 'geo', 'categories', 'pages'));
+            
+    }
+
 
     public function actionLogin() {
         if (!Yii::$app->getUser()->isGuest) {

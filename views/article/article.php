@@ -4,9 +4,11 @@
             <h3 class="panel-title"><?php echo $article->title ?></h3>
         </div>
         <div class="panel-body">
-            <?php foreach ($img as $image): ?>
-                <img src="<?php echo $image->link_to_image; ?>">
+            <div class="img_block">
+                <?php foreach ($img as $image): ?>
+                <a class="group1" href="<?php echo $image->link_to_image; ?>" title=""><img src="<?php echo $image->link_to_image; ?>"></a>
             <?php endforeach ?>
+            </div>
             <?php echo $article->text ?>
             <br>
             <h3>А тут у нас теги</h3>
