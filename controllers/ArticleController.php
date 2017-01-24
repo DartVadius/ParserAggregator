@@ -8,7 +8,7 @@ use app\models\ArticlesToTags;
 use app\models\Tags;
 
 
-class ArticleController extends \yii\web\Controller {
+class ArticleController extends GlobalController {
 
     public function actionView($link) {
         $article = Articles::findOne(['article_id' => $link]);
@@ -21,6 +21,10 @@ class ArticleController extends \yii\web\Controller {
                 ->where("Articles.article_id = $article->article_id")
                 ->all();
         return $this->render('article', compact('article', 'img', 'tags'));
+    }
+    
+    public function actionTag ($tagId) {
+        
     }
 
 }
