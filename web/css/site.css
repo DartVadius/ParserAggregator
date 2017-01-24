@@ -171,3 +171,6 @@ nav.top-menu {
     text-decoration: none;
     background: #e63816;
 }
+.panel-body img {
+    width: 50%;
+}

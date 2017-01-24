@@ -9,8 +9,8 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm as Login;
 use app\models\Signup;
-//use app\models\PostsRss;
-//use app\models\ContactForm;
+use app\models\PostsRss;
+use app\models\ContactForm;
 use app\models\Category;
 
 class SiteController extends Controller {
@@ -63,10 +63,8 @@ class SiteController extends Controller {
     public function actionIndex() {
         $model = \app\models\Articles::find()->orderBy('article_create_datetime desc')->all();   
         $categories =\app\models\Category::find()->orderBy('id')->all();
-//        echo "<pre>";
-//        echo "</pre>";
+
         return $this->render('index', compact('model', 'categories'));
-//        return $this->render('index',['model' => $model, 'categories' => $categories]);
     }
 
     public function actionLogin() {
