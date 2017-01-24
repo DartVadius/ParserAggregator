@@ -93,7 +93,7 @@ class ParserController extends Controller {
                 if (!empty($rss)) {
 
                     $rss = $rss->getUniquePosts();
-
+                    
                     foreach ($rss as $rssItem) {
                         $category = Category::find()->all();
                         $newCat = $this->strProcessing($rssItem->category);
