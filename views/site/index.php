@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-md-4 col-sm-4 ">
                     <?php $img = \app\models\Images::find()->select('link_to_image')->where(['article_id' => $item->article_id])->column(); ?>
-                    <img src="<?php echo $img[0]; ?>" </br>
+                    <img src="<?php echo $img[0]; ?>"> </br>
                 </div>
                 <div class="col-md-8 col-sm-8">
                     <h3><?= $item->title ?></h3>
