@@ -8,7 +8,6 @@ use app\modules\parser\lib\PageParserCurl;
 use app\modules\parser\lib\PageParserPhantom;
 use app\modules\parser\lib\ContentParser;
 use app\modules\parser\lib\RssParser;
-use app\modules\parser\lib\MorthySearch;
 use app\models\Sites;
 use app\models\Category;
 use app\models\PostsRss;
@@ -16,7 +15,6 @@ use app\models\Articles;
 use app\models\Images;
 use app\models\Tags;
 use phpQuery;
-use phpMorthy;
 
 /**
  * parser
@@ -99,6 +97,7 @@ class ParserController extends Controller {
                     foreach ($rss as $rssItem) {
                         $category = Category::find()->all();
                         $newCat = $this->strProcessing($rssItem->category);
+                        $k = NULL;
                         if (!empty($newCat)) {
                             foreach ($category as $value) {
                                 $cat = explode(',', $value['synonyms']);

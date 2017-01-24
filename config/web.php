@@ -6,8 +6,13 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+
     'language'=> 'ru',
     'defaultRoute'=>'site/index',
+
+    'language' => 'ru',
+    'defaultRoute' => 'site/index',
+
     'components' => [
         'authManager' => [
             'class' => 'yii\rbac\DbManager', // or use 'yii\rbac\DbManager'
@@ -47,14 +52,12 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-
     ],
     'modules' => [
         'admin' => [
@@ -65,7 +68,8 @@ $config = [
             'controllerMap' => [
                 'assignment' => [
                     'class' => 'mdm\admin\controllers\AssignmentController',
-                    //'userClassName' => 'app\models\User', 
+                    'userClassName' => 'app\models\User',
+
                     'idField' => 'id',
                     'usernameField' => 'username',
                 ],
@@ -75,7 +79,6 @@ $config = [
         ],
         'parser' => [
             'class' => 'app\modules\parser\ParserModule',
-
         ],
         'preview' => [
             'class' => 'app\modules\preview\PreviewModule',
@@ -91,9 +94,7 @@ $config = [
 //            'post/index',
 //            'article/viev',
         ],
-       
     ],
-
     'params' => $params,
 ];
 
