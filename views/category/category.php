@@ -1,12 +1,11 @@
+<nav class="top-menu">
+    <ul>
+        <?php foreach ($categories as $category): ?>
+            <li><a href="<?= \yii\helpers\Url::to(['category/category', 'link' => $category->id]); ?>"><?php echo $category->category_name ?></a></li>
+        <?php endforeach ?>
+    </ul>
+</nav>
 <?php if (count($model)): ?>
-    <nav class="top-menu">
-        <ul>
-            <?php foreach ($categories as $category): ?>
-                <li><a href="<?= \yii\helpers\Url::to(['category/category', 'link' => $category->id]); ?>"><?php echo $category->category_name ?></a></li>
-            <?php endforeach ?>
-        </ul>
-    </nav>
-
     <?php foreach ($model as $item): ?>
 
         <div class="well">
@@ -14,7 +13,7 @@
                 <div class="col-md-4 col-sm-4 ">
                     <div class="all_img">
                         <?php $img = \app\models\Images::find()->select('link_to_image')->where(['article_id' => $item->article_id])->column(); ?>
-                        <?php  if($img != null) : ?>
+                        <?php if ($img != null) : ?>
                             <img src="<?php echo $img[0]; ?>">
                         <?php endif; ?>
                     </div>
