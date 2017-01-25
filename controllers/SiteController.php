@@ -159,6 +159,7 @@ class SiteController extends GlobalController {
 
 
 
+
     public function actionEntry() {
         $model = new EntryForm();
 

@@ -1,11 +1,11 @@
 <?php if (count($model)): ?>
-        <nav class="top-menu">
-            <ul>
-        <?php foreach ($categories as $category): ?>
+    <nav class="top-menu">
+        <ul>
+            <?php foreach ($categories as $category): ?>
                 <li><a href="<?= \yii\helpers\Url::to(['category/category', 'link' => $category->id]); ?>"><?php echo $category->category_name ?></a></li>
-        <?php endforeach ?>
-            </ul>
-        </nav>
+            <?php endforeach ?>
+        </ul>
+    </nav>
 
     <?php foreach ($model as $item): ?>
 
@@ -30,7 +30,7 @@
         </div>
 
     <?php endforeach ?>
-<?= \yii\widgets\LinkPager::widget(['pagination' => $pages]) ?>
+    <?= \yii\widgets\LinkPager::widget(['pagination' => $pages]) ?>
 
 <?php endif; ?>
 

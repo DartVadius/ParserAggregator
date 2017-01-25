@@ -173,13 +173,21 @@ nav.top-menu {
 }
 .panel-body img {
     width: 50%;
+    float: left;
+    margin: 0px 20px 20px 0;
+}
+.article_tags{
+    clear: both;
 }
 /*images for article */
+.img_block {
+    display: inline-block;
+}
 .img_block a img {
     width: 15%;
 }
 .img_block a {
-    display: block;
+    display: inline;
 }
 .img_block a:focus {
     outline: none;
@@ -236,7 +244,7 @@ tbody tr td {
     }
     .well .all_img {
         overflow: hidden;
-        max-height: 150px;
+        max-height: 210px;
     }
 }
 @media (min-width: 992px) {
