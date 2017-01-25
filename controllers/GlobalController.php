@@ -50,24 +50,25 @@ class GlobalController extends \yii\web\Controller {
 
     protected function findArtByGeo($geo) {
         //$city = $geo['city'];
-        //$region = $geo['region'];
+        $region = $geo['country'];        
         //$region = 'эстония';
-        return (new Query())
-                        ->select(['tag_id'])
+        $qery = new Query();
+//        echo ((new Query())
+//                        ->select(['tag_id'])
+//                        ->from('Tags')
+//                        ->where([
+//                            'tag' => "$region",
+//                        ])->one());
+        
+        return (new \yii\db\Query())
+                        ->select(['Articles.*', 'Tags.tag', 'Tags.tag_id'])
                         ->from('Tags')
+                        ->leftJoin('Articles_To_Tags', 'Tags.tag_id = Articles_To_Tags.tag_id')
+                        ->leftJoin('Articles', 'Articles_To_Tags.article_id = Articles.article_id')
                         ->where([
                             'tag' => $geo['country'],
-                        ])->one();
-        
-//        return (new \yii\db\Query())
-//                        ->select(['Articles.*', 'Tags.tag', 'Tags.tag_id'])
-//                        ->from('Tags')
-//                        ->leftJoin('Articles_To_Tags', 'Tags.tag_id = Articles_To_Tags.tag_id')
-//                        ->leftJoin('Articles', 'Articles_To_Tags.article_id = Articles.article_id')
-//                        ->where([
-//                            'tag' => $geo['country'],
-//                        ])
-//                        ->all();
+                        ])
+                        ->all();
     }
 
 }

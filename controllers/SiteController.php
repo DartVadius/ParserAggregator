@@ -68,10 +68,10 @@ class SiteController extends GlobalController {
 
             $pages = new Pagination(['totalCount' => $articles->count(), 'pageSize' => 10, 'pageSizeParam' => false, 'forcePageParam' => false]);
             $model = $articles->offset($pages->offset)->limit($pages->limit)->all();
-            $ip = '5.101.112.0';
-            $geo = $this->geoLock($ip);
-            $artGeo = $this->findArtByGeo($geo);
-            print_r ($artGeo);
+//            $ip = '91.227.77.1';
+//            $geo = $this->geoLock($ip);
+//            $artGeo = $this->findArtByGeo($geo);
+//            print_r ($artGeo);
             return $this->render('index', compact('model', 'geo', 'categories', 'pages'));
             
     }
