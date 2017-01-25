@@ -119,7 +119,7 @@ class ParserController extends Controller {
                 }
             }
         }
-        if (!empty($rssItem)) {
+        if (empty($rssItem)) {
             $rssItem = NULL;
         }
         return $this->render('index', ['info' => $rssItem]);
