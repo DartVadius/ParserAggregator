@@ -10,11 +10,13 @@
                 <?php
                 $i = 0;
                 foreach ($img as $image):
-                    if ($i !== 0) { ?>
+                    if ($i !== 0) {
+                        ?>
                         <a class="group1" href="<?php echo $image->link_to_image; ?>" title="">
                             <img src="<?php echo $image->link_to_image; ?>">
                         </a>
-                  <?php  }
+                        <?php
+                    }
                     $i++;
                     ?>
                 <?php endforeach ?>

@@ -104,7 +104,7 @@ class ContentParser {
                     pq($p)->remove();
                 }
             }
-            
+
             foreach (pq($body)->find('div') as $div) {
                 if (trim(pq($div)->text()) == '') {
                     pq($div)->remove();
@@ -123,7 +123,7 @@ class ContentParser {
                     ->removeAttr('style');
             $article->text = pq($txt)->html();
             $article->text = preg_replace('/(<br[^>]*>\s*)+/i', '\1', $article->text);
-            $article->text = preg_replace("/[\t\r\n]+/", ' ', $article->text);  
+            $article->text = preg_replace("/[\t\r\n]+/", ' ', $article->text);
         }
         $this->content = $article;
     }

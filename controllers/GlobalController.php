@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use Yii;
+use yii\web\Controller;
 use yii\db\Query;
 use app\modules\parser\lib\geoPlugin;
 use Stichoza\GoogleTranslate\TranslateClient;
@@ -15,7 +16,7 @@ use app\models\ArticlesToTags;
  *
  * @author DartVadius
  */
-class GlobalController extends \yii\web\Controller {
+class GlobalController extends Controller {
 
     protected function geoLock($ip = null) {
         if ($ip == NULL) {
@@ -50,9 +51,9 @@ class GlobalController extends \yii\web\Controller {
 
     protected function findArtByGeo($geo) {
         //$city = $geo['city'];
-        $region = $geo['country'];        
+        //$region = $geo['country'];        
         //$region = 'эстония';
-        $qery = new Query();
+//        $qery = new Query();
 //        echo ((new Query())
 //                        ->select(['tag_id'])
 //                        ->from('Tags')
@@ -66,7 +67,7 @@ class GlobalController extends \yii\web\Controller {
                         ->leftJoin('Articles_To_Tags', 'Tags.tag_id = Articles_To_Tags.tag_id')
                         ->leftJoin('Articles', 'Articles_To_Tags.article_id = Articles.article_id')
                         ->where([
-                            'tag' => $geo['country'],
+                            'like', 'tag', $geo
                         ])
                         ->all();
     }
