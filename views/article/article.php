@@ -4,7 +4,10 @@
             <h3 class="panel-title"><?php echo $article->title ?></h3>
         </div>
         <div class="panel-body">
-            <img src="<?php echo $img[0]->link_to_image; ?>">
+            <?php  if($img != null) : ?>
+                <img src="<?php echo $img[0]->link_to_image; ?>">
+            <?php endif; ?>
+
             <?php echo $article->text ?>
             <div class="img_block">
                 <?php
@@ -20,12 +23,15 @@
                 <?php endforeach ?>
             </div>
             <br>
-            <h3>А тут у нас теги</h3>
-            <p><b>
+            <div class="article_tags">
+                <h3>А тут у нас теги</h3>
+                <p><b>
                     <?php foreach ($tags as $tag): ?>
                         <?php echo $tag['tag'] . " | "; ?>
                     <?php endforeach ?>
                 </b></p>
+            </div>
+           
         </div>
 
         <div><a href="<?= \yii\helpers\Url::to(['/']); ?>">Вернуться</a></div>

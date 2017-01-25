@@ -65,14 +65,16 @@ class SiteController extends GlobalController {
     public function actionIndex() {
         $articles = \app\models\Articles::find()->orderBy('article_create_datetime desc');
         $categories =\app\models\Category::find()->orderBy('id')->all();
-
+        
             $pages = new Pagination(['totalCount' => $articles->count(), 'pageSize' => 10, 'pageSizeParam' => false, 'forcePageParam' => false]);
             $model = $articles->offset($pages->offset)->limit($pages->limit)->all();
             $ip = '5.101.112.0';
             $geo = $this->geoLock($ip);
             $artGeo = $this->findArtByGeo($geo);
             print_r ($artGeo);
-            return $this->render('index', compact('model', 'geo', 'categories', 'pages'));
+
+     
+        return $this->render('index', compact('model', 'geo', 'categories', 'pages'));
             
     }
 
@@ -158,6 +160,7 @@ class SiteController extends GlobalController {
 //    {
 //        return $this->render('about');
 //    }
+
 
 
 

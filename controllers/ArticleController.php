@@ -8,6 +8,7 @@ use app\models\ArticlesToTags;
 use app\models\Tags;
 
 
+
 class ArticleController extends GlobalController {
 
     public function actionView($link) {
