@@ -175,7 +175,7 @@ nav.top-menu {
     width: 50%;
 }
 /*images for article */
-.img_block a:not(:first-child) img {
+.img_block a img {
     width: 15%;
 }
 .img_block a {
@@ -199,7 +199,15 @@ nav.top-menu {
 .well img{
     width:100%;
 }
-
+.well .all_img {
+    overflow: hidden;
+    max-height: 170px;
+}
+/*admin table*/
+tbody tr td {
+    max-width: 450px;
+    overflow: hidden;
+}
 
 /*media*/
 @media (min-width: 320px) {
@@ -217,10 +225,18 @@ nav.top-menu {
     .well{
         display: block;
     }
+    .well .all_img {
+        overflow: hidden;
+        max-height: 250px;
+    }
 }
 @media (min-width: 768px) {
     .container {
         width: 750px;
+    }
+    .well .all_img {
+        overflow: hidden;
+        max-height: 150px;
     }
 }
 @media (min-width: 992px) {
