@@ -5,7 +5,7 @@ namespace app\controllers;
 use Yii;
 use yii\web\Controller;
 use yii\db\Query;
-use app\modules\parser\lib\geoPlugin;
+use app\modules\parser\lib\GeoPlugin;
 use Stichoza\GoogleTranslate\TranslateClient;
 use app\models\Articles;
 use app\models\Tags;
