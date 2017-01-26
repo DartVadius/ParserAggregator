@@ -21,8 +21,6 @@ class CategoryController extends GlobalController
         $ip = '5.101.112.0';
         $geo = $this->geoLock($ip);
         $artGeo = $this->findArtByGeo($geo);
-//        print_r ($artGeo);
-
 
         return $this->render('category', compact('model', 'geo', 'categories', 'pages', 'article'));
 

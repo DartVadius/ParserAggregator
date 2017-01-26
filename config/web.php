@@ -90,6 +90,7 @@ $config = [
             'site/*',
             'article/*',
             'user/*',
+            'category/*'
 //            'rbac/*',
 //            'post/index',
 //            'article/viev',
