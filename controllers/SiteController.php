@@ -70,9 +70,7 @@ class SiteController extends GlobalController {
         $ip = '94.244.22.168';
         $geo = $this->geoLock($ip);
         $geoCity = $this->findArtByGeo($geo['city']);
-//        $geoRegion = $this->findArtByGeo($geo['region']);
-//        $geoCountry = $this->findArtByGeo($geo['country']);
-       
+
         return $this->render('index', compact('model', 'categories', 'pages', 'geoCity', 'geoRegion', 'geoCountry'));
     }
 
