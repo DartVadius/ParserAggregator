@@ -27,13 +27,13 @@
             <br>
             <div class="article_tags">
                 <h3>А тут у нас теги</h3>
-                <p><b>
+
                     <?php foreach ($tags as $tag): ?>
-                        <?php echo $tag['tag'] . " | "; ?>
+                <b><a href="<?= \yii\helpers\Url::to(['site/tag', 'link' => $tag['tag_id']]); ?>"><?php echo $tag['tag']; ?></a></b>
                     <?php endforeach ?>
-                </b></p>
+
             </div>
-           
+
         </div>
 
         <div><a href="<?= \yii\helpers\Url::to(['/']); ?>">Вернуться</a></div>

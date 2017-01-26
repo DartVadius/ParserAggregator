@@ -26,14 +26,7 @@
                             <div><a href="<?= \yii\helpers\Url::to(['article/view', 'link' => $item->article_id]); ?>">Перейти</a></div>
                         </div>
                     </div>
-
-                </div>
-                <div class="col-md-8 col-sm-8">
-                    <h3><?= $item->title ?></h3>
-                    <span class="small"><?php echo $item->article_create_datetime ?></span> </br>
-                    <p class="small"><?php echo $item->sourse; ?></p>                    
-                    <div><a href="<?= \yii\helpers\Url::to(['article/view', 'link' => $item->article_id]); ?>">Перейти</a></div>
-                </div>
+                </div>                
             <?php endforeach ?>
             <?= \yii\widgets\LinkPager::widget(['pagination' => $pages]) ?>
         <?php endif; ?>
