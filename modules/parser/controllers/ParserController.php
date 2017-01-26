@@ -93,7 +93,7 @@ class ParserController extends Controller {
                 if (!empty($rss)) {
 
                     $rss = $rss->getUniquePosts();
-
+                    
                     foreach ($rss as $rssItem) {
                         $category = Category::find()->all();
                         $newCat = $this->strProcessing($rssItem->category);
@@ -201,8 +201,8 @@ class ParserController extends Controller {
     }
 
     private function strProcessing($str) {
-        $str = trim($str);
-        return mb_strtolower($str);
+        $str = mb_strtolower($str);
+        return trim($str);
     }
 
     private function getPage($method, $link) {

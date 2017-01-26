@@ -1,12 +1,11 @@
+<nav class="top-menu">
+    <ul>
+        <?php foreach ($categories as $category): ?>
+            <li><a href="<?= \yii\helpers\Url::to(['category/category', 'link' => $category->id]); ?>"><?php echo $category->category_name ?></a></li>
+        <?php endforeach ?>
+    </ul>
+</nav>
 <?php if (count($model)): ?>
-    <nav class="top-menu">
-        <ul>
-            <?php foreach ($categories as $category): ?>
-                <li><a href="<?= \yii\helpers\Url::to(['category/category', 'link' => $category->id]); ?>"><?php echo $category->category_name ?></a></li>
-            <?php endforeach ?>
-        </ul>
-    </nav>
-
     <?php foreach ($model as $item): ?>
 
         <div class="well">
