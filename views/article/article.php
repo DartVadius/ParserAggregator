@@ -29,7 +29,9 @@
                 <h3>А тут у нас теги</h3>
                 <p><b>
                     <?php foreach ($tags as $tag): ?>
-                        <?php echo $tag['tag'] . " | "; ?>
+                        <?php if ($tag['tag'] != 'NULL'): ?>
+                            <div><a href="<?= \yii\helpers\Url::to(['/site/articleByTag', 'id' => $tag['tag_id']]); ?>"><?php echo $tag['tag']; ?></a></div>
+                        <?php endif ?>
                     <?php endforeach ?>
                 </b></p>
             </div>

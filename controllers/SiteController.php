@@ -87,6 +87,29 @@ class SiteController extends GlobalController {
             return $this->goHome();
         }
 
+
+        public function actionArticleByTag($id) 
+        {
+
+        $categories =\app\models\Category::find()->orderBy('id')->all();
+
+        $articles = (new \yii\db\Query())
+                ->select(['Articles.*'])
+                ->from('Articles')
+                ->leftJoin('Articles_To_Tags', 'Articles.article_id = Articles_To_Tags.article_id')
+                ->leftJoin('Tags', 'Articles_To_Tags.tag_id = Tags.tag_id')
+                ->where(['Tags.tag_id' => $id])
+                ->all();
+
+        $pages = new Pagination(['totalCount' => $articles->count(), 'pageSize' => 10, 'pageSizeParam' => false, 'forcePageParam' => false]);
+        $model = $articles->offset($pages->offset)->limit($pages->limit)->all();
+        $ip = '5.101.112.0';
+        $geo = $this->geoLock($ip);
+        $artGeo = $this->findArtByGeo($geo);        
+        return $this->render('article_by_tag', compact('model', 'geo', 'categories', 'pages', 'articles'));
+
+        }
+
 //        $model = new Login();
 //        if ($model->load(Yii::$app->getRequest()->post()) && $model->login()) {
 //            if (Yii::$app->user->getId() == 1) {
