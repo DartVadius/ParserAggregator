@@ -14,7 +14,7 @@
                         <div class="col-md-4 col-sm-4 ">
                             <div class="all_img">
                                 <?php $img = \app\models\Images::find()->select('link_to_image')->where(['article_id' => $item->article_id])->column(); ?>
-                                <?php  if($img != null) : ?>
+                                <?php if ($img != null) : ?>
                                     <img src="<?php echo $img[0]; ?>">
                                 <?php endif; ?>
                             </div>
@@ -35,7 +35,7 @@
                     <div><a href="<?= \yii\helpers\Url::to(['article/view', 'link' => $item->article_id]); ?>">Перейти</a></div>
                 </div>
             <?php endforeach ?>
-        <?= \yii\widgets\LinkPager::widget(['pagination' => $pages]) ?>
+            <?= \yii\widgets\LinkPager::widget(['pagination' => $pages]) ?>
         <?php endif; ?>
     </div>
     <div class="col-md-3" role="complementary">
