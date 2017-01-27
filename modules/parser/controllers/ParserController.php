@@ -8,6 +8,7 @@ use app\modules\parser\lib\PageParserCurl;
 use app\modules\parser\lib\PageParserPhantom;
 use app\modules\parser\lib\ContentParser;
 use app\modules\parser\lib\RssParser;
+use app\modules\parser\lib\MorthySearch;
 use app\models\Sites;
 use app\models\Category;
 use app\models\PostsRss;
@@ -191,7 +192,39 @@ class ParserController extends Controller {
                                     }
                                 }
                             } else {
-                                
+                                if (!empty($content['text'])) {
+
+                                    $tags_from_text = MorthySearch::getTagsFromText(trim($content['text']));
+
+                                    $tags_from_title = MorthySearch::getTagsFromTitle(trim($content['title']));
+                                    
+
+                                    $tags = array_merge($tags_from_text, $tags_from_title);
+
+                                    foreach ($tags as $tag) {
+                                        $new_tag = new Tags();
+                                        $new_tag->tag = $tag;
+                                        $tagId = (new \yii\db\Query())
+                                                    ->select(['tag_id'])
+                                                    ->from('Tags')
+                                                    ->where([
+                                                        'tag' => $new_tag->tag,
+                                                    ])->one();
+                                        if (empty($tagId)) {
+                                            if ($new_tag->validate()) {
+                                                $new_tag->save();
+                                                $tagId = Yii::$app->db->getLastInsertID();
+                                            }
+
+                                        }
+                                        $postToTag = new \app\models\ArticlesToTags();
+                                        $postToTag->article_id = $contentId;
+                                        $postToTag->tag_id = $tagId;
+                                        if ($postToTag->validate()) {
+                                            $postToTag->save();
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
