@@ -10,6 +10,7 @@ use Stichoza\GoogleTranslate\TranslateClient;
 use app\models\Articles;
 use app\models\Tags;
 use app\models\ArticlesToTags;
+use app\models\Category;
 
 
 class GlobalController extends Controller {
@@ -63,6 +64,11 @@ class GlobalController extends Controller {
                         ->andWhere(['>', 'article_create_datetime', $date])
                         ->orderBy('article_create_datetime desc')
                         ->all();
+    }
+    public static function getCategories(){
+
+        $categories = \app\models\Category::find()->orderBy('id')->all();
+        return $categories;
     }
 
 }

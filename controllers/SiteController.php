@@ -79,7 +79,7 @@ class SiteController extends GlobalController {
             $geoCountry = $this->findArtByGeo($geo['country']);
             $geoCity = array_merge($geoCity, $geoCountry);
         }
-print_r($geo);
+//print_r($geo);
         return $this->render('index', compact('model', 'categories', 'pages', 'geoCity'));
     }
 

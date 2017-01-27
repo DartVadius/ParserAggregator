@@ -132,9 +132,9 @@
 	position: absolute;
 	top: 0;
 	left: 0;
+	z-index: 10;
 	overflow: hidden;
 	width: 14em;
-	height: 16em;
 	margin: 0 auto;
 	-webkit-user-select: none;
 	-moz-user-select: none;
