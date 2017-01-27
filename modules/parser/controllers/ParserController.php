@@ -8,6 +8,7 @@ use app\modules\parser\lib\PageParserCurl;
 use app\modules\parser\lib\PageParserPhantom;
 use app\modules\parser\lib\ContentParser;
 use app\modules\parser\lib\RssParser;
+use app\modules\parser\lib\MorthySearch;
 use app\models\Sites;
 use app\models\Category;
 use app\models\PostsRss;
@@ -44,7 +45,7 @@ class ParserController extends Controller {
             'remove' => 'i::contains("Фото"), .related-news, b::contains(\"\u0427\u0438\u0442\u0430\u0439\u0442\u0435 \u0442\u0430\u043a\u0436\u0435\"), b::contains(\"\u0427\u0438\u0442\u0430\u0439\u0442\u0435 \u043d\u0430\"), b::contains(\"\u0422\u0430\u043a\u0436\u0435 \u0447\u0438\u0442\u0430\u0439\u0442\u0435\"), b::contains(\"\u0427\u0438\u0442\u0430\u0439\u0442\u0435:\"), b::contains(\"\u0421\u043c\u043e\u0442\u0440\u0438\u0442\u0435 \u043d\u0430\"), b::contains(\"\u0421\u043c\u043e\u0442\u0440\u0438\u0442\u0435 \u0442\u0430\u043a\u0436\u0435\"), .tags span',
             'prefix' => '',
         ];*/
-        
+
         $rule = [
             'find' => [
                 'title' => '.news_content h1, .datail_photo_class h1',
@@ -61,7 +62,7 @@ class ParserController extends Controller {
             'remove' => 'b, p::contains("Читайте также"), p::contains("Читайте интервью:"), p::contains(\\\"\\u0427\\u0438\\u0442\\u0430\\u0439\\u0442\\u0435 \\u0442\\u0430\\u043a\\u0436\\u0435:\\")',
             'prefix' => 'http://news.liga.net',
         ];
-        
+
         $ex = json_encode($rule);
         $url = 'http://news.liga.net/news/society/14678201-voditeley_mogut_obyazat_peresdavat_na_prava_minimum_kazhdye_5_let.htm';
         $parser = new PageParserCurl($url);
@@ -93,7 +94,7 @@ class ParserController extends Controller {
                 if (!empty($rss)) {
 
                     $rss = $rss->getUniquePosts();
-                    
+
                     foreach ($rss as $rssItem) {
                         $category = Category::find()->all();
                         $newCat = $this->strProcessing($rssItem->category);
@@ -171,6 +172,10 @@ class ParserController extends Controller {
                                 $tags = $post->getTags();
                                 //add uniqe tags to tag table
                                 foreach ($tags as $tag) {
+                                    $len = strlen($tag->tag)-1;
+                                    if (!preg_match("/[^a-zA-ZА-Яа-я0-9\s]/", $tag->tag[$len])) {
+                                        $tag->tag = mb_substr($tag->tag, 0, -1);
+                                    }
                                     $tag->tag = $this->strProcessing($tag->tag);
                                     if ($tag->validate()) {
                                         $tag->save();
@@ -191,7 +196,39 @@ class ParserController extends Controller {
                                     }
                                 }
                             } else {
-                                
+                                if (!empty($content['text'])) {
+
+                                    $tags_from_text = MorthySearch::getTagsFromText(trim($content['text']));
+
+                                    $tags_from_title = MorthySearch::getTagsFromTitle(trim($content['title']));
+
+
+                                    $tags = array_merge($tags_from_text, $tags_from_title);
+
+                                    foreach ($tags as $tag) {
+                                        $new_tag = new Tags();
+                                        $new_tag->tag = $tag;
+                                        $tagId = (new \yii\db\Query())
+                                                    ->select(['tag_id'])
+                                                    ->from('Tags')
+                                                    ->where([
+                                                        'tag' => $new_tag->tag,
+                                                    ])->one();
+                                        if (empty($tagId)) {
+                                            if ($new_tag->validate()) {
+                                                $new_tag->save();
+                                                $tagId = Yii::$app->db->getLastInsertID();
+                                            }
+
+                                        }
+                                        $postToTag = new \app\models\ArticlesToTags();
+                                        $postToTag->article_id = $contentId;
+                                        $postToTag->tag_id = $tagId;
+                                        if ($postToTag->validate()) {
+                                            $postToTag->save();
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
