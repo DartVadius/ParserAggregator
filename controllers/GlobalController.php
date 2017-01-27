@@ -15,9 +15,15 @@ use app\models\Category;
 
 class GlobalController extends Controller {
 
-    protected function geoLock($ip = null) {
+    protected function geoLock($ip = NULL) {
         if ($ip == NULL) {
-            $ip = $_SERVER['REMOTE_ADDR'];
+            if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+                $ip = $_SERVER['HTTP_CLIENT_IP'];
+            } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+                $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+            } else {
+                $ip = $_SERVER['REMOTE_ADDR'];
+            }
         }
         $geoplugin = new geoPlugin();
         $geoplugin->locate($ip);
@@ -52,7 +58,7 @@ class GlobalController extends Controller {
         $date->modify('-7 days');
         $date->format('Y-m-d H:i:s');
         $date = $date->getTimestamp();
-        $date = date('Y-m-d H:i:s', $date);        
+        $date = date('Y-m-d H:i:s', $date);
         return (new Query())
                         ->select(['Articles.*'])
                         ->from('Tags')

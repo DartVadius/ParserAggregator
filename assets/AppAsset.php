@@ -21,6 +21,11 @@ class AppAsset extends AssetBundle
         'css/demo.css',
         'css/component.css',
         'css/site.css',
+        'css/colorbox.css',
+    ];
+    public $images = [
+        'images/controls.png',
+        'images/loading.gif',
     ];
     public $js = [
         'js/main.js',

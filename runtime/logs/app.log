@@ -56424,3 +56424,2308 @@ $_SERVER = [
     ]
     'argc' => 1
 ]
+2017-01-28 00:31:01 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:403] exception 'yii\web\ForbiddenHttpException' with message 'Вам не разрешено производить данное действие.' in C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php:88
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php(73): mdm\admin\components\AccessControl->denyAccess(Object(yii\web\User))
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\ActionFilter.php(73): mdm\admin\components\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Component.php(540): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(608): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Controller.php(142): yii\base\Module->beforeAction(Object(yii\base\InlineAction))
+#6 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('toolbar', Array)
+#7 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('debug/default/t...', Array)
+#8 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#10 {main}
+2017-01-28 00:31:00 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_GET = [
+    'tag' => '588bbc1249892'
+]
+
+$_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_REFERER' => 'http://aggregator/category/category?link=1'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53096'
+    'REDIRECT_URL' => '/web/debug/default/toolbar'
+    'REDIRECT_QUERY_STRING' => 'tag=588bbc1249892'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'tag=588bbc1249892'
+    'REQUEST_URI' => '/debug/default/toolbar?tag=588bbc1249892'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485552660.313
+    'REQUEST_TIME' => 1485552660
+    'argv' => [
+        0 => 'tag=588bbc1249892'
+    ]
+    'argc' => 1
+]
+2017-01-28 00:31:09 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:403] exception 'yii\web\ForbiddenHttpException' with message 'Вам не разрешено производить данное действие.' in C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php:88
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php(73): mdm\admin\components\AccessControl->denyAccess(Object(yii\web\User))
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\ActionFilter.php(73): mdm\admin\components\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Component.php(540): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(608): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Controller.php(142): yii\base\Module->beforeAction(Object(yii\base\InlineAction))
+#6 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('toolbar', Array)
+#7 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('debug/default/t...', Array)
+#8 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#10 {main}
+2017-01-28 00:31:08 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_GET = [
+    'tag' => '588bbc1a62085'
+]
+
+$_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_REFERER' => 'http://aggregator/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53096'
+    'REDIRECT_URL' => '/web/debug/default/toolbar'
+    'REDIRECT_QUERY_STRING' => 'tag=588bbc1a62085'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'tag=588bbc1a62085'
+    'REQUEST_URI' => '/debug/default/toolbar?tag=588bbc1a62085'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485552668.32
+    'REQUEST_TIME' => 1485552668
+    'argv' => [
+        0 => 'tag=588bbc1a62085'
+    ]
+    'argc' => 1
+]
+2017-01-28 00:31:15 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:403] exception 'yii\web\ForbiddenHttpException' with message 'Вам не разрешено производить данное действие.' in C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php:88
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php(73): mdm\admin\components\AccessControl->denyAccess(Object(yii\web\User))
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\ActionFilter.php(73): mdm\admin\components\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Component.php(540): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(608): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Controller.php(142): yii\base\Module->beforeAction(Object(yii\base\InlineAction))
+#6 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('toolbar', Array)
+#7 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('debug/default/t...', Array)
+#8 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#10 {main}
+2017-01-28 00:31:14 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_GET = [
+    'tag' => '588bbc20af901'
+]
+
+$_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_REFERER' => 'http://aggregator/category/category?link=7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53096'
+    'REDIRECT_URL' => '/web/debug/default/toolbar'
+    'REDIRECT_QUERY_STRING' => 'tag=588bbc20af901'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'tag=588bbc20af901'
+    'REQUEST_URI' => '/debug/default/toolbar?tag=588bbc20af901'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485552674.495
+    'REQUEST_TIME' => 1485552674
+    'argv' => [
+        0 => 'tag=588bbc20af901'
+    ]
+    'argc' => 1
+]
+2017-01-28 00:31:18 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "user_uploads/images/articles/2017/01/25/229289/25s09 IMG_8543-2 kопіювати.jpg".' in C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php:462
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('user_uploads/im...', Array)
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Страница не найдена.' in C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php:112
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#2 {main}
+2017-01-28 00:31:18 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_ACCEPT' => 'image/webp,image/*,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://aggregator/article/view?link=585'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53096'
+    'REDIRECT_URL' => '/web/user_uploads/images/articles/2017/01/25/229289/25s09 IMG_8543-2 kопіювати.jpg'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/user_uploads/images/articles/2017/01/25/229289/25s09%20IMG_8543-2%20k%D0%BE%D0%BF%D1%96%D1%8E%D0%B2%D0%B0%D1%82%D0%B8.jpg'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485552678.142
+    'REQUEST_TIME' => 1485552678
+    'argv' => []
+    'argc' => 0
+]
+2017-01-28 00:31:20 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:403] exception 'yii\web\ForbiddenHttpException' with message 'Вам не разрешено производить данное действие.' in C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php:88
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php(73): mdm\admin\components\AccessControl->denyAccess(Object(yii\web\User))
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\ActionFilter.php(73): mdm\admin\components\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Component.php(540): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(608): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Controller.php(142): yii\base\Module->beforeAction(Object(yii\base\InlineAction))
+#6 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('toolbar', Array)
+#7 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('debug/default/t...', Array)
+#8 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#10 {main}
+2017-01-28 00:31:18 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_GET = [
+    'tag' => '588bbc24ea11c'
+]
+
+$_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_REFERER' => 'http://aggregator/article/view?link=585'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53133'
+    'REDIRECT_URL' => '/web/debug/default/toolbar'
+    'REDIRECT_QUERY_STRING' => 'tag=588bbc24ea11c'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'tag=588bbc24ea11c'
+    'REQUEST_URI' => '/debug/default/toolbar?tag=588bbc24ea11c'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485552678.157
+    'REQUEST_TIME' => 1485552678
+    'argv' => [
+        0 => 'tag=588bbc24ea11c'
+    ]
+    'argc' => 1
+]
+2017-01-28 00:31:38 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:403] exception 'yii\web\ForbiddenHttpException' with message 'Вам не разрешено производить данное действие.' in C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php:88
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php(73): mdm\admin\components\AccessControl->denyAccess(Object(yii\web\User))
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\ActionFilter.php(73): mdm\admin\components\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Component.php(540): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(608): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Controller.php(142): yii\base\Module->beforeAction(Object(yii\base\InlineAction))
+#6 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('toolbar', Array)
+#7 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('debug/default/t...', Array)
+#8 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#10 {main}
+2017-01-28 00:31:37 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_GET = [
+    'tag' => '588bbc37d0634'
+]
+
+$_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_REFERER' => 'http://aggregator/category/category?link=1'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53138'
+    'REDIRECT_URL' => '/web/debug/default/toolbar'
+    'REDIRECT_QUERY_STRING' => 'tag=588bbc37d0634'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'tag=588bbc37d0634'
+    'REQUEST_URI' => '/debug/default/toolbar?tag=588bbc37d0634'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485552697.642
+    'REQUEST_TIME' => 1485552697
+    'argv' => [
+        0 => 'tag=588bbc37d0634'
+    ]
+    'argc' => 1
+]
+2017-01-28 00:31:46 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:403] exception 'yii\web\ForbiddenHttpException' with message 'Вам не разрешено производить данное действие.' in C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php:88
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php(73): mdm\admin\components\AccessControl->denyAccess(Object(yii\web\User))
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\ActionFilter.php(73): mdm\admin\components\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Component.php(540): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(608): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Controller.php(142): yii\base\Module->beforeAction(Object(yii\base\InlineAction))
+#6 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('toolbar', Array)
+#7 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('debug/default/t...', Array)
+#8 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#10 {main}
+2017-01-28 00:31:45 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_GET = [
+    'tag' => '588bbc403137b'
+]
+
+$_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_REFERER' => 'http://aggregator/article/view?link=687'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53138'
+    'REDIRECT_URL' => '/web/debug/default/toolbar'
+    'REDIRECT_QUERY_STRING' => 'tag=588bbc403137b'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'tag=588bbc403137b'
+    'REQUEST_URI' => '/debug/default/toolbar?tag=588bbc403137b'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485552705.544
+    'REQUEST_TIME' => 1485552705
+    'argv' => [
+        0 => 'tag=588bbc403137b'
+    ]
+    'argc' => 1
+]
+2017-01-28 00:37:30 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:403] exception 'yii\web\ForbiddenHttpException' with message 'Вам не разрешено производить данное действие.' in C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php:88
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php(73): mdm\admin\components\AccessControl->denyAccess(Object(yii\web\User))
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\ActionFilter.php(73): mdm\admin\components\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Component.php(540): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(608): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Controller.php(142): yii\base\Module->beforeAction(Object(yii\base\InlineAction))
+#6 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('toolbar', Array)
+#7 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('debug/default/t...', Array)
+#8 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#10 {main}
+2017-01-28 00:37:28 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_GET = [
+    'tag' => '588bbd97acef1'
+]
+
+$_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_REFERER' => 'http://aggregator/article/view?link=687'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53196'
+    'REDIRECT_URL' => '/web/debug/default/toolbar'
+    'REDIRECT_QUERY_STRING' => 'tag=588bbd97acef1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'tag=588bbd97acef1'
+    'REQUEST_URI' => '/debug/default/toolbar?tag=588bbd97acef1'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485553048.953
+    'REQUEST_TIME' => 1485553048
+    'argv' => [
+        0 => 'tag=588bbd97acef1'
+    ]
+    'argc' => 1
+]
+2017-01-28 00:45:49 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:403] exception 'yii\web\ForbiddenHttpException' with message 'Вам не разрешено производить данное действие.' in C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php:88
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php(73): mdm\admin\components\AccessControl->denyAccess(Object(yii\web\User))
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\ActionFilter.php(73): mdm\admin\components\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Component.php(540): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(608): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Controller.php(142): yii\base\Module->beforeAction(Object(yii\base\InlineAction))
+#6 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('toolbar', Array)
+#7 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('debug/default/t...', Array)
+#8 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#10 {main}
+2017-01-28 00:45:48 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_GET = [
+    'tag' => '588bbf8ab54c9'
+]
+
+$_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_REFERER' => 'http://aggregator/article/view?link=687'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53226'
+    'REDIRECT_URL' => '/web/debug/default/toolbar'
+    'REDIRECT_QUERY_STRING' => 'tag=588bbf8ab54c9'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'tag=588bbf8ab54c9'
+    'REQUEST_URI' => '/debug/default/toolbar?tag=588bbf8ab54c9'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485553548.336
+    'REQUEST_TIME' => 1485553548
+    'argv' => [
+        0 => 'tag=588bbf8ab54c9'
+    ]
+    'argc' => 1
+]
+2017-01-28 00:46:28 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:403] exception 'yii\web\ForbiddenHttpException' with message 'Вам не разрешено производить данное действие.' in C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php:88
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php(73): mdm\admin\components\AccessControl->denyAccess(Object(yii\web\User))
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\ActionFilter.php(73): mdm\admin\components\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Component.php(540): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(608): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Controller.php(142): yii\base\Module->beforeAction(Object(yii\base\InlineAction))
+#6 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('toolbar', Array)
+#7 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('debug/default/t...', Array)
+#8 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#10 {main}
+2017-01-28 00:46:27 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_GET = [
+    'tag' => '588bbfb0d712b'
+]
+
+$_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_ACCEPT' => 'text/html'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_REFERER' => 'http://aggregator/article/view?link=687'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53236'
+    'REDIRECT_URL' => '/web/debug/default/toolbar'
+    'REDIRECT_QUERY_STRING' => 'tag=588bbfb0d712b'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'tag=588bbfb0d712b'
+    'REQUEST_URI' => '/debug/default/toolbar?tag=588bbfb0d712b'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485553587.053
+    'REQUEST_TIME' => 1485553587
+    'argv' => [
+        0 => 'tag=588bbfb0d712b'
+    ]
+    'argc' => 1
+]
+2017-01-28 00:47:04 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:403] exception 'yii\web\ForbiddenHttpException' with message 'Вам не разрешено производить данное действие.' in C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php:88
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php(73): mdm\admin\components\AccessControl->denyAccess(Object(yii\web\User))
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\ActionFilter.php(73): mdm\admin\components\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Component.php(540): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(608): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Controller.php(142): yii\base\Module->beforeAction(Object(yii\base\InlineAction))
+#6 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('toolbar', Array)
+#7 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('debug/default/t...', Array)
+#8 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#10 {main}
+2017-01-28 00:47:03 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_GET = [
+    'tag' => '588bbfd5ab520'
+]
+
+$_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_ACCEPT' => 'text/html'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_REFERER' => 'http://aggregator/article/view?link=687'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53252'
+    'REDIRECT_URL' => '/web/debug/default/toolbar'
+    'REDIRECT_QUERY_STRING' => 'tag=588bbfd5ab520'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'tag=588bbfd5ab520'
+    'REQUEST_URI' => '/debug/default/toolbar?tag=588bbfd5ab520'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485553623.208
+    'REQUEST_TIME' => 1485553623
+    'argv' => [
+        0 => 'tag=588bbfd5ab520'
+    ]
+    'argc' => 1
+]
+2017-01-28 00:48:25 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:403] exception 'yii\web\ForbiddenHttpException' with message 'Вам не разрешено производить данное действие.' in C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php:88
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php(73): mdm\admin\components\AccessControl->denyAccess(Object(yii\web\User))
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\ActionFilter.php(73): mdm\admin\components\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Component.php(540): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(608): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Controller.php(142): yii\base\Module->beforeAction(Object(yii\base\InlineAction))
+#6 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('toolbar', Array)
+#7 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('debug/default/t...', Array)
+#8 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#10 {main}
+2017-01-28 00:48:24 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_GET = [
+    'tag' => '588bc0275a82b'
+]
+
+$_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_ACCEPT' => 'text/html'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_REFERER' => 'http://aggregator/article/view?link=687'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53264'
+    'REDIRECT_URL' => '/web/debug/default/toolbar'
+    'REDIRECT_QUERY_STRING' => 'tag=588bc0275a82b'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'tag=588bc0275a82b'
+    'REQUEST_URI' => '/debug/default/toolbar?tag=588bc0275a82b'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485553704.8
+    'REQUEST_TIME' => 1485553704
+    'argv' => [
+        0 => 'tag=588bc0275a82b'
+    ]
+    'argc' => 1
+]
+2017-01-28 00:49:42 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:403] exception 'yii\web\ForbiddenHttpException' with message 'Вам не разрешено производить данное действие.' in C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php:88
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php(73): mdm\admin\components\AccessControl->denyAccess(Object(yii\web\User))
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\ActionFilter.php(73): mdm\admin\components\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Component.php(540): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(608): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Controller.php(142): yii\base\Module->beforeAction(Object(yii\base\InlineAction))
+#6 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('toolbar', Array)
+#7 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('debug/default/t...', Array)
+#8 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#10 {main}
+2017-01-28 00:49:41 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_GET = [
+    'tag' => '588bc0739efef'
+]
+
+$_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_REFERER' => 'http://aggregator/article/view?link=687'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53283'
+    'REDIRECT_URL' => '/web/debug/default/toolbar'
+    'REDIRECT_QUERY_STRING' => 'tag=588bc0739efef'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'tag=588bc0739efef'
+    'REQUEST_URI' => '/debug/default/toolbar?tag=588bc0739efef'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485553781.224
+    'REQUEST_TIME' => 1485553781
+    'argv' => [
+        0 => 'tag=588bc0739efef'
+    ]
+    'argc' => 1
+]
+2017-01-28 00:49:55 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:403] exception 'yii\web\ForbiddenHttpException' with message 'Вам не разрешено производить данное действие.' in C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php:88
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php(73): mdm\admin\components\AccessControl->denyAccess(Object(yii\web\User))
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\ActionFilter.php(73): mdm\admin\components\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Component.php(540): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(608): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Controller.php(142): yii\base\Module->beforeAction(Object(yii\base\InlineAction))
+#6 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('toolbar', Array)
+#7 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('debug/default/t...', Array)
+#8 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#10 {main}
+2017-01-28 00:49:54 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_GET = [
+    'tag' => '588bc080ce1ef'
+]
+
+$_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_ACCEPT' => 'text/html'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_REFERER' => 'http://aggregator/article/view?link=687'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53288'
+    'REDIRECT_URL' => '/web/debug/default/toolbar'
+    'REDIRECT_QUERY_STRING' => 'tag=588bc080ce1ef'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'tag=588bc080ce1ef'
+    'REQUEST_URI' => '/debug/default/toolbar?tag=588bc080ce1ef'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485553794.598
+    'REQUEST_TIME' => 1485553794
+    'argv' => [
+        0 => 'tag=588bc080ce1ef'
+    ]
+    'argc' => 1
+]
+2017-01-28 00:50:27 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:403] exception 'yii\web\ForbiddenHttpException' with message 'Вам не разрешено производить данное действие.' in C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php:88
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php(73): mdm\admin\components\AccessControl->denyAccess(Object(yii\web\User))
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\ActionFilter.php(73): mdm\admin\components\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Component.php(540): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(608): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Controller.php(142): yii\base\Module->beforeAction(Object(yii\base\InlineAction))
+#6 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('toolbar', Array)
+#7 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('debug/default/t...', Array)
+#8 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#10 {main}
+2017-01-28 00:50:25 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_GET = [
+    'tag' => '588bc0a05e568'
+]
+
+$_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_REFERER' => 'http://aggregator/article/view?link=687'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53306'
+    'REDIRECT_URL' => '/web/debug/default/toolbar'
+    'REDIRECT_QUERY_STRING' => 'tag=588bc0a05e568'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'tag=588bc0a05e568'
+    'REQUEST_URI' => '/debug/default/toolbar?tag=588bc0a05e568'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485553825.933
+    'REQUEST_TIME' => 1485553825
+    'argv' => [
+        0 => 'tag=588bc0a05e568'
+    ]
+    'argc' => 1
+]
+2017-01-28 00:51:07 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:403] exception 'yii\web\ForbiddenHttpException' with message 'Вам не разрешено производить данное действие.' in C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php:88
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php(73): mdm\admin\components\AccessControl->denyAccess(Object(yii\web\User))
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\ActionFilter.php(73): mdm\admin\components\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Component.php(540): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(608): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Controller.php(142): yii\base\Module->beforeAction(Object(yii\base\InlineAction))
+#6 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('toolbar', Array)
+#7 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('debug/default/t...', Array)
+#8 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#10 {main}
+2017-01-28 00:51:05 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_GET = [
+    'tag' => '588bc0c85639b'
+]
+
+$_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_REFERER' => 'http://aggregator/article/view?link=687'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53313'
+    'REDIRECT_URL' => '/web/debug/default/toolbar'
+    'REDIRECT_QUERY_STRING' => 'tag=588bc0c85639b'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'tag=588bc0c85639b'
+    'REQUEST_URI' => '/debug/default/toolbar?tag=588bc0c85639b'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485553865.941
+    'REQUEST_TIME' => 1485553865
+    'argv' => [
+        0 => 'tag=588bc0c85639b'
+    ]
+    'argc' => 1
+]
+2017-01-28 00:51:51 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:403] exception 'yii\web\ForbiddenHttpException' with message 'Вам не разрешено производить данное действие.' in C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php:88
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php(73): mdm\admin\components\AccessControl->denyAccess(Object(yii\web\User))
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\ActionFilter.php(73): mdm\admin\components\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Component.php(540): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(608): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Controller.php(142): yii\base\Module->beforeAction(Object(yii\base\InlineAction))
+#6 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('toolbar', Array)
+#7 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('debug/default/t...', Array)
+#8 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#10 {main}
+2017-01-28 00:51:50 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_GET = [
+    'tag' => '588bc0f5325f8'
+]
+
+$_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_REFERER' => 'http://aggregator/article/view?link=687'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53319'
+    'REDIRECT_URL' => '/web/debug/default/toolbar'
+    'REDIRECT_QUERY_STRING' => 'tag=588bc0f5325f8'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'tag=588bc0f5325f8'
+    'REQUEST_URI' => '/debug/default/toolbar?tag=588bc0f5325f8'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485553910.699
+    'REQUEST_TIME' => 1485553910
+    'argv' => [
+        0 => 'tag=588bc0f5325f8'
+    ]
+    'argc' => 1
+]
+2017-01-28 00:59:03 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:403] exception 'yii\web\ForbiddenHttpException' with message 'Вам не разрешено производить данное действие.' in C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php:88
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php(73): mdm\admin\components\AccessControl->denyAccess(Object(yii\web\User))
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\ActionFilter.php(73): mdm\admin\components\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Component.php(540): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(608): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Controller.php(142): yii\base\Module->beforeAction(Object(yii\base\InlineAction))
+#6 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('toolbar', Array)
+#7 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('debug/default/t...', Array)
+#8 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#10 {main}
+2017-01-28 00:59:02 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_GET = [
+    'tag' => '588bc2a4e0010'
+]
+
+$_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_REFERER' => 'http://aggregator/article/view?link=687'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53501'
+    'REDIRECT_URL' => '/web/debug/default/toolbar'
+    'REDIRECT_QUERY_STRING' => 'tag=588bc2a4e0010'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'tag=588bc2a4e0010'
+    'REQUEST_URI' => '/debug/default/toolbar?tag=588bc2a4e0010'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485554342.508
+    'REQUEST_TIME' => 1485554342
+    'argv' => [
+        0 => 'tag=588bc2a4e0010'
+    ]
+    'argc' => 1
+]
+2017-01-28 01:04:15 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:403] exception 'yii\web\ForbiddenHttpException' with message 'Вам не разрешено производить данное действие.' in C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php:88
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php(73): mdm\admin\components\AccessControl->denyAccess(Object(yii\web\User))
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\ActionFilter.php(73): mdm\admin\components\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Component.php(540): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(608): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Controller.php(142): yii\base\Module->beforeAction(Object(yii\base\InlineAction))
+#6 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('toolbar', Array)
+#7 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('debug/default/t...', Array)
+#8 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#10 {main}
+2017-01-28 01:04:14 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_GET = [
+    'tag' => '588bc3dd403c3'
+]
+
+$_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_REFERER' => 'http://aggregator/article/view?link=687'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53519'
+    'REDIRECT_URL' => '/web/debug/default/toolbar'
+    'REDIRECT_QUERY_STRING' => 'tag=588bc3dd403c3'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'tag=588bc3dd403c3'
+    'REQUEST_URI' => '/debug/default/toolbar?tag=588bc3dd403c3'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485554654.796
+    'REQUEST_TIME' => 1485554654
+    'argv' => [
+        0 => 'tag=588bc3dd403c3'
+    ]
+    'argc' => 1
+]
+2017-01-28 01:04:24 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:403] exception 'yii\web\ForbiddenHttpException' with message 'Вам не разрешено производить данное действие.' in C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php:88
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php(73): mdm\admin\components\AccessControl->denyAccess(Object(yii\web\User))
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\ActionFilter.php(73): mdm\admin\components\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Component.php(540): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(608): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Controller.php(142): yii\base\Module->beforeAction(Object(yii\base\InlineAction))
+#6 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('toolbar', Array)
+#7 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('debug/default/t...', Array)
+#8 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#10 {main}
+2017-01-28 01:04:22 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_GET = [
+    'tag' => '588bc3e4a7169'
+]
+
+$_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_ACCEPT' => 'text/html'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_REFERER' => 'http://aggregator/article/view?link=687'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53528'
+    'REDIRECT_URL' => '/web/debug/default/toolbar'
+    'REDIRECT_QUERY_STRING' => 'tag=588bc3e4a7169'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'tag=588bc3e4a7169'
+    'REQUEST_URI' => '/debug/default/toolbar?tag=588bc3e4a7169'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485554662.773
+    'REQUEST_TIME' => 1485554662
+    'argv' => [
+        0 => 'tag=588bc3e4a7169'
+    ]
+    'argc' => 1
+]
+2017-01-28 01:06:24 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:403] exception 'yii\web\ForbiddenHttpException' with message 'Вам не разрешено производить данное действие.' in C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php:88
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php(73): mdm\admin\components\AccessControl->denyAccess(Object(yii\web\User))
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\ActionFilter.php(73): mdm\admin\components\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Component.php(540): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(608): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Controller.php(142): yii\base\Module->beforeAction(Object(yii\base\InlineAction))
+#6 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('toolbar', Array)
+#7 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('debug/default/t...', Array)
+#8 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#10 {main}
+2017-01-28 01:06:23 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_GET = [
+    'tag' => '588bc45dcec20'
+]
+
+$_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_REFERER' => 'http://aggregator/article/view?link=687'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53543'
+    'REDIRECT_URL' => '/web/debug/default/toolbar'
+    'REDIRECT_QUERY_STRING' => 'tag=588bc45dcec20'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'tag=588bc45dcec20'
+    'REQUEST_URI' => '/debug/default/toolbar?tag=588bc45dcec20'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485554783.418
+    'REQUEST_TIME' => 1485554783
+    'argv' => [
+        0 => 'tag=588bc45dcec20'
+    ]
+    'argc' => 1
+]
+2017-01-28 01:06:27 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "css/images/controls.png".' in C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php:462
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('css/images/cont...', Array)
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Страница не найдена.' in C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php:112
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#2 {main}
+2017-01-28 01:06:27 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_ACCEPT' => 'image/webp,image/*,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://aggregator/css/colorbox.css'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53543'
+    'REDIRECT_URL' => '/web/css/images/controls.png'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/css/images/controls.png'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485554787.792
+    'REQUEST_TIME' => 1485554787
+    'argv' => []
+    'argc' => 0
+]
+2017-01-28 01:06:27 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "css/images/loading.gif".' in C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php:462
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('css/images/load...', Array)
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Страница не найдена.' in C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php:112
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#2 {main}
+2017-01-28 01:06:27 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_ACCEPT' => 'image/webp,image/*,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://aggregator/css/colorbox.css'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53548'
+    'REDIRECT_URL' => '/web/css/images/loading.gif'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/css/images/loading.gif'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485554787.794
+    'REQUEST_TIME' => 1485554787
+    'argv' => []
+    'argc' => 0
+]
+2017-01-28 01:08:34 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:403] exception 'yii\web\ForbiddenHttpException' with message 'Вам не разрешено производить данное действие.' in C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php:88
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php(73): mdm\admin\components\AccessControl->denyAccess(Object(yii\web\User))
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\ActionFilter.php(73): mdm\admin\components\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Component.php(540): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(608): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Controller.php(142): yii\base\Module->beforeAction(Object(yii\base\InlineAction))
+#6 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('toolbar', Array)
+#7 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('debug/default/t...', Array)
+#8 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#10 {main}
+2017-01-28 01:08:33 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_GET = [
+    'tag' => '588bc4e093ae6'
+]
+
+$_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_REFERER' => 'http://aggregator/article/view?link=687'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53562'
+    'REDIRECT_URL' => '/web/debug/default/toolbar'
+    'REDIRECT_QUERY_STRING' => 'tag=588bc4e093ae6'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'tag=588bc4e093ae6'
+    'REQUEST_URI' => '/debug/default/toolbar?tag=588bc4e093ae6'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485554913.853
+    'REQUEST_TIME' => 1485554913
+    'argv' => [
+        0 => 'tag=588bc4e093ae6'
+    ]
+    'argc' => 1
+]
+2017-01-28 01:08:34 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "css/images/loading.gif".' in C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php:462
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('css/images/load...', Array)
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Страница не найдена.' in C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php:112
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#2 {main}
+2017-01-28 01:08:34 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_ACCEPT' => 'image/webp,image/*,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://aggregator/css/colorbox.css'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53563'
+    'REDIRECT_URL' => '/web/css/images/loading.gif'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/css/images/loading.gif'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485554914.71
+    'REQUEST_TIME' => 1485554914
+    'argv' => []
+    'argc' => 0
+]
+2017-01-28 01:08:34 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "css/images/controls.png".' in C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php:462
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('css/images/cont...', Array)
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Страница не найдена.' in C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php:112
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#2 {main}
+2017-01-28 01:08:34 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_ACCEPT' => 'image/webp,image/*,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://aggregator/css/colorbox.css'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53561'
+    'REDIRECT_URL' => '/web/css/images/controls.png'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/css/images/controls.png'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485554914.708
+    'REQUEST_TIME' => 1485554914
+    'argv' => []
+    'argc' => 0
+]
+2017-01-28 01:11:11 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:403] exception 'yii\web\ForbiddenHttpException' with message 'Вам не разрешено производить данное действие.' in C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php:88
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php(73): mdm\admin\components\AccessControl->denyAccess(Object(yii\web\User))
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\ActionFilter.php(73): mdm\admin\components\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Component.php(540): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(608): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Controller.php(142): yii\base\Module->beforeAction(Object(yii\base\InlineAction))
+#6 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('toolbar', Array)
+#7 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('debug/default/t...', Array)
+#8 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#10 {main}
+2017-01-28 01:11:10 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_GET = [
+    'tag' => '588bc57c969dc'
+]
+
+$_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_ACCEPT' => 'text/html'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_REFERER' => 'http://aggregator/article/view?link=687'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53586'
+    'REDIRECT_URL' => '/web/debug/default/toolbar'
+    'REDIRECT_QUERY_STRING' => 'tag=588bc57c969dc'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'tag=588bc57c969dc'
+    'REQUEST_URI' => '/debug/default/toolbar?tag=588bc57c969dc'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485555070.516
+    'REQUEST_TIME' => 1485555070
+    'argv' => [
+        0 => 'tag=588bc57c969dc'
+    ]
+    'argc' => 1
+]
+2017-01-28 01:11:51 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:403] exception 'yii\web\ForbiddenHttpException' with message 'Вам не разрешено производить данное действие.' in C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php:88
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php(73): mdm\admin\components\AccessControl->denyAccess(Object(yii\web\User))
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\ActionFilter.php(73): mdm\admin\components\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Component.php(540): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(608): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Controller.php(142): yii\base\Module->beforeAction(Object(yii\base\InlineAction))
+#6 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('toolbar', Array)
+#7 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('debug/default/t...', Array)
+#8 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#10 {main}
+2017-01-28 01:11:49 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_GET = [
+    'tag' => '588bc5a46a44e'
+]
+
+$_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_REFERER' => 'http://aggregator/article/view?link=687'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53643'
+    'REDIRECT_URL' => '/web/debug/default/toolbar'
+    'REDIRECT_QUERY_STRING' => 'tag=588bc5a46a44e'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'tag=588bc5a46a44e'
+    'REQUEST_URI' => '/debug/default/toolbar?tag=588bc5a46a44e'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485555109.965
+    'REQUEST_TIME' => 1485555109
+    'argv' => [
+        0 => 'tag=588bc5a46a44e'
+    ]
+    'argc' => 1
+]
+2017-01-28 01:11:54 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:403] exception 'yii\web\ForbiddenHttpException' with message 'Вам не разрешено производить данное действие.' in C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php:88
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php(73): mdm\admin\components\AccessControl->denyAccess(Object(yii\web\User))
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\ActionFilter.php(73): mdm\admin\components\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Component.php(540): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(608): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Controller.php(142): yii\base\Module->beforeAction(Object(yii\base\InlineAction))
+#6 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('toolbar', Array)
+#7 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('debug/default/t...', Array)
+#8 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#10 {main}
+2017-01-28 01:11:53 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_GET = [
+    'tag' => '588bc5a755702'
+]
+
+$_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_ACCEPT' => 'text/html'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_REFERER' => 'http://aggregator/article/view?link=687'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53658'
+    'REDIRECT_URL' => '/web/debug/default/toolbar'
+    'REDIRECT_QUERY_STRING' => 'tag=588bc5a755702'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'tag=588bc5a755702'
+    'REQUEST_URI' => '/debug/default/toolbar?tag=588bc5a755702'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485555113.027
+    'REQUEST_TIME' => 1485555113
+    'argv' => [
+        0 => 'tag=588bc5a755702'
+    ]
+    'argc' => 1
+]
+2017-01-28 01:12:48 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:403] exception 'yii\web\ForbiddenHttpException' with message 'Вам не разрешено производить данное действие.' in C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php:88
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php(73): mdm\admin\components\AccessControl->denyAccess(Object(yii\web\User))
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\ActionFilter.php(73): mdm\admin\components\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Component.php(540): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(608): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Controller.php(142): yii\base\Module->beforeAction(Object(yii\base\InlineAction))
+#6 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('toolbar', Array)
+#7 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('debug/default/t...', Array)
+#8 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#10 {main}
+2017-01-28 01:12:47 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_GET = [
+    'tag' => '588bc5db7174f'
+]
+
+$_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_REFERER' => 'http://aggregator/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53667'
+    'REDIRECT_URL' => '/web/debug/default/toolbar'
+    'REDIRECT_QUERY_STRING' => 'tag=588bc5db7174f'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'tag=588bc5db7174f'
+    'REQUEST_URI' => '/debug/default/toolbar?tag=588bc5db7174f'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485555167.097
+    'REQUEST_TIME' => 1485555167
+    'argv' => [
+        0 => 'tag=588bc5db7174f'
+    ]
+    'argc' => 1
+]
+2017-01-28 01:12:54 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:403] exception 'yii\web\ForbiddenHttpException' with message 'Вам не разрешено производить данное действие.' in C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php:88
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php(73): mdm\admin\components\AccessControl->denyAccess(Object(yii\web\User))
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\ActionFilter.php(73): mdm\admin\components\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Component.php(540): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(608): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Controller.php(142): yii\base\Module->beforeAction(Object(yii\base\InlineAction))
+#6 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('toolbar', Array)
+#7 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('debug/default/t...', Array)
+#8 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#10 {main}
+2017-01-28 01:12:53 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_GET = [
+    'tag' => '588bc5e496385'
+]
+
+$_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_REFERER' => 'http://aggregator/article/view?link=686'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53667'
+    'REDIRECT_URL' => '/web/debug/default/toolbar'
+    'REDIRECT_QUERY_STRING' => 'tag=588bc5e496385'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'tag=588bc5e496385'
+    'REQUEST_URI' => '/debug/default/toolbar?tag=588bc5e496385'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485555173.802
+    'REQUEST_TIME' => 1485555173
+    'argv' => [
+        0 => 'tag=588bc5e496385'
+    ]
+    'argc' => 1
+]
+2017-01-28 01:12:58 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][error][yii\web\HttpException:403] exception 'yii\web\ForbiddenHttpException' with message 'Вам не разрешено производить данное действие.' in C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php:88
+Stack trace:
+#0 C:\OpenServer\domains\aggregator\vendor\mdmsoft\yii2-admin\components\AccessControl.php(73): mdm\admin\components\AccessControl->denyAccess(Object(yii\web\User))
+#1 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\ActionFilter.php(73): mdm\admin\components\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Component.php(540): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(608): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Controller.php(142): yii\base\Module->beforeAction(Object(yii\base\InlineAction))
+#6 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('toolbar', Array)
+#7 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\web\Application.php(100): yii\base\Module->runAction('debug/default/t...', Array)
+#8 C:\OpenServer\domains\aggregator\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\OpenServer\domains\aggregator\web\index.php(12): yii\base\Application->run()
+#10 {main}
+2017-01-28 01:12:57 [127.0.0.1][1][u3v8lr84irhg1b05t6ckc9a8s5][info][application] $_GET = [
+    'tag' => '588bc5e7c4907'
+]
+
+$_COOKIE = [
+    '_csrf' => '355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"qjkem_W842oQ70QlPiVR3RN56ozfSzi6\";}'
+    'PHPSESSID' => 'u3v8lr84irhg1b05t6ckc9a8s5'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'aggregator'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
+    'HTTP_REFERER' => 'http://aggregator/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'ru,en-US;q=0.8,en;q=0.6,uk;q=0.4'
+    'HTTP_COOKIE' => '_csrf=355f88cb0ba5014b4df193f24d8c167b29ad69ae7255d7030aa306f646802753a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22qjkem_W842oQ70QlPiVR3RN56ozfSzi6%22%3B%7D; PHPSESSID=u3v8lr84irhg1b05t6ckc9a8s5'
+    'PATH' => 'c:\\openserver\\modules\\php\\PHP-5.5\\ext;c:\\openserver\\modules\\php\\PHP-5.5\\pear;c:\\openserver\\modules\\php\\PHP-5.5\\pear\\bin;c:\\openserver\\modules\\php\\PHP-5.5;c:\\openserver\\modules\\wget\\bin;c:\\openserver\\modules\\database\\MySQL-5.7\\bin;c:\\openserver\\modules\\http\\Apache-2.4\\bin;c:\\openserver\\modules\\http\\Apache-2.4;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\system32\\Wbem;C:\\Windows\\SysWOW64'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache'
+    'SERVER_NAME' => 'aggregator'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/OpenServer/domains/aggregator'
+    'SERVER_ADMIN' => '[no address given]'
+    'SCRIPT_FILENAME' => 'C:/OpenServer/domains/aggregator/web/index.php'
+    'REMOTE_PORT' => '53667'
+    'REDIRECT_URL' => '/web/debug/default/toolbar'
+    'REDIRECT_QUERY_STRING' => 'tag=588bc5e7c4907'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'tag=588bc5e7c4907'
+    'REQUEST_URI' => '/debug/default/toolbar?tag=588bc5e7c4907'
+    'SCRIPT_NAME' => '/web/index.php'
+    'PHP_SELF' => '/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1485555177.573
+    'REQUEST_TIME' => 1485555177
+    'argv' => [
+        0 => 'tag=588bc5e7c4907'
+    ]
+    'argc' => 1
+]

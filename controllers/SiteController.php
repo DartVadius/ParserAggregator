@@ -68,7 +68,7 @@ class SiteController extends GlobalController {
         $pages = new Pagination(['totalCount' => $articles->count(), 'pageSize' => 10, 'pageSizeParam' => false, 'forcePageParam' => false]);
         $model = $articles->offset($pages->offset)->limit($pages->limit)->all();
         $ip = '94.244.22.168';
-        $geo = $this->geoLock($ip);
+        $geo = $this->geoLock($ip);        
         $geoCity = $this->findArtByGeo($geo['city']);
 
         if (count($geoCity) < 10) {
@@ -79,7 +79,7 @@ class SiteController extends GlobalController {
             $geoCountry = $this->findArtByGeo($geo['country']);
             $geoCity = array_merge($geoCity, $geoCountry);
         }
-//print_r($geo);
+
         return $this->render('index', compact('model', 'categories', 'pages', 'geoCity'));
     }
 

@@ -25,9 +25,7 @@
                 <?php endforeach ?>
             </div>
             <br>
-            <div class="article_tags">
-                <h3>А тут у нас теги</h3>
-
+            <div class="article_tags">               
                     <?php foreach ($tags as $tag): ?>
                 <b><a href="<?= \yii\helpers\Url::to(['site/tag', 'link' => $tag['tag_id']]); ?>"><?php echo $tag['tag']; ?></a></b>
                     <?php endforeach ?>
