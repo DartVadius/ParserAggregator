@@ -22,10 +22,7 @@ class ArticleController extends GlobalController {
                 ->where("Articles.article_id = $article->article_id")
                 ->all();
         return $this->render('article', compact('article', 'img', 'tags'));
-    }
-    
-    public function actionTag ($tagId) {
-        
-    }
+    }   
+   
 
 }

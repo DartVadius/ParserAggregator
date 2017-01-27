@@ -18,12 +18,15 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
+        'css/demo.css',
+        'css/component.css',
         'css/site.css',
-        'css/colorbox.css',
     ];
     public $js = [
         'js/main.js',
-        'js/jquery.colorbox.js'
+        'js/jquery.colorbox.js',
+        'js/segment.min.js',
+        'js/ease.min.js',
     ];
     public $jsOptions = [
       'position' => \yii\web\View::POS_END,

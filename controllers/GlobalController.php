@@ -11,11 +11,7 @@ use app\models\Articles;
 use app\models\Tags;
 use app\models\ArticlesToTags;
 
-/**
- * GlobalController
- *
- * @author DartVadius
- */
+
 class GlobalController extends Controller {
 
     protected function geoLock($ip = null) {
@@ -34,9 +30,10 @@ class GlobalController extends Controller {
         $result['region'] = $this->translate($result['region']);
         $result['region'] = $this->strProcessing($result['region']);
 
-        //$radius = 10;        
+        //$radius = 10;
         //$result['nearby'] = $geoplugin->nearby(10);
         return $result;
+
     }
 
     protected function translate($text, $source = 'en', $target = 'ru') {
@@ -50,25 +47,21 @@ class GlobalController extends Controller {
     }
 
     protected function findArtByGeo($geo) {
-        //$city = $geo['city'];
-        //$region = $geo['country'];        
-        //$region = 'эстония';
-//        $qery = new Query();
-//        echo ((new Query())
-//                        ->select(['tag_id'])
-//                        ->from('Tags')
-//                        ->where([
-//                            'tag' => "$region",
-//                        ])->one());
-        
-        return (new \yii\db\Query())
-                        ->select(['Articles.*', 'Tags.tag', 'Tags.tag_id'])
+        $date = new \DateTime();
+        $date->modify('-7 days');
+        $date->format('Y-m-d H:i:s');
+        $date = $date->getTimestamp();
+        $date = date('Y-m-d H:i:s', $date);        
+        return (new Query())
+                        ->select(['Articles.*'])
                         ->from('Tags')
                         ->leftJoin('Articles_To_Tags', 'Tags.tag_id = Articles_To_Tags.tag_id')
                         ->leftJoin('Articles', 'Articles_To_Tags.article_id = Articles.article_id')
                         ->where([
                             'like', 'tag', $geo
                         ])
+                        ->andWhere(['>', 'article_create_datetime', $date])
+                        ->orderBy('article_create_datetime desc')
                         ->all();
     }
 
