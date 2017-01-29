@@ -62,8 +62,7 @@ class SiteController extends GlobalController {
      * @return string
      */
     public function actionIndex() {
-        $articles = \app\models\Articles::find()->orderBy('article_create_datetime desc');
-        $categories = \app\models\Category::find()->orderBy('id')->all();
+        $articles = \app\models\Articles::find()->orderBy('article_create_datetime desc');        
 
         $pages = new Pagination(['totalCount' => $articles->count(), 'pageSize' => 10, 'pageSizeParam' => false, 'forcePageParam' => false]);
         $model = $articles->offset($pages->offset)->limit($pages->limit)->all();
@@ -80,12 +79,11 @@ class SiteController extends GlobalController {
             $geoCity = array_merge($geoCity, $geoCountry);
         }
 
-        return $this->render('index', compact('model', 'categories', 'pages', 'geoCity'));
+        return $this->render('index', compact('model', 'pages', 'geoCity'));
     }
 
     public function actionTag($link) {
-
-        $categories = \app\models\Category::find()->orderBy('id')->all();
+        
 
         $articles = (new \yii\db\Query())
                 ->select(['Articles.*'])
@@ -96,7 +94,7 @@ class SiteController extends GlobalController {
 
         $pages = new Pagination(['totalCount' => $articles->count(), 'pageSize' => 10, 'pageSizeParam' => false, 'forcePageParam' => false]);
         $model = $articles->offset($pages->offset)->limit($pages->limit)->all();        
-        return $this->render('tag', compact('model', 'categories', 'pages'));
+        return $this->render('tag', compact('model', 'pages'));
 
     }
 

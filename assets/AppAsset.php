@@ -32,6 +32,7 @@ class AppAsset extends AssetBundle
         'js/jquery.colorbox.js',
         'js/segment.min.js',
         'js/ease.min.js',
+        //'js/test.js',
     ];
     public $jsOptions = [
       'position' => \yii\web\View::POS_END,

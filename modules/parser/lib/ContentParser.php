@@ -30,8 +30,7 @@ class ContentParser {
         $article->sourse = $data->getSource();
         //$article->Article_JSON = json_encode($data->getBody());
         $article->Article_JSON = '{}';
-        $document = phpQuery::newDocument($data->getBody());
-        $body = pq($document)->find('body');
+        $body = phpQuery::newDocument($data->getBody());
 
         if (!empty($rules['remove'])) {
             pq($body)->find($rules['remove'])->remove();
@@ -47,6 +46,7 @@ class ContentParser {
                 }
                 array_push($this->img, $images);
             }
+            pq($document)->find($rules['find']['img'])->remove();
         }
 
         if (!empty($rules['find']['video'])) {
@@ -69,7 +69,6 @@ class ContentParser {
             }
         }
 
-        pq($document)->find($rules['find']['img'])->remove();
         pq($body)->find('div:empty, p:empty')->remove();
 
         if (!empty($rules['find']['title'])) {
@@ -100,7 +99,7 @@ class ContentParser {
                 }
             }
             foreach (pq($body)->find('p') as $p) {
-                if (pq($p)->text() == '') {
+                if (trim(pq($p)->text()) == '') {
                     pq($p)->remove();
                 }
             }

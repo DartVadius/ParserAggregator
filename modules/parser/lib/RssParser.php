@@ -29,7 +29,7 @@ class RssParser {
     ];
 
     public function __construct($data) {
-        $document = phpQuery::newDocument($data->getBody());
+        $document = phpQuery::newDocument($data->getBody());        
         $posts = $document->find('item');
         foreach ($posts as $post) {
             $rssPost = new PostsRss();

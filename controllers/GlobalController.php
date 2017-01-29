@@ -12,7 +12,6 @@ use app\models\Tags;
 use app\models\ArticlesToTags;
 use app\models\Category;
 
-
 class GlobalController extends Controller {
 
     protected function geoLock($ip = NULL) {
@@ -40,7 +39,6 @@ class GlobalController extends Controller {
         //$radius = 10;
         //$result['nearby'] = $geoplugin->nearby(10);
         return $result;
-
     }
 
     protected function translate($text, $source = 'en', $target = 'ru') {
@@ -71,8 +69,8 @@ class GlobalController extends Controller {
                         ->orderBy('article_create_datetime desc')
                         ->all();
     }
-    public static function getCategories(){
 
+    public static function getCategories() {
         $categories = \app\models\Category::find()->orderBy('id')->all();
         return $categories;
     }
