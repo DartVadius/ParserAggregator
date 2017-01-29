@@ -85,7 +85,7 @@ AppAsset::register($this);
             </div><!-- /device -->
             <nav class="top-menu">
                 <ul>
-<?php foreach (Category::find()->orderBy('id')->all() as $category): ?>
+<?php foreach (Yii::$app->categories->getAll() as $category): ?>
                         <li><a href="<?= \yii\helpers\Url::to(['category/category', 'link' => $category->id]); ?>"><?php echo $category->category_name ?></a></li>
                     <?php endforeach ?>
                 </ul>

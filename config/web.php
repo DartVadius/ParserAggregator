@@ -14,6 +14,7 @@ $config = [
     'defaultRoute' => 'site/index',
 
     'components' => [
+        'categories' => 'app\models\Category',
         'authManager' => [
             'class' => 'yii\rbac\DbManager', // or use 'yii\rbac\DbManager'
 //            'defaultRoles' => ['Guest'],
