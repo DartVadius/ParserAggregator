@@ -14,7 +14,7 @@ class MorthySearch
 			'@vendor/umisoft/phpmorphy/dicts'//Путь к словарям
         ), 'ru_RU', ['storage' => PHPMORPHY_STORAGE_FILE, 'graminfo_as_text' => FALSE,]);
 
-        $new_text = str_replace($this->punktuation_marks, "", $text); //удаляем знаки пунктуации
+        $new_text = str_replace(self::$punktuation_marks, "", $text); //удаляем знаки пунктуации
 		$new_text = str_replace("  ", " ", $new_text);//заменяем 2-йной пробел
 
 		$arr_text = explode(" ", $new_text); //режем на массив
@@ -42,7 +42,7 @@ class MorthySearch
 	public static function getTagsFromTitle($text) 
 	{
 		$answer = [];
-		$str = str_replace($this->punktuation_marks, "", $text);
+		$str = str_replace(self::$punktuation_marks, "", $text);
         $str = str_replace("  ", " ", $new_text);//заменяем 2-йной пробел
         $arr = explode(" ", $str);
         foreach ($arr as $word) {
