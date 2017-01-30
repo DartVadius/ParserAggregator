@@ -4,9 +4,9 @@ var page = webPage.create();
 var address = args[1];
 
 page.open(address, function (status) {
-  var content = page.content;
-  console.log(content);
-  phantom.exit();
+    var content = page.content;
+    console.log(content);
+    phantom.exit();
 });
 
 
