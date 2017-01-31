@@ -47,7 +47,7 @@ AppAsset::register($this);
                     </div><!-- menu-icon-wrapper -->
                     <div id="dummy" class="dummy">
 <?php if (Yii::$app->user->isGuest): ?>
-                            <div class="dummy__item"><a href="http://aggregator/site/signup">Регистрация</a></div>
+                            <div class="dummy__item"><a href="http://agregator/site/signup">Регистрация</a></div>
                         <?php endif; ?>
                         <div class="dummy__item">
                         <?php
@@ -85,7 +85,7 @@ AppAsset::register($this);
             </div><!-- /device -->
             <nav class="top-menu">
                 <ul>
-<?php foreach (Category::find()->orderBy('id')->all() as $category): ?>
+<?php foreach (Yii::$app->categories->getAll() as $category): ?>
                         <li><a href="<?= \yii\helpers\Url::to(['category/category', 'link' => $category->id]); ?>"><?php echo $category->category_name ?></a></li>
                     <?php endforeach ?>
                 </ul>

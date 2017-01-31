@@ -18,11 +18,11 @@ class CategoryController extends GlobalController {
 
         $pages = new Pagination(['totalCount' => $articles->count(), 'pageSize' => 10, 'pageSizeParam' => false, 'forcePageParam' => false]);
         $model = $articles->offset($pages->offset)->limit($pages->limit)->all();
-        $ip = '5.101.112.0';
-        $geo = $this->geoLock($ip);
-        $artGeo = $this->findArtByGeo($geo);
+        $ip = '94.244.22.168';
+        $geo = $this->geoLock($ip);        
+        $geoCity = $this->getGeoData($geo);
 
-        return $this->render('category', compact('model', 'geo', 'pages'));
+        return $this->render('category', compact('model', 'geoCity', 'pages'));
     }
 
 }

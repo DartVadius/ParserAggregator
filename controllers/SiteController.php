@@ -68,17 +68,7 @@ class SiteController extends GlobalController {
         $model = $articles->offset($pages->offset)->limit($pages->limit)->all();
         $ip = '94.244.22.168';
         $geo = $this->geoLock($ip);        
-        $geoCity = $this->findArtByGeo($geo['city']);
-
-        if (count($geoCity) < 10) {
-            $geoRegion = $this->findArtByGeo($geo['region']);
-            $geoCity = array_merge($geoCity, $geoRegion);
-        }
-        if (count($geoCity) < 10) {
-            $geoCountry = $this->findArtByGeo($geo['country']);
-            $geoCity = array_merge($geoCity, $geoCountry);
-        }
-
+        $geoCity = $this->getGeoData($geo);
         return $this->render('index', compact('model', 'pages', 'geoCity'));
     }
 

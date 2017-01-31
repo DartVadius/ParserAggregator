@@ -50,6 +50,21 @@ class GlobalController extends Controller {
         $str = trim($str);
         return mb_strtolower($str);
     }
+    
+    protected function getGeoData ($geo) {
+        
+        $geoCity = $this->findArtByGeo($geo['city']);
+
+        if (count($geoCity) < 10) {
+            $geoRegion = $this->findArtByGeo($geo['region']);
+            $geoCity = array_merge($geoCity, $geoRegion);
+        }
+        if (count($geoCity) < 10) {
+            $geoCountry = $this->findArtByGeo($geo['country']);
+            $geoCity = array_merge($geoCity, $geoCountry);
+        }
+        return $geoCity;
+    }
 
     protected function findArtByGeo($geo) {
         $date = new \DateTime();

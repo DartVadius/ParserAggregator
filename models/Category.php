@@ -44,4 +44,14 @@ class Category extends \yii\db\ActiveRecord
             'synonyms' => 'Synonyms',
         ];
     }
+
+    public static function getAll()
+    {
+        // $category = (new \yii\db\Query())
+        //             ->select('id', 'category_name')
+        //             ->from('category')
+        //             ->orderBy('id')
+        //             ->all();
+        return Category::find()->orderBy('id')->all();
+    }
 }
