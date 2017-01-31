@@ -76,7 +76,7 @@ class ParserController extends Controller {
                 $parser = new PageParserPhantom($url);
             } else {
                 $parser = new PageParserCurl($url);
-            }            
+            }
             $page = new ContentParser($parser, $rule);
             $article = $page->getContent();
             $img = $page->getImg();
@@ -125,7 +125,7 @@ class ParserController extends Controller {
                 ])->all();
         if (!empty($sites)) {
             foreach ($sites as $site) {
-                $page = $this->getPage($site->method_of_parsing, $site->source);                
+                $page = $this->getPage($site->method_of_parsing, $site->source);
                 if (!empty($page->getBody())) {
                     $rss = new RssParser($page);
                 }
@@ -248,7 +248,7 @@ class ParserController extends Controller {
                                                         ->from('Tags')
                                                         ->where([
                                                             'tag' => $new_tag->tag,
-                                                        ])->one();
+                                                        ])->one();                                        
                                         if (empty($tagId)) {
                                             if ($new_tag->validate()) {
                                                 $new_tag->save();
@@ -269,7 +269,9 @@ class ParserController extends Controller {
                 }
             }
         }
-
+        if (empty($content)) {
+            $content = NULL;
+        }
         return $this->render('index', ['info' => $content]);
     }
 
@@ -279,7 +281,7 @@ class ParserController extends Controller {
     }
 
     private function getPage($method, $link) {
-        if ($method == 'Phantom') {            
+        if ($method == 'Phantom') {
             return new PageParserPhantom($link);
         }
         if ($method == 'cURL') {

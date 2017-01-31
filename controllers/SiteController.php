@@ -70,7 +70,7 @@ class SiteController extends GlobalController {
         $ip = '94.244.22.168';
         $geo = $this->geoLock($ip);        
         $geoCity = $this->getGeoData($geo);
-//        print_r($geoCity);
+        //print_r($geoCity);
         return $this->render('index', compact('model', 'pages', 'geoCity'));
 
     }
