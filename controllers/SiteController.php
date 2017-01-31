@@ -62,35 +62,21 @@ class SiteController extends GlobalController {
      * @return string
      */
     public function actionIndex() {
-        $articles = \app\models\Articles::find()->orderBy('article_create_datetime desc');
-        $categories = \app\models\Category::find()->orderBy('id')->all();
+        $articles = \app\models\Articles::find()->orderBy('article_create_datetime desc');        
 
         $pages = new Pagination(['totalCount' => $articles->count(), 'pageSize' => 10, 'pageSizeParam' => false, 'forcePageParam' => false]);
         $model = $articles->offset($pages->offset)->limit($pages->limit)->all();
 
-        $geo = $this->getGeolocation();
+        $ip = '94.244.22.168';
+        $geo = $this->geoLock($ip);        
+        $geoCity = $this->getGeoData($geo);
+//        print_r($geoCity);
+        return $this->render('index', compact('model', 'pages', 'geoCity'));
 
-        
-        
-//        $ip = '94.244.22.168';
-//        $geo = $this->geoLock($ip);
-//        $geoCity = $this->findArtByGeo($geo['city']);
-//
-//        if (count($geoCity) < 10) {
-//            $geoRegion = $this->findArtByGeo($geo['region']);
-//            $geoCity = array_merge($geoCity, $geoRegion);
-//        }
-//        if (count($geoCity) < 10) {
-//            $geoCountry = $this->findArtByGeo($geo['country']);
-//            $geoCity = array_merge($geoCity, $geoCountry);
-//        }
-//print_r($geo);
-        return $this->render('index', compact('model', 'categories', 'pages', 'geoCity', 'geo'));
     }
 
     public function actionTag($link) {
-
-        $categories = \app\models\Category::find()->orderBy('id')->all();
+        
 
         $articles = (new \yii\db\Query())
                 ->select(['Articles.*'])
@@ -101,7 +87,7 @@ class SiteController extends GlobalController {
 
         $pages = new Pagination(['totalCount' => $articles->count(), 'pageSize' => 10, 'pageSizeParam' => false, 'forcePageParam' => false]);
         $model = $articles->offset($pages->offset)->limit($pages->limit)->all();        
-        return $this->render('tag', compact('model', 'categories', 'pages'));
+        return $this->render('tag', compact('model', 'pages'));
 
     }
 

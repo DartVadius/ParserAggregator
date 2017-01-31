@@ -16,6 +16,7 @@ use app\models\Articles;
 use app\models\Images;
 use app\models\Tags;
 use phpQuery;
+use app\models\TestForm;
 
 /**
  * parser
@@ -29,46 +30,83 @@ class ParserController extends Controller {
      * @return string
      */
     public function actionTest() {
-        /*$rule = [
-            'find' => [
-                'title' => '.entry-title',
-                'textShort' => '',
-                'textFull' => 'div.text',
-                'category' => '',
-                'date' => '',
-                'author' => '',
-                'img' => 'a.top_img_loader img',
-                'links' => '',
-                'tags' => '.tags a',
-                'video' => '',
-            ],
-            'remove' => 'i::contains("Фото"), .related-news, b::contains(\"\u0427\u0438\u0442\u0430\u0439\u0442\u0435 \u0442\u0430\u043a\u0436\u0435\"), b::contains(\"\u0427\u0438\u0442\u0430\u0439\u0442\u0435 \u043d\u0430\"), b::contains(\"\u0422\u0430\u043a\u0436\u0435 \u0447\u0438\u0442\u0430\u0439\u0442\u0435\"), b::contains(\"\u0427\u0438\u0442\u0430\u0439\u0442\u0435:\"), b::contains(\"\u0421\u043c\u043e\u0442\u0440\u0438\u0442\u0435 \u043d\u0430\"), b::contains(\"\u0421\u043c\u043e\u0442\u0440\u0438\u0442\u0435 \u0442\u0430\u043a\u0436\u0435\"), .tags span',
-            'prefix' => '',
-        ];*/
+        /* $rule = [
+          'find' => [
+          'title' => '.entry-title',
+          'textShort' => '',
+          'textFull' => 'div.text',
+          'category' => '',
+          'date' => '',
+          'author' => '',
+          'img' => 'a.top_img_loader img',
+          'links' => '',
+          'tags' => '.tags a',
+          'video' => '',
+          ],
+          'remove' => 'i::contains("Фото"), .related-news, b::contains(\"\u0427\u0438\u0442\u0430\u0439\u0442\u0435 \u0442\u0430\u043a\u0436\u0435\"), b::contains(\"\u0427\u0438\u0442\u0430\u0439\u0442\u0435 \u043d\u0430\"), b::contains(\"\u0422\u0430\u043a\u0436\u0435 \u0447\u0438\u0442\u0430\u0439\u0442\u0435\"), b::contains(\"\u0427\u0438\u0442\u0430\u0439\u0442\u0435:\"), b::contains(\"\u0421\u043c\u043e\u0442\u0440\u0438\u0442\u0435 \u043d\u0430\"), b::contains(\"\u0421\u043c\u043e\u0442\u0440\u0438\u0442\u0435 \u0442\u0430\u043a\u0436\u0435\"), .tags span',
+          'prefix' => '',
+          ]; */
 
-        $rule = [
-            'find' => [
-                'title' => '.news_content h1, .datail_photo_class h1',
-                'textShort' => '',
-                'textFull' => '._ga1_on_',
-                'category' => '',
-                'date' => '',
-                'author' => '',
-                'img' => '.news_content img',
-                'links' => '',
-                'tags' => '',
-                'video' => '',
-            ],
-            'remove' => 'b, p::contains("Читайте также"), p::contains("Читайте интервью:"), p::contains(\\\"\\u0427\\u0438\\u0442\\u0430\\u0439\\u0442\\u0435 \\u0442\\u0430\\u043a\\u0436\\u0435:\\")',
-            'prefix' => 'http://news.liga.net',
-        ];
+        /* $rule = [
+          'find' => [
+          'title' => '.post-item__title',
+          'textShort' => '',
+          'textFull' => '._ga1_on_',
+          'category' => '',
+          'date' => '',
+          'author' => '',
+          'img' => '.news_content img',
+          'links' => '',
+          'tags' => '',
+          'video' => '',
+          ],
+          'remove' => 'b, p::contains("Читайте также"), p::contains("Читайте интервью:"), p::contains(\\\"\\u0427\\u0438\\u0442\\u0430\\u0439\\u0442\\u0435 \\u0442\\u0430\\u043a\\u0436\\u0435:\\")',
+          'prefix' => 'http://news.liga.net',
+          ]; */
 
-        $ex = json_encode($rule);
-        $url = 'http://news.liga.net/news/society/14678201-voditeley_mogut_obyazat_peresdavat_na_prava_minimum_kazhdye_5_let.htm';
-        $parser = new PageParserCurl($url);
-        //$parser = new PageParserPhantom($url);
-        $data = new ContentParser($parser, $rule);
-        return $this->render('test', ['info' => $data, 'json' => $ex]);
+        $preview = new TestForm();
+        if (Yii::$app->request->isAjax) {
+            $entityBody = file_get_contents('php://input');
+            $data = json_decode($entityBody, TRUE);
+            $rule = json_decode($data['rules'], TRUE);
+            //print_r($rule);
+            $url = $data['url'];
+            $method = $data['method'];
+            if ($method == 1) {
+                $parser = new PageParserPhantom($url);
+            } else {
+                $parser = new PageParserCurl($url);
+            }            
+            $page = new ContentParser($parser, $rule);
+            $article = $page->getContent();
+            $img = $page->getImg();
+            $tag = $page->getTags();
+            if (!empty($img)) {
+                $images = "Картинок найдено - " . count($img) . ", ссылки: ";
+                foreach ($img as $image) {
+                    $images .= $image->link_to_image . " | ";
+                }
+            }
+            if (!empty($tag)) {
+                $tags = "Тэгов найдено - " . count($tag) . ": ";
+                foreach ($tag as $t) {
+                    $tags .= $t->tag . " | ";
+                }
+            }
+            $text = $article->text;
+            $title = $article->title;
+
+            $answer = [
+                'title' => $title,
+                'text' => $text,
+                'images' => $images,
+                'tags' => $tags,
+                'rule' => json_encode($rule, JSON_UNESCAPED_UNICODE)
+            ];
+            echo (json_encode($answer));
+            exit();
+        }
+        return $this->render('test', compact('preview'));
     }
 
     /**
@@ -87,7 +125,7 @@ class ParserController extends Controller {
                 ])->all();
         if (!empty($sites)) {
             foreach ($sites as $site) {
-                $page = $this->getPage($site->method_of_parsing, $site->source);
+                $page = $this->getPage($site->method_of_parsing, $site->source);                
                 if (!empty($page->getBody())) {
                     $rss = new RssParser($page);
                 }
@@ -172,10 +210,7 @@ class ParserController extends Controller {
                                 $tags = $post->getTags();
                                 //add uniqe tags to tag table
                                 foreach ($tags as $tag) {
-                                    $len = strlen($tag->tag)-1;
-                                    if (!preg_match("/[^a-zA-ZА-Яа-я0-9\s]/", $tag->tag[$len])) {
-                                        $tag->tag = mb_substr($tag->tag, 0, -1);
-                                    }
+                                    $tag->tag = preg_replace("/[^\p{L}0-9 ]/iu", '', $tag->tag);
                                     $tag->tag = $this->strProcessing($tag->tag);
                                     if ($tag->validate()) {
                                         $tag->save();
@@ -199,27 +234,26 @@ class ParserController extends Controller {
                                 if (!empty($content['text'])) {
 
                                     $tags_from_text = MorthySearch::getTagsFromText(trim($content['text']));
-
                                     $tags_from_title = MorthySearch::getTagsFromTitle(trim($content['title']));
 
-
                                     $tags = array_merge($tags_from_text, $tags_from_title);
-
+                                    // var_dump($tags);
+                                    // die;
+                                    //array(7) { [0]=> string(12) "боевик" [1]=> string(22) "организация" [2]=> string(6) "днр" [3]=> string(26) "красногоровка" [4]=> string(10) "глава" [5]=> string(20) "нацполиция" [6]=> string(12) "боевик" }
                                     foreach ($tags as $tag) {
                                         $new_tag = new Tags();
                                         $new_tag->tag = $tag;
                                         $tagId = (new \yii\db\Query())
-                                                    ->select(['tag_id'])
-                                                    ->from('Tags')
-                                                    ->where([
-                                                        'tag' => $new_tag->tag,
-                                                    ])->one();
+                                                        ->select(['tag_id'])
+                                                        ->from('Tags')
+                                                        ->where([
+                                                            'tag' => $new_tag->tag,
+                                                        ])->one();
                                         if (empty($tagId)) {
                                             if ($new_tag->validate()) {
                                                 $new_tag->save();
                                                 $tagId = Yii::$app->db->getLastInsertID();
                                             }
-
                                         }
                                         $postToTag = new \app\models\ArticlesToTags();
                                         $postToTag->article_id = $contentId;
@@ -245,7 +279,7 @@ class ParserController extends Controller {
     }
 
     private function getPage($method, $link) {
-        if ($method == 'Phantom') {
+        if ($method == 'Phantom') {            
             return new PageParserPhantom($link);
         }
         if ($method == 'cURL') {

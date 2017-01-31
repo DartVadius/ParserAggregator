@@ -18,7 +18,7 @@
                             <p class="small">Источник: <?php echo $item->sourse; ?></p>
                         </div>
                     </div>
-                </div>                
+                </div>
             <?php endforeach ?>
             <?= \yii\widgets\LinkPager::widget(['pagination' => $pages]) ?>
         <?php endif; ?>
@@ -26,9 +26,9 @@
     <div class="col-md-3 col-sm-3" role="complementary">
         <nav class="bs-docs-sidebar hidden-print hidden-sm hidden-xs affix-top">
             <ul class="nav bs-docs-sidenav">
-<!--                --><?php //foreach ($geoCity as $city): ?>
-<!--                <li>--><?php //echo $city ?><!--</li>-->
-<!--                --><?php //endforeach ?>
+                <!--                --><?php //foreach ($geoCity as $city): ?>
+                <!--                <li>--><?php //echo $city ?><!--</li>-->
+                <!--                --><?php //endforeach ?>
             </ul>
         </nav>
     </div>

@@ -12,7 +12,6 @@ use app\models\Tags;
 use app\models\ArticlesToTags;
 use app\models\Category;
 
-
 class GlobalController extends Controller {
 
     protected function geoLock($ip = NULL) {
@@ -40,7 +39,6 @@ class GlobalController extends Controller {
         //$radius = 10;
         //$result['nearby'] = $geoplugin->nearby(10);
         return $result;
-
     }
 
     protected function translate($text, $source = 'en', $target = 'ru') {
@@ -51,6 +49,21 @@ class GlobalController extends Controller {
     protected function strProcessing($str) {
         $str = trim($str);
         return mb_strtolower($str);
+    }
+    
+    protected function getGeoData ($geo) {
+        
+        $geoCity = $this->findArtByGeo($geo['city']);
+
+        if (count($geoCity) < 10) {
+            $geoRegion = $this->findArtByGeo($geo['region']);
+            $geoCity = array_merge($geoCity, $geoRegion);
+        }
+        if (count($geoCity) < 10) {
+            $geoCountry = $this->findArtByGeo($geo['country']);
+            $geoCity = array_merge($geoCity, $geoCountry);
+        }
+        return $geoCity;
     }
 
     protected function findArtByGeo($geo) {
@@ -71,27 +84,5 @@ class GlobalController extends Controller {
                         ->orderBy('article_create_datetime desc')
                         ->all();
     }
-
-    public static function getGeolocation(){
-        
-//
-        $ip = '94.244.22.168';
-        $geo = self::geoLock($ip);
-        $geoCity = self::findArtByGeo($geo['city']);
-
-        if (count($geoCity) < 10) {
-            $geoRegion = self::findArtByGeo($geo['region']);
-            $geoCity = array_merge($geoCity, $geoRegion);
-        }
-        if (count($geoCity) < 10) {
-            $geoCountry = self::findArtByGeo($geo['country']);
-            $geoCity = array_merge($geoCity, $geoCountry);
-        }
-
-        return $geoCity;
-    }
-//        $categories = \app\models\Category::find()->orderBy('id')->all();
-//        return $categories;
-
 
 }

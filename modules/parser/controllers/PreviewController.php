@@ -42,10 +42,4 @@ class PreviewController extends Controller {
     }
 
 
-    
-//    private function strProcessing($str) {
-//        $str = trim($str);
-//        return mb_strtolower($str); //Приведение строки к нижнему регистру
-//    }
-
 }

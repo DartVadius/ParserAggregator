@@ -92,9 +92,9 @@ a.desc:after {
 
 /* align the logout "link" (button in form) of the navbar */
 .nav li > form > button.logout {
-    /*padding: 15px;*/
+    padding: 15px;
     border: none;
-    color: black;
+    /*color: black;*/
 }
 .nav > li > a:hover, .nav > li > a:focus {
     background-color: transparent;
@@ -227,7 +227,7 @@ tbody tr td {
 .nav > li > a {
     position: relative;
     display: block;
-    padding: 4px 15px;
+    /*padding: 4px 15px;*/
 }
 .d_none{
     display: none;

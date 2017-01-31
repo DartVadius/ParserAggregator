@@ -33,8 +33,9 @@ AppAsset::register($this);
         ['label' => 'RSS', 'url' => ['/admin/post/index']],
         ['label' => 'Статьи', 'url' => ['/admin/articles/index']],
         ['label' => 'Категории', 'url' => ['/admin/category/']],
-        ['label' => 'Парсер', 'url' => ['../parser/parser/rss']],
-        ['label' => 'Превью', 'url' => ['../preview/preview/index']],
+        ['label' => 'Парсер RSS', 'url' => ['../parser/parser/rss']],
+        ['label' => 'Парсер Post', 'url' => ['../parser/parser/post']],
+        ['label' => 'Превью', 'url' => ['../parser/parser/test']],
         ['label' => 'Пользователи', 'url' => ['/rbac/default/index']],
         Yii::$app->user->isGuest ? (
         ['label' => 'Войти', 'url' => ['/site/login']]
