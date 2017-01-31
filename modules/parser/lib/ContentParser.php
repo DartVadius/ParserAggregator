@@ -46,7 +46,7 @@ class ContentParser {
                 }
                 array_push($this->img, $images);
             }
-            pq($document)->find($rules['find']['img'])->remove();
+            pq($body)->find($rules['find']['img'])->remove();
         }
 
         if (!empty($rules['find']['video'])) {
