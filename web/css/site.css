@@ -175,7 +175,7 @@ nav.top-menu {
     background: #e63816;
 }
 .panel-body img {
-    width: 50%;
+    width: 350px;
     float: left;
     margin: 0px 20px 20px 0;
 }
@@ -232,7 +232,23 @@ tbody tr td {
 .d_none{
     display: none;
 }
-
+.panel-title{
+    text-align: center;
+    font-size: 30px;
+}
+.dummy__item li > a{
+    padding: 4px 15px;
+}
+.dummy__item li > form > button.logout{
+    padding:0;
+    color: black;
+}
+.dummy__item ul li button:hover{
+    color: black;
+}
+.panel-body {
+    text-align: justify;
+}
 /*media*/
 @media (min-width: 320px) {
     .container {
@@ -365,12 +381,7 @@ tbody tr td {
         border: 1px solid transparent;
         border-radius: 28px;
     }
-    .glyphicon{
-        font-size: 26px;
-        color: white;
-    }
-
-    .glyphicon{
+    .clr{
         font-size: 26px;
         color: white;
     }

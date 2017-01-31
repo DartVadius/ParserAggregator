@@ -27,10 +27,11 @@
         <nav class="bs-docs-sidebar hidden-print hidden-sm hidden-xs affix-top">
             <ul class="nav bs-docs-sidenav">
                 <?php foreach ($geoCity as $city): ?>
-                    <li><?php echo $city ?></li>
+                    <li><a href="<?= \yii\helpers\Url::to(['article/view', 'link' => $city['article_id']]); ?>"><?= $city['title'] ?></a></li>
                 <?php endforeach ?>
             </ul>
         </nav>
     </div>
 </div>
+<?php \yii\helpers\Url::remember(); ?>
 

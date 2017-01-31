@@ -1,7 +1,7 @@
 <?php if (!empty($article)) : ?>
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title"><?php echo $article->title ?></h3>
+            <h2 class="panel-title"><?php echo $article->title ?></h2>
         </div>
         <div class="panel-body">
             <?php  if($img != null) : ?>
@@ -33,7 +33,7 @@
             </div>
 
         </div>
-
-        <div><a href="<?= \yii\helpers\Url::to(['/']); ?>">Вернуться</a></div>
+        
+        <div><a href="<?= \yii\helpers\Url::previous(); ?>">Вернуться</a></div>
     </div>
 <?php endif; ?>
