@@ -29,6 +29,8 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
         'js/main.js',
+        'js/bootstrap.min.js',
+        'js/jquery-3.1.1.min.js',
         'js/jquery.colorbox.js',
         'js/segment.min.js',
         'js/ease.min.js',

@@ -2,6 +2,10 @@ $(document).ready(function() {
     //Examples of how to assign the Colorbox event to elements
     $(".group1").colorbox({rel:'group1'});
 
+    $("#menu-icon-trigger").click(function() {
+        $( ".dummy" ).toggleClass( "d_none" );
+    });
+
     (function() {
         /* In animations (to close icon) */
 
@@ -98,7 +102,7 @@ $(document).ready(function() {
                 outB(segmentB);
                 outAC(segmentC);
 
-                dummy.className = 'dummy';
+                dummy.className = 'dummy d_none';
             }
             toCloseIcon = !toCloseIcon;
         };

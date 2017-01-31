@@ -162,7 +162,8 @@
 .dummy__item {
 	text-align: center;
 	padding: 12px;
-	/*height: 3em;*/
+	width: 189px;
+	height: 52px;
 	margin: 1em 0.25em;
 	/*pointer-events: none;*/
 	border-radius: 4px;
@@ -269,7 +270,7 @@ text-decoration: none;
 		padding: 3em 1em;
 	}
 	.device {
-		width: 100%;
+		/*width: 100%;*/
 		height: auto;
 		background-image: none;
 	}

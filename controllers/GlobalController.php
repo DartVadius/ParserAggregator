@@ -29,12 +29,12 @@ class GlobalController extends Controller {
         $result['city'] = $geoplugin->city;
         $result['region'] = $geoplugin->region;
         $result['country'] = $geoplugin->countryName;
-        $result['country'] = $this->translate($result['country']);
-        $result['country'] = $this->strProcessing($result['country']);
-        $result['city'] = $this->translate($result['city']);
-        $result['city'] = $this->strProcessing($result['city']);
-        $result['region'] = $this->translate($result['region']);
-        $result['region'] = $this->strProcessing($result['region']);
+        $result['country'] = self::translate($result['country']);
+        $result['country'] = self::strProcessing($result['country']);
+        $result['city'] = self::translate($result['city']);
+        $result['city'] = self::strProcessing($result['city']);
+        $result['region'] = self::translate($result['region']);
+        $result['region'] = self::strProcessing($result['region']);
 
         //$radius = 10;
         //$result['nearby'] = $geoplugin->nearby(10);
@@ -83,11 +83,6 @@ class GlobalController extends Controller {
                         ->andWhere(['>', 'article_create_datetime', $date])
                         ->orderBy('article_create_datetime desc')
                         ->all();
-    }
-
-    public static function getCategories() {
-        $categories = \app\models\Category::find()->orderBy('id')->all();
-        return $categories;
     }
 
 }
