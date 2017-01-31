@@ -234,27 +234,12 @@ class ParserController extends Controller {
                                 if (!empty($content['text'])) {
 
                                     $tags_from_text = MorthySearch::getTagsFromText(trim($content['text']));
-
                                     $tags_from_title = MorthySearch::getTagsFromTitle(trim($content['title']));
 
-
-                                    $text_title = str_replace(MorthySearch::$punktuation_marks, "", $text);
-                                    $title_arr = explode(" ", $text_title);
-                                    foreach ($title_arr as $word) {
-                                        $tagId = (new \yii\db\Query())
-                                                        ->select(['tag_id'])
-                                                        ->from('Tags')
-                                                        ->where([
-                                                            'tag' => $word,
-                                                        ])->one();
-                                        if (!empty($tagId)) {
-                                            array_push($tags_from_title, $word);
-                                        }
-                                    }
-
-
                                     $tags = array_merge($tags_from_text, $tags_from_title);
-
+                                    // var_dump($tags);
+                                    // die;
+                                    //array(7) { [0]=> string(12) "боевик" [1]=> string(22) "организация" [2]=> string(6) "днр" [3]=> string(26) "красногоровка" [4]=> string(10) "глава" [5]=> string(20) "нацполиция" [6]=> string(12) "боевик" }
                                     foreach ($tags as $tag) {
                                         $new_tag = new Tags();
                                         $new_tag->tag = $tag;
