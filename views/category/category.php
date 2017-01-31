@@ -33,4 +33,5 @@
         </nav>
     </div>
 </div>
+<?php \yii\helpers\Url::remember(); ?>
 

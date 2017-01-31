@@ -96,7 +96,7 @@ AppAsset::register($this);
             </div><!-- /device -->
             <button class="navbar-toggle collapsed menu_btn" type="button" data-toggle="collapse" data-target="#top_menu" aria-expanded="false" aria-controls="collapseExample">
 
-                <span class="glyphicon glyphicon-paperclip"></span>
+                <span class="glyphicon glyphicon-paperclip clr"></span>
             </button>
         </div>
 
