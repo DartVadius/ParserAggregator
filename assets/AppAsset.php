@@ -26,6 +26,7 @@ class AppAsset extends AssetBundle
     public $images = [
         'images/controls.png',
         'images/loading.gif',
+        'images/Darth_vadar.jpg',
     ];
     public $js = [
         'js/main.js',

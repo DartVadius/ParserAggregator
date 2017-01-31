@@ -9,6 +9,8 @@
                                 <?php $img = \app\models\Images::find()->select('link_to_image')->where(['article_id' => $item->article_id])->column(); ?>
                                 <?php if ($img != null) : ?>
                                     <img class="img-responsive" src="<?php echo $img[0]; ?>">
+                                <?php else: ?>
+                                    <img class="img-responsive" src="../web/images/Darth_vadar.jpg">
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -33,3 +35,4 @@
         </nav>
     </div>
 </div>
+<?php \yii\helpers\Url::remember(); ?>
