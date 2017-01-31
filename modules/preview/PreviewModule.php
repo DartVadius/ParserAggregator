@@ -11,6 +11,7 @@ class PreviewModule extends \yii\base\Module {
      * @inheritdoc
      */
     public $controllerNamespace = 'app\modules\preview\controllers';
+    public $layout = '/admin';
     /**
      * @inheritdoc
      */

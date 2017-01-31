@@ -1,4 +1,6 @@
-<?php if (count($model)): ?>
+<div class="row">
+    <?php if (count($model)): ?>
+    <div class="col-md-9 col-sm-9" role="main">
     <?php foreach ($model as $item): ?>
         <div class="well">
             <div class="row">
@@ -19,6 +21,16 @@
         </div>
     <?php endforeach ?>
     <?= \yii\widgets\LinkPager::widget(['pagination' => $pages]) ?>
-
-<?php endif; ?>
+    <?php endif; ?>
+    </div>
+    <div class="col-md-3 col-sm-3" role="complementary">
+        <nav class="bs-docs-sidebar hidden-print hidden-sm hidden-xs affix-top">
+            <ul class="nav bs-docs-sidenav">
+<!--                --><?php //foreach ($geoCity as $city): ?>
+<!--                    <li>--><?php //echo $city ?><!--</li>-->
+<!--                --><?php //endforeach ?>
+            </ul>
+        </nav>
+    </div>
+</div>
 

@@ -38,6 +38,8 @@ AppAsset::register($this);
 //    ]);
 
 ?>
+<header>
+<div class="top_header">
     <div class="device">
         <div class="device__screen">
             <div id="menu-icon-wrapper" class="menu-icon-wrapper" style="visibility: hidden">
@@ -49,8 +51,16 @@ AppAsset::register($this);
                 <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
             </div><!-- menu-icon-wrapper -->
             <div id="dummy" class="dummy">
+                <div class="dummy__item">
+                    <?php echo Nav::widget([
+                        'items' => [
+                            ['label' => 'Главная', 'url' => [Yii::$app->homeUrl]],
+                        ],
+
+                    ]); ?>
+                </div>
                 <?php if(  Yii::$app->user->isGuest): ?>
-                <div class="dummy__item"><a href="http://aggregator/site/signup">Регистрация</a></div>
+                    <div class="dummy__item"><a href="http://aggregator/site/signup">Регистрация</a></div>
                 <?php endif; ?>
                 <div class="dummy__item">
                     <?php echo Nav::widget([
@@ -68,31 +78,37 @@ AppAsset::register($this);
                                 . '</li>'
                             ),
                         ],
-
                     ]); ?>
                 </div>
                 <?php if( Yii::$app->user->getId() == 1): ?>
-                <div class="dummy__item">
-                    <?php echo Nav::widget([
-                        'items' => [
-                            Yii::$app->user->getId() == 1 ? (['label' => 'Admin', 'url' => ['/admin/sites']]) :
-                                (['label' => false, 'url' => false]),
-                        ],
+                    <div class="dummy__item">
+                        <?php echo Nav::widget([
+                            'items' => [
+                                Yii::$app->user->getId() == 1 ? (['label' => 'Admin', 'url' => ['/admin/sites']]) :
+                                    (['label' => false, 'url' => false]),
+                            ],
 
-                    ]); ?>
-                </div>
+                        ]); ?>
+                    </div>
                 <?php endif; ?>
             </div><!-- /dummy -->
         </div><!-- /device-content -->
     </div><!-- /device -->
-    <nav class="top-menu">
-        <ul>
+    <button class="navbar-toggle collapsed menu_btn" type="button" data-toggle="collapse" data-target="#top_menu" aria-expanded="false" aria-controls="collapseExample">
+
+        <span class="glyphicon glyphicon-paperclip"></span>
+    </button>
+</div>
+
+    <nav class="top-menu collapse navbar-collapse" id="top_menu">
+        <ul class="menu">
             <?php foreach (Category::find()->orderBy('id')->all() as $category): ?>
                 <li><a href="<?= \yii\helpers\Url::to(['category/category', 'link' => $category->id]); ?>"><?php echo $category->category_name ?></a></li>
             <?php endforeach ?>
         </ul>
     </nav>
-    
+
+</header>
 <?php
 
 
