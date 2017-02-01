@@ -119,7 +119,7 @@ class ParserController extends Controller {
          * @todo сделать конфиг для дефолтной категории?!
          */
         //echo $_SERVER['HTTP_CLIENT_IP'];
-        if ((getenv('HTTP_X_REAL_IP') == '127.0.0.1') && ($_SESSION['__id'] == 1)) {
+        if ((getenv('HTTP_X_REAL_IP') == '127.0.0.1') || ((!empty($_SESSION['__id'])) && ($_SESSION['__id'] == 1))) {
             $defaultCategory = 1;
             $sites = Sites::find()->where([
                         'make_parsing' => '1'
@@ -169,7 +169,7 @@ class ParserController extends Controller {
         
     public function actionPost() {
 
-        if ((getenv('HTTP_X_REAL_IP') == '127.0.0.1') && ($_SESSION['__id'] == 1)) {
+        if ((getenv('HTTP_X_REAL_IP') == '127.0.0.1') || ((!empty($_SESSION['__id'])) && ($_SESSION['__id'] == 1))) {
             $sites = Sites::find()->where([
                     'make_parsing' => '1'
                 ])->all();
