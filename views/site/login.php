@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 Для нового пользователя вы можете <?= Html::a('зарегистрироваться', ['site/signup']) ?>.
             </div>
             <div class="form-group">
-                <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                <?= Html::submitButton('Логин', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
             </div>
             <?php ActiveForm::end(); ?>
         </div>
