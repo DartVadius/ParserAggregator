@@ -10,7 +10,8 @@ namespace app\modules\parser\lib;
 class PageParserCurl extends PageParser {
 
     /**
-     *
+     * getting page content by cURL
+     * 
      * @param string $url
      */
     public function __construct($url) {

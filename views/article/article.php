@@ -4,7 +4,7 @@
             <h2 class="panel-title"><?php echo $article->title ?></h2>
         </div>
         <div class="panel-body">
-            <?php  if($img != null) : ?>
+            <?php if ($img != null) : ?>
                 <img src="<?php echo $img[0]->link_to_image; ?>">
             <?php endif; ?>
 
@@ -25,15 +25,15 @@
                 <?php endforeach ?>
             </div>
             <br>
-            <div class="article_tags">               
-                    <?php foreach ($tags as $tag): ?>
-                <b><a href="<?= \yii\helpers\Url::to(['site/tag', 'link' => $tag['tag_id']]); ?>"><?php echo $tag['tag']; ?></a></b>
-                    <?php endforeach ?>
+            <div class="article_tags">
+                <?php foreach ($tags as $tag): ?>
+                    <b><a href="<?= \yii\helpers\Url::to(['site/tag', 'link' => $tag['tag_id']]); ?>"><?php echo $tag['tag']; ?></a></b>
+                <?php endforeach ?>
 
             </div>
 
         </div>
-        
+
         <div><a href="<?= \yii\helpers\Url::previous(); ?>">Вернуться</a></div>
     </div>
 <?php endif; ?>

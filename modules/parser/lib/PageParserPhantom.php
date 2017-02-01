@@ -10,7 +10,8 @@ use PhantomInstaller\PhantomBinary;
  */
 class PageParserPhantom extends PageParser {
     /**
-     *
+     * getting page content by PhantomJS browser
+     * 
      * @param string $url
      */
     public function __construct($url) {

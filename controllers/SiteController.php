@@ -75,8 +75,7 @@ class SiteController extends GlobalController {
 
     }
 
-    public function actionTag($link) {
-        
+    public function actionTag($link) {        
 
         $articles = (new \yii\db\Query())
                 ->select(['Articles.*'])

@@ -1,7 +1,6 @@
 <?php 
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
-use yii\widgets\Pjax;
 ?>
 
 <?php $testForm = ActiveForm::begin([

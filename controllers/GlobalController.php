@@ -29,12 +29,12 @@ class GlobalController extends Controller {
         $result['city'] = $geoplugin->city;
         $result['region'] = $geoplugin->region;
         $result['country'] = $geoplugin->countryName;
-        $result['country'] = self::translate($result['country']);
-        $result['country'] = self::strProcessing($result['country']);
-        $result['city'] = self::translate($result['city']);
-        $result['city'] = self::strProcessing($result['city']);
-        $result['region'] = self::translate($result['region']);
-        $result['region'] = self::strProcessing($result['region']);
+        $result['country'] = $this->translate($result['country']);
+        $result['country'] = $this->strProcessing($result['country']);
+        $result['city'] = $this->translate($result['city']);
+        $result['city'] = $this->strProcessing($result['city']);
+        $result['region'] = $this->translate($result['region']);
+        $result['region'] = $this->strProcessing($result['region']);
 
         //$radius = 10;
         //$result['nearby'] = $geoplugin->nearby(10);
@@ -50,9 +50,9 @@ class GlobalController extends Controller {
         $str = trim($str);
         return mb_strtolower($str);
     }
-    
-    protected function getGeoData ($geo) {
-        
+
+    protected function getGeoData($geo) {
+
         $geoCity = $this->findArtByGeo($geo['city']);
 
         if (count($geoCity) < 10) {
