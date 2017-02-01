@@ -118,57 +118,61 @@ class ParserController extends Controller {
          *
          * @todo сделать конфиг для дефолтной категории?!
          */
-        $defaultCategory = 1;
-
-        $sites = Sites::find()->where([
-                    'make_parsing' => '1'
-                ])->all();
-        if (!empty($sites)) {
-            foreach ($sites as $site) {
-                $page = $this->getPage($site->method_of_parsing, $site->source);
-                if (!empty($page->getBody())) {
-                    $rss = new RssParser($page);
-                }
-                if (!empty($rss)) {
-
-                    $rss = $rss->getUniquePosts();
-
-                    foreach ($rss as $rssItem) {
-                        $category = Category::find()->all();
-                        $newCat = $this->strProcessing($rssItem->category);
-                        $k = NULL;
-                        if (!empty($newCat)) {
-                            foreach ($category as $value) {
-                                $cat = explode(',', $value['synonyms']);
-                                $cat = array_map(array($this, 'strProcessing'), $cat);
-                                $k = array_search($newCat, $cat);
-                                if ($k !== NULL && $k !== FALSE) {
-                                    $k = $value['id'];
-                                    break;
+        //echo $_SERVER['HTTP_CLIENT_IP'];
+        if (getenv('REMOTE_ADDR') == '127.0.0.1') {
+            $defaultCategory = 1;
+            $sites = Sites::find()->where([
+                        'make_parsing' => '1'
+                    ])->all();
+            if (!empty($sites)) {
+                foreach ($sites as $site) {
+                    $page = $this->getPage($site->method_of_parsing, $site->source);
+                    if (!empty($page->getBody())) {
+                        $rss = new RssParser($page);
+                    }
+                    if (!empty($rss)) {
+                        $rss = $rss->getUniquePosts();
+                        foreach ($rss as $rssItem) {
+                            $category = Category::find()->all();
+                            $newCat = $this->strProcessing($rssItem->category);
+                            $k = NULL;
+                            if (!empty($newCat)) {
+                                foreach ($category as $value) {
+                                    $cat = explode(',', $value['synonyms']);
+                                    $cat = array_map(array($this, 'strProcessing'), $cat);
+                                    $k = array_search($newCat, $cat);
+                                    if ($k !== NULL && $k !== FALSE) {
+                                        $k = $value['id'];
+                                        break;
+                                    }
                                 }
                             }
+                            if ($k) {
+                                $rssItem->category = $k;
+                            } else {
+                                $rssItem->category = $defaultCategory;
+                            }
+                            $rssItem->save();
                         }
-                        if ($k) {
-                            $rssItem->category = $k;
-                        } else {
-                            $rssItem->category = $defaultCategory;
-                        }
-                        $rssItem->save();
                     }
                 }
             }
+            if (empty($rssItem)) {
+                $rssItem = NULL;
+            }
+            return $this->render('index', ['info' => $rssItem]);
+        } else {
+            //Yii::$app()->runAction('site/index'); //на другой контролер
+            $this->redirect(\Yii::$app->urlManager->createUrl("site/index"));
         }
-        if (empty($rssItem)) {
-            $rssItem = NULL;
-        }
-        return $this->render('index', ['info' => $rssItem]);
     }
-
+        
     public function actionPost() {
-        $sites = Sites::find()->where([
+
+        if (getenv('REMOTE_ADDR') == '127.0.0.1') {
+            $sites = Sites::find()->where([
                     'make_parsing' => '1'
                 ])->all();
-
         if (!empty($sites)) {
             foreach ($sites as $site) {
                 $list = (new \yii\db\Query())
@@ -185,7 +189,6 @@ class ParserController extends Controller {
                                     'link_to_article' => null,
                                     'source' => $site->name,
                                 ])->all();
-
                 foreach ($list as $article) {
                     $page = $this->getPage($site->method_of_parsing, $article['link']);
                     if (!empty($page->getBody())) {
@@ -231,15 +234,15 @@ class ParserController extends Controller {
                                     }
                                 }
                             } else {
-                                if (!empty($content['text'])) {
+                                if (!empty($content['text']) && !empty($content['title'])) {
 
-                                    $tags_from_text = MorthySearch::getTagsFromText(trim($content['text']));
-                                    $tags_from_title = MorthySearch::getTagsFromTitle(trim($content['title']));
+                                    //    do not delete!
+                                    // $tags_from_text = MorthySearch::getTagsFromText(trim($content['text']));
+                                    // $tags_from_title = MorthySearch::getTagsFromTitle(trim($content['title']));
+                                    // $tags = array_merge($tags_from_text, $tags_from_title);
+                                    
+                                    $tags = MorthySearch::getTagsFromTitle(trim($content['title']));
 
-                                    $tags = array_merge($tags_from_text, $tags_from_title);
-                                    // var_dump($tags);
-                                    // die;
-                                    //array(7) { [0]=> string(12) "боевик" [1]=> string(22) "организация" [2]=> string(6) "днр" [3]=> string(26) "красногоровка" [4]=> string(10) "глава" [5]=> string(20) "нацполиция" [6]=> string(12) "боевик" }
                                     foreach ($tags as $tag) {
                                         $new_tag = new Tags();
                                         $new_tag->tag = $tag;
@@ -273,7 +276,12 @@ class ParserController extends Controller {
             $content = NULL;
         }
         return $this->render('index', ['info' => $content]);
+        } else {
+            $this->redirect(\Yii::$app->urlManager->createUrl("site/index"));
+        }
+
     }
+        
 
     private function strProcessing($str) {
         $str = mb_strtolower($str);
