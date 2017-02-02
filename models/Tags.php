@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use app\models\Users_To_Tags;
 
 /**
  * This is the model class for table "Tags".
