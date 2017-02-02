@@ -67,6 +67,7 @@ class GlobalController extends Controller {
     }
 
     protected function findArtByGeo($geo) {
+        $artList = [];
         $date = new \DateTime();
         $date->modify('-7 days');
         $date->format('Y-m-d H:i:s');
@@ -81,6 +82,7 @@ class GlobalController extends Controller {
                             'like', 'tag', $geo
                         ])
                         ->andWhere(['>', 'article_create_datetime', $date])
+                        ->groupBy('Articles.article_id')
                         ->orderBy('article_create_datetime desc')
                         ->all();
     }

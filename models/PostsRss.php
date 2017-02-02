@@ -49,9 +49,12 @@ class PostsRss extends \yii\db\ActiveRecord {
             'date' => 'Date',
         ];
     }
+
     /**
-     * override the value of the variable $category - 
+     * override the value of the variable $category -
      * replace string received from the parser by category ID from the database
+     *
+     * @return boolean
      */
     public function setCategory() {
         /**
@@ -78,11 +81,12 @@ class PostsRss extends \yii\db\ActiveRecord {
         } else {
             $this->category = $defaultCategory;
         }
+        return TRUE;
     }
-    
+
     /**
      * string treatment
-     * 
+     *
      * @param string $str
      * @return string
      */

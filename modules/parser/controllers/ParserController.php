@@ -2,6 +2,7 @@
 
 namespace app\modules\parser\controllers;
 
+use odannyc\GoogleImageSearch\ImageSearch;
 use Yii;
 use yii\web\Controller;
 use app\modules\parser\lib\PageParserCurl;
@@ -112,7 +113,7 @@ class ParserController extends Controller {
     }
 
     /**
-     * iterate links to articles, parse the information and entered into the database
+     * iterate links to articles, parse the information and save into the database
      *
      */
     public function actionPost() {
@@ -156,7 +157,11 @@ class ParserController extends Controller {
                                         $img->save();
                                     }
                                 }
-                            }
+                            } //else {
+//                                ImageSearch::config()->apiKey('AIzaSyDuIBIQPF0DuQrCQaP08jO8EHth427P1cA');
+//                                ImageSearch::config()->cx('002076275955567998574:xjgdm_ckmdc');
+//                                print_r(ImageSearch::search($content->title, ['num' => 1, 'imgSize' => 'large']));
+//                            }
                             if (!empty($post->getTags())) {
                                 $tags = $post->getTags();
                                 //add uniqe tags to tag table

@@ -28,7 +28,8 @@
         "mdmsoft/yii2-admin": "~2.0",
         "jakoch/phantomjs-installer": "2.1.1-p08",
         "stichoza/google-translate-php": "~3.2",
-        "umisoft/phpmorphy": "^1.0"
+        "umisoft/phpmorphy": "^1.0",
+        "odannyc/google-image-search": "^1.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
