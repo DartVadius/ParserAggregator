@@ -45,4 +45,21 @@ class UsersToTags extends \yii\db\ActiveRecord
             'count_tag' => 'Count Tag',
         ];
     }
+
+    public function addHystory($tags) 
+    {
+        $user_id = $_SESSION['__id'];
+        foreach ($tags as $tag) {
+            $model = $this->findOne(['user_id' => $user_id, 'tag_id' => $tag['tag_id']]);
+            if (!empty($model)) {
+                $model->updateCounters(['count_tag' => 1]);
+            } else {
+                $model = new UsersToTags();
+                $model->user_id = $user_id;
+                $model->tag_id = $tag['tag_id'];
+                $model->count_tag = 1;
+                $model->save();
+            }
+        }
+    }
 }

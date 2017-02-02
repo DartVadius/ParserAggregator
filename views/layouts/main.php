@@ -50,7 +50,7 @@ AppAsset::register($this);
                         </svg>
                         <button id="menu-icon-trigger" class="menu-icon-trigger"></button>
                     </div><!-- menu-icon-wrapper -->
-                    <div id="dummy" class="dummy">
+                    <div id="dummy" class="dummy d_none">
                         <div class="dummy__item">
                             <?php echo Nav::widget([
                                 'items' => [
@@ -60,7 +60,14 @@ AppAsset::register($this);
                             ]); ?>
                         </div>
                         <?php if(  Yii::$app->user->isGuest): ?>
-                            <div class="dummy__item"><a href="http://aggregator/site/signup">Регистрация</a></div>
+                            <div class="dummy__item">
+                                <?php echo Nav::widget([
+                                    'items' => [
+                                        ['label' => 'Регистрация', 'url' => ['/site/signup']]
+                                    ],
+
+                                ]); ?>
+                            </div>
                         <?php endif; ?>
                         <div class="dummy__item">
                             <?php echo Nav::widget([
@@ -151,7 +158,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; Agregator <?= date('Y') ?></p>
+        <p class="pull-left">&copy; Aggregator <?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>

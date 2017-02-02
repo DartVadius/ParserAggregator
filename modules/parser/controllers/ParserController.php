@@ -82,34 +82,39 @@ class ParserController extends Controller {
      *
      */
     public function actionRss() {
-        //get list of the parsing sources
-        $sites = Sites::find()->where([
-                    'make_parsing' => '1'
-                ])->all();
-        if (!empty($sites)) {
-            foreach ($sites as $site) {
-                //get the page content by a predetermined method
-                $page = $this->getPage($site->method_of_parsing, $site->source);
-                //get the collection of PostsRss objects
-                if (!empty($page->getBody())) {
-                    $rss = new RssParser($page);
-                }
-                if (!empty($rss)) {
-                    //get the unique (missing in the database) PostsRss objects from collection
-                    $rss = $rss->getUniquePosts();
+        if ((getenv('HTTP_X_REAL_IP') == '127.0.0.1') || ((!empty($_SESSION['__id'])) && ($_SESSION['__id'] == 1))) {
+            //get list of the parsing sources
+            $sites = Sites::find()->where([
+                        'make_parsing' => '1'
+                    ])->all();
+            if (!empty($sites)) {
+                foreach ($sites as $site) {
+                    //get the page content by a predetermined method
+                    $page = $this->getPage($site->method_of_parsing, $site->source);
+                    //get the collection of PostsRss objects
+                    if (!empty($page->getBody())) {
+                        $rss = new RssParser($page);
+                    }
+                    if (!empty($rss)) {
+                        //get the unique (missing in the database) PostsRss objects from collection
+                        $rss = $rss->getUniquePosts();
 
-                    //redefining the category by the database settings and save PostsRss
-                    foreach ($rss as $rssItem) {//
-                        $rssItem->setCategory();
-                        $rssItem->save();
+                        //redefining the category by the database settings and save PostsRss
+                        foreach ($rss as $rssItem) {//
+                            $rssItem->setCategory();
+                            $rssItem->save();
+                        }
                     }
                 }
+                if (empty($rssItem)) {
+                    $rssItem = NULL;
+                }
+                return $this->render('index', ['info' => $rssItem]);
             }
+        } else {
+            //Yii::$app()->runAction('site/index'); //на другой контролер
+            $this->redirect(\Yii::$app->urlManager->createUrl("site/index"));
         }
-        if (empty($rssItem)) {
-            $rssItem = NULL;
-        }
-        return $this->render('index', ['info' => $rssItem]);
     }
 
     /**
@@ -117,105 +122,106 @@ class ParserController extends Controller {
      *
      */
     public function actionPost() {
-        $sites = Sites::find()->where([
-                    'make_parsing' => '1'
-                ])->all();
 
-        if (!empty($sites)) {
-            foreach ($sites as $site) {
-                $list = (new \yii\db\Query())
-                                ->select([
-                                    'posts_rss.source',
-                                    'posts_rss.link',
-                                    'posts_rss.category',
-                                    'posts_rss.date',
-                                    'Articles.link_to_article'
-                                ])
-                                ->from('posts_rss')
-                                ->leftJoin('Articles', 'link = link_to_article')
-                                ->where([
-                                    'link_to_article' => null,
-                                    'source' => $site->name,
-                                ])->all();
-
-                foreach ($list as $article) {
-                    $page = $this->getPage($site->method_of_parsing, $article['link']);
-                    if (!empty($page->getBody())) {
-                        $settings = json_decode($site->parsing_settings, TRUE);
-                        $post = new ContentParser($page, $settings);
-                        if (!empty($post->getContent())) {
-                            $content = $post->getContent();
-                            $content->article_create_datetime = $article['date'];
-                            $content->category_id = $article['category'];
-                            $content->save();
-                            $contentId = Yii::$app->db->lastInsertID;
-                            if (!empty($post->getImg())) {
-                                $images = $post->getImg();
-                                foreach ($images as $img) {
-                                    $img->article_id = $contentId;
-                                    if ($img->validate()) {
-                                        $img->save();
+        if ((getenv('HTTP_X_REAL_IP') == '127.0.0.1') || ((!empty($_SESSION['__id'])) && ($_SESSION['__id'] == 1))) {
+            $sites = Sites::find()->where([
+                        'make_parsing' => '1'
+                    ])->all();
+            if (!empty($sites)) {
+                foreach ($sites as $site) {
+                    $list = (new \yii\db\Query())
+                                    ->select([
+                                        'posts_rss.source',
+                                        'posts_rss.link',
+                                        'posts_rss.category',
+                                        'posts_rss.date',
+                                        'Articles.link_to_article'
+                                    ])
+                                    ->from('posts_rss')
+                                    ->leftJoin('Articles', 'link = link_to_article')
+                                    ->where([
+                                        'link_to_article' => null,
+                                        'source' => $site->name,
+                                    ])->all();
+                    foreach ($list as $article) {
+                        $page = $this->getPage($site->method_of_parsing, $article['link']);
+                        if (!empty($page->getBody())) {
+                            $settings = json_decode($site->parsing_settings, TRUE);
+                            $post = new ContentParser($page, $settings);
+                            if (!empty($post->getContent())) {
+                                $content = $post->getContent();
+                                $content->article_create_datetime = $article['date'];
+                                $content->category_id = $article['category'];
+                                $content->save();
+                                $contentId = Yii::$app->db->lastInsertID;
+                                if (!empty($post->getImg())) {
+                                    $images = $post->getImg();
+                                    foreach ($images as $img) {
+                                        $img->article_id = $contentId;
+                                        if ($img->validate()) {
+                                            $img->save();
+                                        }
                                     }
-                                }
-                            } //else {
+                                } //else {
 //                                ImageSearch::config()->apiKey('AIzaSyDuIBIQPF0DuQrCQaP08jO8EHth427P1cA');
 //                                ImageSearch::config()->cx('002076275955567998574:xjgdm_ckmdc');
 //                                print_r(ImageSearch::search($content->title, ['num' => 1, 'imgSize' => 'large']));
 //                            }
-                            if (!empty($post->getTags())) {
-                                $tags = $post->getTags();
-                                //add uniqe tags to tag table
-                                foreach ($tags as $tag) {
-                                    $tag->tag = preg_replace("/[^\p{L}0-9 ]/iu", '', $tag->tag);
-                                    $tag->tag = $this->strProcessing($tag->tag);
-                                    if ($tag->validate()) {
-                                        $tag->save();
-                                    }
-                                }
-                                foreach ($tags as $tag) {
-                                    $tagId = (new \yii\db\Query())
-                                                    ->select(['tag_id'])
-                                                    ->from('Tags')
-                                                    ->where([
-                                                        'tag' => $tag->tag,
-                                                    ])->one();
-                                    $postToTag = new \app\models\ArticlesToTags();
-                                    $postToTag->article_id = $contentId;
-                                    $postToTag->tag_id = $tagId['tag_id'];
-                                    if ($postToTag->validate()) {
-                                        $postToTag->save();
-                                    }
-                                }
-                            } else {
-                                if (!empty($content['text'])) {
-
-                                    $tags_from_text = MorthySearch::getTagsFromText(trim($content['text']));
-                                    $tags_from_title = MorthySearch::getTagsFromTitle(trim($content['title']));
-
-                                    $tags = array_merge($tags_from_text, $tags_from_title);
-                                    // var_dump($tags);
-                                    // die;
-                                    //array(7) { [0]=> string(12) "боевик" [1]=> string(22) "организация" [2]=> string(6) "днр" [3]=> string(26) "красногоровка" [4]=> string(10) "глава" [5]=> string(20) "нацполиция" [6]=> string(12) "боевик" }
+                                if (!empty($post->getTags())) {
+                                    $tags = $post->getTags();
+                                    //add uniqe tags to tag table
                                     foreach ($tags as $tag) {
-                                        $new_tag = new Tags();
-                                        $new_tag->tag = $tag;
+                                        $tag->tag = preg_replace("/[^\p{L}0-9 ]/iu", '', $tag->tag);
+                                        $tag->tag = $this->strProcessing($tag->tag);
+                                        if ($tag->validate()) {
+                                            $tag->save();
+                                        }
+                                    }
+                                    foreach ($tags as $tag) {
                                         $tagId = (new \yii\db\Query())
                                                         ->select(['tag_id'])
                                                         ->from('Tags')
                                                         ->where([
-                                                            'tag' => $new_tag->tag,
+                                                            'tag' => $tag->tag,
                                                         ])->one();
-                                        if (empty($tagId)) {
-                                            if ($new_tag->validate()) {
-                                                $new_tag->save();
-                                                $tagId = Yii::$app->db->getLastInsertID();
-                                            }
-                                        }
                                         $postToTag = new \app\models\ArticlesToTags();
                                         $postToTag->article_id = $contentId;
-                                        $postToTag->tag_id = $tagId;
+                                        $postToTag->tag_id = $tagId['tag_id'];
                                         if ($postToTag->validate()) {
                                             $postToTag->save();
+                                        }
+                                    }
+                                } else {
+                                    if (!empty($content['text']) && !empty($content['title'])) {
+
+                                        //    do not delete!
+                                        // $tags_from_text = MorthySearch::getTagsFromText(trim($content['text']));
+                                        // $tags_from_title = MorthySearch::getTagsFromTitle(trim($content['title']));
+                                        // $tags = array_merge($tags_from_text, $tags_from_title);
+
+                                        $tags = MorthySearch::getTagsFromTitle(trim($content['title']));
+
+                                        foreach ($tags as $tag) {
+                                            $new_tag = new Tags();
+                                            $new_tag->tag = $tag;
+                                            $tagId = (new \yii\db\Query())
+                                                            ->select(['tag_id'])
+                                                            ->from('Tags')
+                                                            ->where([
+                                                                'tag' => $new_tag->tag,
+                                                            ])->one();
+                                            if (empty($tagId)) {
+                                                if ($new_tag->validate()) {
+                                                    $new_tag->save();
+                                                    $tagId = Yii::$app->db->getLastInsertID();
+                                                }
+                                            }
+                                            $postToTag = new \app\models\ArticlesToTags();
+                                            $postToTag->article_id = $contentId;
+                                            $postToTag->tag_id = $tagId;
+                                            if ($postToTag->validate()) {
+                                                $postToTag->save();
+                                            }
                                         }
                                     }
                                 }
@@ -224,11 +230,13 @@ class ParserController extends Controller {
                     }
                 }
             }
+            if (empty($content)) {
+                $content = NULL;
+            }
+            return $this->render('index', ['info' => $content]);
+        } else {
+            $this->redirect(\Yii::$app->urlManager->createUrl("site/index"));
         }
-        if (empty($content)) {
-            $content = NULL;
-        }
-        return $this->render('index', ['info' => $content]);
     }
 
     /**
