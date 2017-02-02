@@ -66,14 +66,14 @@ class SiteController extends GlobalController {
     public function actionIndex() {
         $articles = \app\models\Articles::find()->orderBy('article_create_datetime desc');
 
-        // if (!empty($_SESSION['__id'])) {
+        if (!empty($_SESSION['__id'])) {
             
-        //     $tags_hystory = new UsersToTags();
-        //     $tags = $tags_hystory->searchTagByUser();
+            $tags_hystory = new UsersToTags();
+            $tags = $tags_hystory->searchTagByUser();
 
-        //     $articles_search = new ArticlesSearch();
-        //     $articles_hystory = $articles_search->articlesByUserHystory($tags);
-        // }
+            $articles_search = new ArticlesSearch();
+            $articles_hystory = $articles_search->articlesByUserHystory($tags);
+        }
 
         $pages = new Pagination(['totalCount' => $articles->count(), 'pageSize' => 10, 'pageSizeParam' => false, 'forcePageParam' => false]);
         $model = $articles->offset($pages->offset)->limit($pages->limit)->all();
