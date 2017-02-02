@@ -10,21 +10,19 @@ use Yii;
  * @property integer $tag_id
  * @property string $tag
  */
-class Tags extends \yii\db\ActiveRecord
-{
+class Tags extends \yii\db\ActiveRecord {
+
     /**
      * @inheritdoc
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'Tags';
     }
 
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
             [['tag'], 'required'],
             [['tag'], 'string', 'max' => 45],
@@ -35,11 +33,11 @@ class Tags extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'tag_id' => 'Tag ID',
             'tag' => 'Tag',
         ];
     }
+
 }

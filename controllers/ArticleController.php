@@ -6,6 +6,7 @@ use app\models\Articles;
 use app\models\Images;
 use app\models\ArticlesToTags;
 use app\models\Tags;
+use app\models\UsersToTags;
 
 
 
@@ -21,6 +22,10 @@ class ArticleController extends GlobalController {
                 ->leftJoin('Tags', 'Articles_To_Tags.tag_id = Tags.tag_id')
                 ->where("Articles.article_id = $article->article_id")
                 ->all();
+        if (!empty($_SESSION['__id'])) {
+            $newTag = new UsersToTags();
+            $newTag->addHystory($tags);
+        }
         return $this->render('article', compact('article', 'img', 'tags'));
     }   
    

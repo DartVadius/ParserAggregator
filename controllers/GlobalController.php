@@ -29,12 +29,12 @@ class GlobalController extends Controller {
         $result['city'] = $geoplugin->city;
         $result['region'] = $geoplugin->region;
         $result['country'] = $geoplugin->countryName;
-        $result['country'] = $this::translate($result['country']);
-        $result['country'] = $this::strProcessing($result['country']);
-        $result['city'] = $this::translate($result['city']);
-        $result['city'] = $this::strProcessing($result['city']);
-        $result['region'] = $this::translate($result['region']);
-        $result['region'] = $this::strProcessing($result['region']);
+        $result['country'] = $this->translate($result['country']);
+        $result['country'] = $this->strProcessing($result['country']);
+        $result['city'] = $this->translate($result['city']);
+        $result['city'] = $this->strProcessing($result['city']);
+        $result['region'] = $this->translate($result['region']);
+        $result['region'] = $this->strProcessing($result['region']);
 
         //$radius = 10;
         //$result['nearby'] = $geoplugin->nearby(10);
@@ -50,9 +50,9 @@ class GlobalController extends Controller {
         $str = trim($str);
         return mb_strtolower($str);
     }
-    
-    protected function getGeoData ($geo) {
-        
+
+    protected function getGeoData($geo) {
+
         $geoCity = $this->findArtByGeo($geo['city']);
 
         if (count($geoCity) < 10) {
@@ -67,6 +67,7 @@ class GlobalController extends Controller {
     }
 
     protected function findArtByGeo($geo) {
+        $artList = [];
         $date = new \DateTime();
         $date->modify('-7 days');
         $date->format('Y-m-d H:i:s');
@@ -81,6 +82,7 @@ class GlobalController extends Controller {
                             'like', 'tag', $geo
                         ])
                         ->andWhere(['>', 'article_create_datetime', $date])
+                        ->groupBy('Articles.article_id')
                         ->orderBy('article_create_datetime desc')
                         ->all();
     }

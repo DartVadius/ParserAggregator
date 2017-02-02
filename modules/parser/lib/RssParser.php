@@ -11,6 +11,10 @@ use app\models\PostsRss;
  * @author DartVadius
  */
 class RssParser {
+    /**
+     *
+     * @var array collection of PostsRss objects
+     */
 
     private $rss = [];
 
@@ -27,7 +31,10 @@ class RssParser {
         'category' => 'category',
         'date' => 'pubDate'
     ];
-
+    /**
+     * 
+     * @param object $data PageParserCurl or PageParserPhantom objects
+     */
     public function __construct($data) {
         $document = phpQuery::newDocument($data->getBody());        
         $posts = $document->find('item');
@@ -42,7 +49,10 @@ class RssParser {
             array_push($this->rss, $rssPost);
         }
     }
-
+    /**
+     * 
+     * @return array collection of PostsRss objects
+     */
     public function getRSS() {
         return $this->rss;
     }
@@ -50,7 +60,7 @@ class RssParser {
     /**
      * Check RSS duplication in the database and make a selection of unique links
      * 
-     * @return array
+     * @return array of PostsRss objects
      */
     public function getUniquePosts() {
         $uniqueRSS = [];

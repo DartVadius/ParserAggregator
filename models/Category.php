@@ -11,21 +11,19 @@ use Yii;
  * @property string $category_name
  * @property string $synonyms
  */
-class Category extends \yii\db\ActiveRecord
-{
+class Category extends \yii\db\ActiveRecord {
+
     /**
      * @inheritdoc
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'category';
     }
 
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
             [['category_name'], 'required'],
             [['category_name'], 'string', 'max' => 125],
@@ -36,8 +34,7 @@ class Category extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'id' => 'ID',
             'category_name' => 'Category Name',
@@ -45,13 +42,13 @@ class Category extends \yii\db\ActiveRecord
         ];
     }
 
-    public static function getAll()
-    {
+    public static function getAll() {
         // $category = (new \yii\db\Query())
         //             ->select('id', 'category_name')
         //             ->from('category')
         //             ->orderBy('id')
         //             ->all();
         return Category::find()->orderBy('id')->all();
-    }
+    }   
+
 }

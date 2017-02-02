@@ -12,6 +12,7 @@ use app\models\PostsRss;
 use app\models\Tags;
 use app\models\ContactForm;
 use app\models\Category;
+use app\models\UsersToTags;
 use yii\data\Pagination;
 
 class SiteController extends GlobalController {
@@ -67,8 +68,8 @@ class SiteController extends GlobalController {
         $pages = new Pagination(['totalCount' => $articles->count(), 'pageSize' => 10, 'pageSizeParam' => false, 'forcePageParam' => false]);
         $model = $articles->offset($pages->offset)->limit($pages->limit)->all();
 
-        $ip = '94.244.22.168';
-        $geo = $this->geoLock($ip);        
+        //$ip = '94.244.22.168';
+        $geo = $this->geoLock();        
         $geoCity = $this->getGeoData($geo);
         //print_r($geoCity);
 
@@ -77,8 +78,7 @@ class SiteController extends GlobalController {
 
     }
 
-    public function actionTag($link) {
-        
+    public function actionTag($link) {        
 
         $articles = (new \yii\db\Query())
                 ->select(['Articles.*'])
@@ -87,6 +87,12 @@ class SiteController extends GlobalController {
                 ->leftJoin('Tags', 'Articles_To_Tags.tag_id = Tags.tag_id')
                 ->where(['Tags.tag_id' => $link]);
 
+        if (!empty($_SESSION['__id'])) {
+            $tag = array(array('tag_id' => $link));
+            $newTag = new UsersToTags();
+            $newTag->addHystory($tag);
+        }
+        
         $pages = new Pagination(['totalCount' => $articles->count(), 'pageSize' => 10, 'pageSizeParam' => false, 'forcePageParam' => false]);
         $model = $articles->offset($pages->offset)->limit($pages->limit)->all();        
         return $this->render('tag', compact('model', 'pages'));
