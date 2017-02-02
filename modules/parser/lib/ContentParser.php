@@ -98,6 +98,15 @@ class ContentParser {
                     pq($link)->remove();
                 }
             }
+            foreach (pq($body)->find('strong') as $strong) {
+                if (pq($strong)->text() == '') {
+                    pq($strong)->remove();
+                } else {
+                    $txt = pq($strong)->text();
+                    pq($strong)->after($txt);
+                    pq($strong)->remove();
+                }
+            }
             foreach (pq($body)->find('p') as $p) {
                 if (trim(pq($p)->text()) == '') {
                     pq($p)->remove();
@@ -115,7 +124,7 @@ class ContentParser {
             $h = pq($txt)->find('h1, h2, h3, h4, h5, h6')->text();
             pq($txt)->find('h1, h2, h3, h4, h5, h6')->after($h);
             $h = pq($txt)->find('h1, h2, h3, h4, h5, h6')->remove();
-            pq($txt)->find('p, div')
+            pq($txt)->find('p, div, span')
                     ->removeAttr('itemprop')
                     ->removeAttr('class')
                     ->removeAttr('id')
