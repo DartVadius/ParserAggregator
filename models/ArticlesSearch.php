@@ -6,6 +6,8 @@ use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\Articles;
+use app\models\ArticlesToTags;
+use app\models\Tags;
 
 /**
  * ArticlesSearch represents the model behind the search form about `app\models\Articles`.
@@ -71,5 +73,22 @@ class ArticlesSearch extends Articles
             ->andFilterWhere(['like', 'sourse', $this->sourse]);
 
         return $dataProvider;
+    }
+
+    public function articlesByUserHystory($tags)
+    {
+        $articles_by_hystory = [];
+        foreach ($tags as $tag) {
+            $articles = (new \yii\db\Query())
+                ->select(['Articles.*'])
+                ->from('Articles')
+                ->leftJoin('Articles_To_Tags', 'Articles.article_id = Articles_To_Tags.article_id')
+                ->leftJoin('Tags', 'Articles_To_Tags.tag_id = Tags.tag_id')
+                ->where(['Tags.tag_id' => $tag['tag_id']])
+                ->all();
+
+            $articles_by_hystory[] = $articles;
+        }
+        $articles_by_hystory = array_unique($articles_by_hystory);
     }
 }
