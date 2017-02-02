@@ -152,9 +152,6 @@
 	text-align: left;
 }
 
-.device__screen {
-}
-
 .device--alt .device__screen {
 	background: #4ECE77;
 }
@@ -180,12 +177,15 @@
 	-webkit-transform-origin: 100% 50%;
 	transform-origin: 100% 50%;
 }
+
 .dummy__item a {
 	color: white;
 }
+
 .dummy__item a:hover{
-text-decoration: none;
+	text-decoration: none;
 }
+
 .device--alt .dummy__item {
 	-webkit-transform: translate3d(0, 260px, 0) scale3d(1, 0.2, 1);
 	transform: translate3d(0, 260px, 0) scale3d(1, 0.2, 1);

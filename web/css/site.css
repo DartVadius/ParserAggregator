@@ -94,7 +94,7 @@ a.desc:after {
 .nav li > form > button.logout {
     padding: 15px;
     border: none;
-    /*color: black;*/
+    color: white;
 }
 .nav > li > a:hover, .nav > li > a:focus {
     background-color: transparent;
@@ -239,13 +239,12 @@ tbody tr td {
 .dummy__item li > a{
     padding: 4px 15px;
 }
-.dummy__item li > form > button.logout{
-    padding:0;
-    color: black;
+.dummy__item li > form > button.logout {
+    padding: 5px;
 }
-.dummy__item ul li button:hover{
-    color: black;
-}
+/*.dummy__item ul li button:hover{*/
+    /*color: black;*/
+/*}*/
 .panel-body {
     text-align: justify;
 }

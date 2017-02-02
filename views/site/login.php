@@ -10,7 +10,7 @@ $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-login">
-<!--    <h1>--><?//= Html::encode($this->title) ?><!--</h1>-->
+
     <h1>Логин</h1>
 
     <p>Пожалуйста, заполните следующие поля для входа:</p>
