@@ -91,7 +91,6 @@ class ArticlesSearch extends Articles
 
             $articles_by_hystory[] = $articles;
         }
-        var_dump($articles_by_hystory);
-        die;
+        return $articles_by_hystory;
     }
 }
