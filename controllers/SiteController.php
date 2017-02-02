@@ -88,7 +88,8 @@ class SiteController extends GlobalController {
 
         if (!empty($_SESSION['__id'])) {
             $tag = array(array('tag_id' => $link));
-            UsersToTags::addHystory($tag);
+            $newTag = new UsersToTags();
+            $newTag->addHystory($tag);
         }
         
         $pages = new Pagination(['totalCount' => $articles->count(), 'pageSize' => 10, 'pageSizeParam' => false, 'forcePageParam' => false]);

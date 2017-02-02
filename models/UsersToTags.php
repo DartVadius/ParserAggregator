@@ -50,7 +50,7 @@ class UsersToTags extends \yii\db\ActiveRecord
     {
         $user_id = $_SESSION['__id'];
         foreach ($tags as $tag) {
-            $model = UsersToTags::findOne(['user_id' => $user_id, 'tag_id' => $tag['tag_id']]);
+            $model = $this->findOne(['user_id' => $user_id, 'tag_id' => $tag['tag_id']]);
             if (!empty($model)) {
                 $model->updateCounters(['count_tag' => 1]);
             } else {

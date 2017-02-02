@@ -23,7 +23,8 @@ class ArticleController extends GlobalController {
                 ->where("Articles.article_id = $article->article_id")
                 ->all();
         if (!empty($_SESSION['__id'])) {
-            UsersToTags::addHystory($tags);
+            $newTag = new UsersToTags();
+            $newTag->addHystory($tags);
         }
 
         return $this->render('article', compact('article', 'img', 'tags'));
