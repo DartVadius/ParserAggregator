@@ -201,7 +201,6 @@ nav.top-menu {
     min-height: 20px;
     padding: 19px;
     margin-bottom: 20px;
-    /*background-color: #f5f5f5;*/
     background-color: transparent;
     border: 0;
     border-bottom: solid 1px #eee;
@@ -227,7 +226,7 @@ tbody tr td {
 .nav > li > a {
     position: relative;
     display: block;
-    /*padding: 4px 15px;*/
+
 }
 .d_none{
     display: none;
@@ -242,9 +241,7 @@ tbody tr td {
 .dummy__item li > form > button.logout {
     padding: 5px;
 }
-/*.dummy__item ul li button:hover{*/
-    /*color: black;*/
-/*}*/
+
 .panel-body {
     text-align: justify;
 }
