@@ -10,7 +10,7 @@ $this->title = 'Signup';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-signup">
-<!--    <h1>--><?//= Html::encode($this->title) ?><!--</h1>-->
+    
     <h1>Зарегистрироваться</h1>
 
     <p>Пожалуйста, заполните следующие поля, чтобы зарегистрироваться:</p>

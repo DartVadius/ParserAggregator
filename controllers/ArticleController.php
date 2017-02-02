@@ -26,7 +26,6 @@ class ArticleController extends GlobalController {
             $newTag = new UsersToTags();
             $newTag->addHystory($tags);
         }
-
         return $this->render('article', compact('article', 'img', 'tags'));
     }   
    

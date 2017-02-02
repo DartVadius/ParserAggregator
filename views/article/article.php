@@ -4,7 +4,7 @@
             <h2 class="panel-title"><?php echo $article->title ?></h2>
         </div>
         <div class="panel-body">
-            <?php  if($img != null) : ?>
+            <?php if ($img != null) : ?>
                 <img src="<?php echo $img[0]->link_to_image; ?>">
             <?php endif; ?>
 

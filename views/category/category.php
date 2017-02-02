@@ -14,15 +14,9 @@
                             <?php endif; ?>
                         </div>
                     </div>
-                    <div class="col-md-8 col-sm-8">
-                        <h3><a href="<?= \yii\helpers\Url::to(['article/view', 'link' => $item->article_id]); ?>"><?= $item->title ?></a></h3>
-                        <span class="small">Дата: <?php echo $item->article_create_datetime ?></span>
-                        <p class="small">Источник: <?php echo $item->sourse; ?></p>
-                    </div>
                 </div>
-            </div>
-        <?php endforeach ?>
-        <?= \yii\widgets\LinkPager::widget(['pagination' => $pages]) ?>
+            <?php endforeach ?>
+            <?= \yii\widgets\LinkPager::widget(['pagination' => $pages]) ?>
         <?php endif; ?>
     </div>
     <div class="col-md-3 col-sm-3" role="complementary">

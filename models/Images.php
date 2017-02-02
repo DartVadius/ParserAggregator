@@ -11,21 +11,19 @@ use Yii;
  * @property string $link_to_image
  * @property integer $article_id
  */
-class Images extends \yii\db\ActiveRecord
-{
+class Images extends \yii\db\ActiveRecord {
+
     /**
      * @inheritdoc
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'Images';
     }
 
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
             [['link_to_image', 'article_id'], 'required'],
             [['article_id'], 'integer'],
@@ -36,12 +34,12 @@ class Images extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'image_id' => 'Image ID',
             'link_to_image' => 'Link To Image',
             'article_id' => 'Article ID',
         ];
     }
+
 }
