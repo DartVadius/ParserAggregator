@@ -17,6 +17,7 @@ class UsersToTags extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    public static $TagLimitInHystory = 10;
     public static function tableName()
     {
         return 'Users_to_tags';
@@ -61,5 +62,17 @@ class UsersToTags extends \yii\db\ActiveRecord
                 $model->save();
             }
         }
+    }
+
+    public function searchTagByUser()
+    {
+        $tags = (new \yii\db\Query())
+            ->select(['tag_id'])
+            ->from('Users_to_tags')
+            ->where(['user_id' => $_SESSION['__id']])
+            ->orderBy('count_tag desc')
+            ->limit(self::$TagLimitInHystory)
+            ->all();
+        return $tags;
     }
 }

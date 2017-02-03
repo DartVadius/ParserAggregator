@@ -114,15 +114,41 @@ class ContentParser {
             }
 
             foreach (pq($body)->find('div') as $div) {
-                if (trim(pq($div)->text()) == '') {
+                $txt = preg_replace("/[^\p{L}0-9 ]/iu", '', pq($div)->text());
+                if (trim($txt) == '') {
                     pq($div)->remove();
                 }
+//                if (trim(pq($div)->text()) == '') {
+//                    pq($div)->remove();
+//                }
             }
 
             $txt = pq($body)->find($rules['find']['textFull']);
             pq($txt)->find('h1, h2, h3, h4, h5, h6')->wrap('<p></p>');
-            $h = pq($txt)->find('h1, h2, h3, h4, h5, h6')->text();
-            pq($txt)->find('h1, h2, h3, h4, h5, h6')->after($h);
+            foreach (pq($txt)->find('h1') as $h1) {
+                $text = pq($h1)->text();
+                pq($h1)->after($text);
+            }
+            foreach (pq($txt)->find('h2') as $h2) {
+                $text = pq($h2)->text();
+                pq($h2)->after($text);
+            }
+            foreach (pq($txt)->find('h3') as $h3) {
+                $text = pq($h3)->text();
+                pq($h3)->after($text);
+            }
+            foreach (pq($txt)->find('h4') as $h4) {
+                $text = pq($h4)->text();
+                pq($h4)->after($text);
+            }            
+            foreach (pq($txt)->find('h5') as $h5) {
+                $text = pq($h5)->text();
+                pq($h5)->after($text);
+            } 
+            foreach (pq($txt)->find('h6') as $h6) {
+                $text = pq($h6)->text();
+                pq($h6)->after($text);
+            }            
             $h = pq($txt)->find('h1, h2, h3, h4, h5, h6')->remove();
             pq($txt)->find('p, div, span')
                     ->removeAttr('itemprop')
