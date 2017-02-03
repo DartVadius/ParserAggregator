@@ -2,7 +2,6 @@
 
 namespace app\modules\parser\controllers;
 
-use odannyc\GoogleImageSearch\ImageSearch;
 use Yii;
 use yii\web\Controller;
 use app\modules\parser\lib\PageParserCurl;
