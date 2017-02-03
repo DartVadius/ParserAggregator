@@ -33,6 +33,10 @@ class ParserController extends Controller {
      * @return array
      */
     public function actionTest() {
+            $title = NULL;
+            $text = NULL;
+            $images = NULL;
+            $tags = NULL;
         $preview = new TestForm();
         if (Yii::$app->request->isAjax) {
             $entityBody = file_get_contents('php://input');
