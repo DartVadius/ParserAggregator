@@ -74,6 +74,7 @@ class MorthySearch
                 array_push($answer, $word);
             }
         }
+        $answer = array_unique($answer);
         return $answer;
 	}
 

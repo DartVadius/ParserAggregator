@@ -82,7 +82,7 @@ class SiteController extends GlobalController {
         $geo = $this->geoLock();        
         $geoCity = $this->getGeoData($geo);
         //print_r($geoCity);        
-        return $this->render('index', compact('model', 'pages', 'geoCity'));
+        return $this->render('index', compact('model', 'pages', 'geoCity', 'articles_hystory'));
 
     }
 
