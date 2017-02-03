@@ -9,10 +9,7 @@ $config = [
 
     'language'=> 'ru',
     'defaultRoute'=>'site/index',
-
-    'language' => 'ru',
-    'defaultRoute' => 'site/index',
-
+    
     'components' => [
         'categories' => 'app\models\Category',
         'authManager' => [

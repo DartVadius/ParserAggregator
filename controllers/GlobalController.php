@@ -74,7 +74,7 @@ class GlobalController extends Controller {
         $date = $date->getTimestamp();
         $date = date('Y-m-d H:i:s', $date);
         return (new Query())
-                        ->select(['Articles.*'])
+                        ->select(['Articles.article_id', 'Articles.title', 'Articles.article_create_datetime'])
                         ->from('Tags')
                         ->leftJoin('Articles_To_Tags', 'Tags.tag_id = Articles_To_Tags.tag_id')
                         ->leftJoin('Articles', 'Articles_To_Tags.article_id = Articles.article_id')

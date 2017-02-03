@@ -29,5 +29,6 @@
         </nav>
     </div>
 </div>
+    </div>
 <?php \yii\helpers\Url::remember(); ?>
 
