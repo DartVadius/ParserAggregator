@@ -113,7 +113,7 @@ class ParserController extends Controller {
             }
         } else {
             //Yii::$app()->runAction('site/index'); //на другой контролер
-            $this->redirect(\Yii::$app->urlManager->createUrl("site/index"));
+            $this->redirect(\Yii::$app->urlManager->createUrl("/site/index"));
         }
     }
 
@@ -214,14 +214,22 @@ class ParserController extends Controller {
                                                 if ($new_tag->validate()) {
                                                     $new_tag->save();
                                                     $tagId = Yii::$app->db->getLastInsertID();
+                                                    $postToTag = new \app\models\ArticlesToTags();
+                                                    $postToTag->article_id = $contentId;
+                                                    $postToTag->tag_id = $tagId;
+                                                    if ($postToTag->validate()) {
+                                                        $postToTag->save();
+                                                    }
+                                                }
+                                            } else {
+                                                $postToTag = new \app\models\ArticlesToTags();
+                                                $postToTag->article_id = $contentId;
+                                                $postToTag->tag_id = $tagId['tag_id'];
+                                                if ($postToTag->validate()) {
+                                                    $postToTag->save();
                                                 }
                                             }
-                                            $postToTag = new \app\models\ArticlesToTags();
-                                            $postToTag->article_id = $contentId;
-                                            $postToTag->tag_id = $tagId;
-                                            if ($postToTag->validate()) {
-                                                $postToTag->save();
-                                            }
+                                            
                                         }
                                     }
                                 }

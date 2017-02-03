@@ -29,7 +29,7 @@ class MorthySearch
 
 		$arr_text = array_map('mb_strtoupper', $arr_text); //делаем все большими буквами для поиска в словаре
 
-		$noun = MorthySearch::getBaseFormForArray($arr_text, $morphy);
+		$noun = self::getBaseFormForArray($arr_text, $morphy);
 
 		$noun = array_count_values($noun); //подсчитываем количество вхождений каждого существительного
 
@@ -49,10 +49,10 @@ class MorthySearch
 			'@vendor/umisoft/phpmorphy/dicts'//Путь к словарям
         ), 'ru_RU', ['storage' => PHPMORPHY_STORAGE_FILE, 'graminfo_as_text' => FALSE,]);
 
-        $arr = MorthySearch::deleteGarbageFromText($text);
+        $arr = self::deleteGarbageFromText($text);
 
         foreach ($arr as $word) {
-            if ($word == mb_strtoupper($word)) {
+            if ($word == mb_strtoupper($word) && (strlen($word) > 2)) {
                 $answer[] = $word;
             }
         }
@@ -60,7 +60,9 @@ class MorthySearch
 		
 
         $arr = self::getBaseFormForArray($arr, $morphy);
+
         $arr = array_map('mb_strtolower', $arr);
+
         foreach ($arr as $word) {
             $tagId = (new \yii\db\Query())
                             ->select(['tag_id'])
@@ -75,7 +77,7 @@ class MorthySearch
         return $answer;
 	}
 
-	public function getBaseFormForArray($arr, $morphy)
+	public static function getBaseFormForArray($arr, $morphy)
 	{
 		$answer = [];
 		for ($i=0; $i < count($arr); $i++) {
@@ -87,7 +89,7 @@ class MorthySearch
 		return $answer;
 	}
 
-	public function deleteGarbageFromText($text) //удалить лишние символы и пустые элементы
+	public static function deleteGarbageFromText($text) //удалить лишние символы и пустые элементы
 	{
 		$new_text = preg_replace("/[^\p{L}0-9 ]/iu", " ", $text);//удаляем лишние знаки
 		$new_text = str_replace("  ", " ", $new_text);//заменяем 2-йной пробел
