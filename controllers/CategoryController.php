@@ -7,6 +7,8 @@ use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use app\models\Category;
 use app\models\Articles;
+use app\models\ArticlesSearch;
+use app\models\UsersToTags;
 use yii\data\Pagination;
 
 class CategoryController extends GlobalController {
@@ -22,7 +24,16 @@ class CategoryController extends GlobalController {
         $geo = $this->geoLock();        
         $geoCity = $this->getGeoData($geo);
 
-        return $this->render('category', compact('model', 'geoCity', 'pages'));
+        if (!empty($_SESSION['__id'])) {
+            
+            $tags_hystory = new UsersToTags();
+            $tags = $tags_hystory->searchTagByUser();
+
+            $articles_search = new ArticlesSearch();
+            $articles_hystory = $articles_search->articlesByUserHystory($tags);
+        }
+
+        return $this->render('category', compact('model', 'geoCity', 'pages', 'articles_hystory'));
     }
 
 }

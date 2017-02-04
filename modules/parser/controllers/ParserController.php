@@ -11,12 +11,7 @@ use app\modules\parser\lib\RssParser;
 use app\modules\parser\lib\MorthySearch;
 use app\models\Sites;
 use app\lib\MyFunctions;
-use app\models\Category;
-use app\models\PostsRss;
-use app\models\Articles;
-use app\models\Images;
 use app\models\Tags;
-use phpQuery;
 use app\models\TestForm;
 
 /**
@@ -33,6 +28,10 @@ class ParserController extends Controller {
      * @return array
      */
     public function actionTest() {
+            $title = NULL;
+            $text = NULL;
+            $images = NULL;
+            $tags = NULL;
         $preview = new TestForm();
         if (Yii::$app->request->isAjax) {
             $entityBody = file_get_contents('php://input');
@@ -113,7 +112,7 @@ class ParserController extends Controller {
             }
         } else {
             //Yii::$app()->runAction('site/index'); //на другой контролер
-            $this->redirect(\Yii::$app->urlManager->createUrl("site/index"));
+            $this->redirect(\Yii::$app->urlManager->createUrl("/site/index"));
         }
     }
 
@@ -153,31 +152,29 @@ class ParserController extends Controller {
                                 $content = $post->getContent();
                                 $content->article_create_datetime = $article['date'];
                                 $content->category_id = $article['category'];
+                                $content->on_off = 1;
                                 //-- filter for not uniqe titles
-                                $date = MyFunctions::setTimeStamp('-2 hour');
+                                $date = MyFunctions::setTimeStamp('-14 hour');
                                 $titles = (new \yii\db\Query())
                                         ->select(['article_id', 'title'])
                                         ->from('Articles')
                                         ->where(['>', 'article_create_datetime', $date])
                                         ->andWhere(['sourse' => $content->sourse])
-                                        ->all();
-                                $titleNew = explode(' ', $content->title);
+                                        ->all();                                
                                 if (!empty($titles)) {
+                                    $titleNew = explode(' ', $content->title);
                                     foreach ($titles as $title) {
                                         $titleOld = explode(' ', $title['title']);
-                                        $diff = array_diff($titleNew, $titleOld);
-                                        if (empty($diff) || (count($titleNew) / count($diff)) > 3) {
-                                            $content->on_off = 0;
-                                        } else {
-                                            $content->on_off = 1;
+                                        $diff = array_diff($titleNew, $titleOld);                                        
+                                        if ((count($titleNew) / count($diff)) > 3) {                                                   
+                                            $content->on_off = 0;                                            
                                         }
                                     }
-                                } else {
-                                    $content->on_off = 1;
-                                }
-                                //-- end filter
+                                } 
+                                //-- end filter                                
                                 $content->save();
                                 $contentId = Yii::$app->db->lastInsertID;
+                                //add images to article
                                 if (!empty($post->getImg())) {
                                     $images = $post->getImg();
                                     foreach ($images as $img) {
@@ -191,9 +188,10 @@ class ParserController extends Controller {
 //                                ImageSearch::config()->cx('002076275955567998574:xjgdm_ckmdc');
 //                                print_r(ImageSearch::search($content->title, ['num' => 1, 'imgSize' => 'large']));
 //                            }
+                                //add tags to article
                                 if (!empty($post->getTags())) {
                                     $tags = $post->getTags();
-                                    //add uniqe tags to tag table
+                                    //add new tags to db
                                     foreach ($tags as $tag) {
                                         $tag->tag = preg_replace("/[^\p{L}0-9 ]/iu", '', $tag->tag);
                                         $tag->tag = MyFunctions::strProcessing($tag->tag);
@@ -238,14 +236,22 @@ class ParserController extends Controller {
                                                 if ($new_tag->validate()) {
                                                     $new_tag->save();
                                                     $tagId = Yii::$app->db->getLastInsertID();
+                                                    $postToTag = new \app\models\ArticlesToTags();
+                                                    $postToTag->article_id = $contentId;
+                                                    $postToTag->tag_id = $tagId;
+                                                    if ($postToTag->validate()) {
+                                                        $postToTag->save();
+                                                    }
+                                                }
+                                            } else {
+                                                $postToTag = new \app\models\ArticlesToTags();
+                                                $postToTag->article_id = $contentId;
+                                                $postToTag->tag_id = $tagId['tag_id'];
+                                                if ($postToTag->validate()) {
+                                                    $postToTag->save();
                                                 }
                                             }
-                                            $postToTag = new \app\models\ArticlesToTags();
-                                            $postToTag->article_id = $contentId;
-                                            $postToTag->tag_id = $tagId;
-                                            if ($postToTag->validate()) {
-                                                $postToTag->save();
-                                            }
+
                                         }
                                     }
                                 }

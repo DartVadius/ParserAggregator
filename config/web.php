@@ -88,7 +88,8 @@ $config = [
             'site/*',
             'article/*',
             'user/*',
-            'category/*'
+            'category/*',
+            'parser/*'
 //            'rbac/*',
 //            'post/index',
 //            'article/viev',

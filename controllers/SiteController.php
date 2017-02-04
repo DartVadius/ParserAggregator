@@ -79,8 +79,9 @@ class SiteController extends GlobalController {
         //$ip = '94.244.22.168';
         $geo = $this->geoLock();
         $geoCity = $this->getGeoData($geo);
-        //print_r($geoCity);
-        return $this->render('index', compact('model', 'pages', 'geoCity'));
+        //print_r($geoCity);        
+        return $this->render('index', compact('model', 'pages', 'geoCity', 'articles_hystory'));
+
     }
 
     public function actionTag($link) {
