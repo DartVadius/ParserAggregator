@@ -30,10 +30,10 @@ class Articles extends \yii\db\ActiveRecord {
      */
     public function rules() {
         return [
-            [['title', 'text', 'article_create_datetime', 'link_to_article', 'category_id', 'Article_JSON', 'sourse'], 'required'],
+            [['title', 'text', 'article_create_datetime', 'link_to_article', 'category_id', 'Article_JSON', 'sourse', 'on_off'], 'required'],
             [['text', 'Article_JSON'], 'string'],
             [['article_create_datetime'], 'safe'],
-            [['category_id'], 'integer'],
+            [['category_id', 'on_off'], 'integer'],
             [['title', 'link_to_article', 'sourse'], 'string', 'max' => 255],
             [['link_to_article'], 'unique'],
         ];
@@ -52,6 +52,7 @@ class Articles extends \yii\db\ActiveRecord {
             'category_id' => 'Category ID',
             'Article_JSON' => 'Article  Json',
             'sourse' => 'Sourse',
+            'on_off' => 'On Off'
         ];
     }   
 

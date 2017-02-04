@@ -2,7 +2,6 @@
 
 namespace app\modules\parser\controllers;
 
-use odannyc\GoogleImageSearch\ImageSearch;
 use Yii;
 use yii\web\Controller;
 use app\modules\parser\lib\PageParserCurl;
@@ -11,6 +10,7 @@ use app\modules\parser\lib\ContentParser;
 use app\modules\parser\lib\RssParser;
 use app\modules\parser\lib\MorthySearch;
 use app\models\Sites;
+use app\lib\MyFunctions;
 use app\models\Category;
 use app\models\PostsRss;
 use app\models\Articles;
@@ -124,6 +124,7 @@ class ParserController extends Controller {
     public function actionPost() {
 
         if ((getenv('HTTP_X_REAL_IP') == '127.0.0.1') || ((!empty($_SESSION['__id'])) && ($_SESSION['__id'] == 1))) {
+            $content = NULL;
             $sites = Sites::find()->where([
                         'make_parsing' => '1'
                     ])->all();
@@ -152,6 +153,29 @@ class ParserController extends Controller {
                                 $content = $post->getContent();
                                 $content->article_create_datetime = $article['date'];
                                 $content->category_id = $article['category'];
+                                //-- filter for not uniqe titles
+                                $date = MyFunctions::setTimeStamp('-2 hour');
+                                $titles = (new \yii\db\Query())
+                                        ->select(['article_id', 'title'])
+                                        ->from('Articles')
+                                        ->where(['>', 'article_create_datetime', $date])
+                                        ->andWhere(['sourse' => $content->sourse])
+                                        ->all();
+                                $titleNew = explode(' ', $content->title);
+                                if (!empty($titles)) {
+                                    foreach ($titles as $title) {
+                                        $titleOld = explode(' ', $title['title']);
+                                        $diff = array_diff($titleNew, $titleOld);
+                                        if (empty($diff) || (count($titleNew) / count($diff)) > 3) {
+                                            $content->on_off = 0;
+                                        } else {
+                                            $content->on_off = 1;
+                                        }
+                                    }
+                                } else {
+                                    $content->on_off = 1;
+                                }
+                                //-- end filter
                                 $content->save();
                                 $contentId = Yii::$app->db->lastInsertID;
                                 if (!empty($post->getImg())) {
@@ -172,7 +196,7 @@ class ParserController extends Controller {
                                     //add uniqe tags to tag table
                                     foreach ($tags as $tag) {
                                         $tag->tag = preg_replace("/[^\p{L}0-9 ]/iu", '', $tag->tag);
-                                        $tag->tag = $this->strProcessing($tag->tag);
+                                        $tag->tag = MyFunctions::strProcessing($tag->tag);
                                         if ($tag->validate()) {
                                             $tag->save();
                                         }
@@ -230,24 +254,10 @@ class ParserController extends Controller {
                     }
                 }
             }
-            if (empty($content)) {
-                $content = NULL;
-            }
             return $this->render('index', ['info' => $content]);
         } else {
             $this->redirect(\Yii::$app->urlManager->createUrl("site/index"));
         }
-    }
-
-    /**
-     * string treatment
-     *
-     * @param string $str
-     * @return string
-     */
-    private function strProcessing($str) {
-        $str = mb_strtolower($str);
-        return trim($str);
     }
 
     /**
