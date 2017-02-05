@@ -184,8 +184,8 @@ class ParserController extends Controller {
                                         }
                                     }
                                 } //else {
-//                                ImageSearch::config()->apiKey('AIzaSyDuIBIQPF0DuQrCQaP08jO8EHth427P1cA');
-//                                ImageSearch::config()->cx('002076275955567998574:xjgdm_ckmdc');
+//                                ImageSearch::config()->apiKey('');
+//                                ImageSearch::config()->cx('');
 //                                print_r(ImageSearch::search($content->title, ['num' => 1, 'imgSize' => 'large']));
 //                            }
                                 //add tags to article

@@ -47,7 +47,7 @@ class GlobalController extends Controller {
         return $translator->translate($text);
     }
 
-    protected function getGeoData($geo) {
+    protected function getGeoData($geo) {       
         $geoCity = $this->findArtByGeo($geo['city']);
         if (count($geoCity) < 10) {
             $geoRegion = $this->findArtByGeo($geo['region']);
@@ -63,14 +63,14 @@ class GlobalController extends Controller {
 
     protected function findArtByGeo($geo) {               
         $artList = [];
-        $date = MyFunctions::setTimeStamp('-7 days');
+        $date = MyFunctions::setTimeStamp('-7 days');        
         return (new Query())
                         ->select(['Articles.article_id', 'Articles.title', 'Articles.article_create_datetime'])
                         ->from('Articles')
                         ->where(['>', 'article_create_datetime', $date])
                         ->rightJoin('Articles_To_Tags', 'Articles_To_Tags.article_id = Articles.article_id')
                         ->rightJoin('Tags', 'Articles_To_Tags.tag_id = Tags.tag_id')
-                        ->where(['like', 'tag', $geo])
+                        ->where(['like', 'tag', "$geo%"])
                         ->groupBy('Articles.article_id')
                         ->orderBy('article_create_datetime desc')
                         ->all();
