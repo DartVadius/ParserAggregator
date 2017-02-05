@@ -6,7 +6,7 @@ use Yii;
 use yii\web\Controller;
 use yii\db\Query;
 use app\lib\MyFunctions;
-use app\modules\parser\lib\geoPlugin;
+use app\modules\parser\lib\GeoPlugin;
 use Stichoza\GoogleTranslate\TranslateClient;
 use app\models\Articles;
 use app\models\Tags;
@@ -66,7 +66,7 @@ class GlobalController extends Controller {
         $date = MyFunctions::setTimeStamp('-7 days');        
         return (new Query())
                         ->select(['Articles.article_id', 'Articles.title', 'Articles.article_create_datetime'])
-                        ->from('articles')
+                        ->from('Articles')
                         ->where(['>', 'article_create_datetime', $date])
                         ->rightJoin('Articles_To_Tags', 'Articles_To_Tags.article_id = Articles.article_id')
                         ->rightJoin('Tags', 'Articles_To_Tags.tag_id = Tags.tag_id')
