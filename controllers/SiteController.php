@@ -64,7 +64,7 @@ class SiteController extends GlobalController {
      * @return string
      */
     public function actionIndex() {
-        $articles = \app\models\Articles::find()->where(['on_off' => 1])->orderBy('article_create_datetime desc');
+        $articles = \app\models\Articles::find()->orderBy('article_create_datetime desc');
 
         if (!empty($_SESSION['__id'])) {
             
