@@ -5,6 +5,7 @@ namespace app\modules\parser\lib;
 use phpMorphy;
 use Yii;
 use app\models\Tags;
+use app\models\Country;
 
 /**
 * Class for search tags in article.
@@ -47,6 +48,7 @@ class MorthySearch
 	public static function getTagsFromTitle($text) 
 	{
 		$answer = [];
+		$geo = [];
 		$morphy = new \phpMorphy(\Yii::getAlias(
 			'@vendor/umisoft/phpmorphy/dicts'
         ), 'ru_RU', ['storage' => PHPMORPHY_STORAGE_FILE, 'graminfo_as_text' => FALSE,]);
@@ -58,14 +60,18 @@ class MorthySearch
                 $answer[] = $word;
             }
         }
+        
         $arr = array_map('mb_strtoupper', $arr);
 		
 
         $arr = self::getBaseFormForArray($arr, $morphy);
-
-        $arr = array_map('mb_strtolower', $arr);
-
         
+        $arr = array_map('mb_strtolower', $arr);
+        $geo = self::searchGeoLocation($arr);
+        if (!empty($geo)) {
+        	array_merge($answer, $geo);
+        }
+
         $answer = array_unique(self::selectTagsFromWords($arr));
         return $answer;
 	}
@@ -113,5 +119,43 @@ class MorthySearch
             }
         }
         return $answer;
+	}
+
+	public static function searchGeoLocation($arr)
+	{
+		$answer = [];
+		for ($i = 0; $i < count($arr); $i++) {
+			$arr[$i] = mb_strtoupper(mb_substr($arr[$i], 0, 1)) . mb_substr($arr[$i], 1);
+		}
+		foreach ($arr as $word) {
+			$country = (new \yii\db\Query())
+						->select('country_id')
+						->from('country')
+						->where(['name' => $word])
+						->one();
+			if (!empty($country)) {
+				array_push($answer, $word);
+			}
+
+			$city = (new \yii\db\Query())
+					->select('city_id')
+					->from('city')
+					->where(['name' => $word])
+					->one();
+			if (!empty($city)) {
+				array_push($answer, $word);
+			}
+
+			$region = (new \yii\db\Query())
+					->select('region_id')
+					->from('region')
+					->where(['name' => $word])
+					->one();
+			if (!empty($city)) {
+				array_push($answer, $word);
+			}
+		}
+
+		return $answer;
 	}
 }
