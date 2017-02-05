@@ -8,6 +8,7 @@ use app\models\Tags;
 
 /**
 * Class for search tags in article.
+* @author SilinMykola.
 */
 class MorthySearch 
 {
@@ -33,13 +34,14 @@ class MorthySearch
 
 		$noun = array_count_values($noun); 
 
-		if (count($noun) >= 5) {
-			$noun = array_slice($noun, 0, 5);
+		if (count($noun) >= 3) {
+			$noun = array_slice($noun, 0, 3);
 		}
 
-		$answer = array_keys($noun);
-		$answer = array_map('mb_strtolower', $answer);
-		return $answer;
+		$pre_answer = array_keys($noun);
+		$pre_answer = array_map('mb_strtolower', $pre_answer);
+		
+		return self::selectTagsFromWords($pre_answer);
 	}
 
 	public static function getTagsFromTitle($text) 
@@ -63,18 +65,8 @@ class MorthySearch
 
         $arr = array_map('mb_strtolower', $arr);
 
-        foreach ($arr as $word) {
-            $tagId = (new \yii\db\Query())
-                            ->select(['tag_id'])
-                            ->from('Tags')
-                            ->where([
-                                'tag' => $word,
-                            ])->one();
-            if (!empty($tagId) && (!in_array($word, $answer)) && ctype_digit($word)) {
-                array_push($answer, $word);
-            }
-        }
-        $answer = array_unique($answer);
+        
+        $answer = array_unique(self::selectTagsFromWords($arr));
         return $answer;
 	}
 
@@ -104,5 +96,22 @@ class MorthySearch
 			}
 		}
 		return $answer;
+	}
+
+	public static function selectTagsFromWords($arr)
+	{
+		$answer = [];
+		foreach ($arr as $word) {
+            $tagId = (new \yii\db\Query())
+                            ->select(['tag_id'])
+                            ->from('Tags')
+                            ->where([
+                                'tag' => $word,
+                            ])->one();
+            if ((!empty($tagId)) && (!in_array($word, $answer))) {
+                array_push($answer, $word);
+            }
+        }
+        return $answer;
 	}
 }
