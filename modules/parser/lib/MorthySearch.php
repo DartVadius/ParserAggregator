@@ -15,7 +15,7 @@ class MorthySearch
 	public static function getTagsFromText($text) 
 	{
 		$morphy = new \phpMorphy(\Yii::getAlias(
-			'@vendor/umisoft/phpmorphy/dicts'//Путь к словарям
+			'@vendor/umisoft/phpmorphy/dicts'
         ), 'ru_RU', ['storage' => PHPMORPHY_STORAGE_FILE, 'graminfo_as_text' => FALSE,]);
 
         
@@ -27,14 +27,14 @@ class MorthySearch
             }
         }
 
-		$arr_text = array_map('mb_strtoupper', $arr_text); //делаем все большими буквами для поиска в словаре
+		$arr_text = array_map('mb_strtoupper', $arr_text); 
 
 		$noun = self::getBaseFormForArray($arr_text, $morphy);
 
-		$noun = array_count_values($noun); //подсчитываем количество вхождений каждого существительного
+		$noun = array_count_values($noun); 
 
 		if (count($noun) >= 5) {
-			$noun = array_slice($noun, 0, 5); // берем срез только первых пяти существительных
+			$noun = array_slice($noun, 0, 5);
 		}
 
 		$answer = array_keys($noun);
@@ -46,7 +46,7 @@ class MorthySearch
 	{
 		$answer = [];
 		$morphy = new \phpMorphy(\Yii::getAlias(
-			'@vendor/umisoft/phpmorphy/dicts'//Путь к словарям
+			'@vendor/umisoft/phpmorphy/dicts'
         ), 'ru_RU', ['storage' => PHPMORPHY_STORAGE_FILE, 'graminfo_as_text' => FALSE,]);
 
         $arr = self::deleteGarbageFromText($text);
@@ -70,7 +70,7 @@ class MorthySearch
                             ->where([
                                 'tag' => $word,
                             ])->one();
-            if (!empty($tagId)) {
+            if (!empty($tagId) && (!in_array($word, $answer)) && ctype_digit($word)) {
                 array_push($answer, $word);
             }
         }
@@ -82,19 +82,19 @@ class MorthySearch
 	{
 		$answer = [];
 		for ($i=0; $i < count($arr); $i++) {
-			$word = $morphy->getBaseForm($arr[$i]); //ищем базовую форму слова, может быть несколько. возвращает массив
-	    	if (($word[0] != 'false') && ($morphy->getPartOfSpeech($word[0])[0] == 'C')) { //берем первое слово если оно существительное
+			$word = $morphy->getBaseForm($arr[$i]);
+	    	if (($word[0] != 'false') && ($morphy->getPartOfSpeech($word[0])[0] == 'C')) {
 				$answer[] = $word[0];
 	    	}
 		}
 		return $answer;
 	}
 
-	public static function deleteGarbageFromText($text) //удалить лишние символы и пустые элементы
+	public static function deleteGarbageFromText($text) 
 	{
-		$new_text = preg_replace("/[^\p{L}0-9 ]/iu", " ", $text);//удаляем лишние знаки
-		$new_text = str_replace("  ", " ", $new_text);//заменяем 2-йной пробел
-		$arr_text = explode(" ", $new_text); //режем на массив
+		$new_text = preg_replace("/[^\p{L}0-9 ]/iu", " ", $text);
+		$new_text = str_replace("  ", " ", $new_text);
+		$arr_text = explode(" ", $new_text);
 
 		$answer = [];
 		for ($i=0; $i< count($arr_text); $i++) { 
