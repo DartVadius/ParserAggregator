@@ -20,20 +20,20 @@ class CategoryController extends GlobalController {
 
         $pages = new Pagination(['totalCount' => $articles->count(), 'pageSize' => 10, 'pageSizeParam' => false, 'forcePageParam' => false]);
         $model = $articles->offset($pages->offset)->limit($pages->limit)->all();
-        //$ip = '94.244.22.168';
-        $geo = $this->geoLock();        
-        $geoCity = $this->getGeoData($geo);
 
         if (!empty($_SESSION['__id'])) {
             
             $tags_hystory = new UsersToTags();
             $tags = $tags_hystory->searchTagByUser();
 
-            $articles_search = new ArticlesSearch();
-            $articles_hystory = $articles_search->articlesByUserHystory($tags);
+            $articles_hystory = new ArticlesSearch();
+            $sides_news = $articles_hystory->articlesByUserHystory($tags);
+        } else {
+            $geo = $this->geoLock();        
+            $sides_news = $this->getGeoData($geo);
         }
 
-        return $this->render('category', compact('model', 'geoCity', 'pages', 'articles_hystory'));
+        return $this->render('category', compact('model', 'sides_news', 'pages'));
     }
 
 }
