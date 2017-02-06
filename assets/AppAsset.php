@@ -9,10 +9,7 @@ namespace app\assets;
 
 use yii\web\AssetBundle;
 
-/**
- * @author Qiang Xue <qiang.xue@gmail.com>
- * @since 2.0
- */
+
 class AppAsset extends AssetBundle
 {
     public $basePath = '@webroot';
@@ -35,7 +32,7 @@ class AppAsset extends AssetBundle
         'js/jquery.colorbox.js',
         'js/segment.min.js',
         'js/ease.min.js',
-        //'js/test.js',
+//        'js/test.js',
     ];
     public $jsOptions = [
       'position' => \yii\web\View::POS_END,

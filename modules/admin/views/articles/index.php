@@ -33,6 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'category_id',
             // 'Article_JSON:ntext',
             // 'sourse',
+            'on_off',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

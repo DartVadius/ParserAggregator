@@ -81,7 +81,6 @@ a.desc:after {
     margin-top: 5px;
     color: #999;
 }
-
 .error-summary {
     color: #a94442;
     background: #fdf7f7;
@@ -89,12 +88,11 @@ a.desc:after {
     padding: 10px 20px;
     margin: 0 0 15px 0;
 }
-
 /* align the logout "link" (button in form) of the navbar */
 .nav li > form > button.logout {
     padding: 15px;
     border: none;
-    color: white;
+    /*color: white;*/
 }
 .nav > li > a:hover, .nav > li > a:focus {
     background-color: transparent;
@@ -226,7 +224,6 @@ tbody tr td {
 .nav > li > a {
     position: relative;
     display: block;
-
 }
 .d_none{
     display: none;
@@ -240,10 +237,18 @@ tbody tr td {
 }
 .dummy__item li > form > button.logout {
     padding: 5px;
+    border: none;
+    color: white;
 }
-
 .panel-body {
     text-align: justify;
+}
+/* footer */
+.footer-left{
+    float: left;
+}
+.footer-right{
+    float: right;
 }
 /*media*/
 @media (min-width: 320px) {
@@ -286,6 +291,16 @@ tbody tr td {
     .panel-title {
         font-size: 20px;
     }
+    .footer-left{
+        float: none;
+    }
+    .footer-right{
+        float: none;
+    }
+    .footer {
+        text-align: center;
+        padding-top: 0px;
+    }
 
 }
 @media (min-width: 480px) {
@@ -323,12 +338,19 @@ tbody tr td {
         height: 55px;
         background-color: #ed5e42;
     }
-    footer.footer .pull-left .pull-right{
-        float: none!important;
+    .footer {
+        height: 60px;
+        background-color: #f5f5f5;
+        border-top: 1px solid #ddd;
+        padding-top: 20px;
     }
-    footer.footer {
-        text-align: center;
+    .footer-left{
+        float: left;
     }
+    .footer-right{
+        float: right;
+    }
+
 }
 @media (min-width: 768px) {
     .top_header {

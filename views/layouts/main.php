@@ -158,9 +158,9 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; Aggregator <?= date('Y') ?></p>
+        <p class="footer-left">&copy; Aggregator <?= date('Y') ?></p>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="footer-right"><?= Yii::powered() ?></p>
     </div>
 </footer>
 

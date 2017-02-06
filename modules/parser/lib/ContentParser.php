@@ -25,7 +25,7 @@ class ContentParser {
     private $author = null;
 
     public function __construct($data, $rules) {
-        $article = new Articles();        
+        $article = new Articles();
         $article->link_to_article = $data->getUrl();
         $article->sourse = $data->getSource();
         //$article->Article_JSON = json_encode($data->getBody());

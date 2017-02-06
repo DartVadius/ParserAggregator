@@ -1,17 +1,11 @@
 <?php
-
 $params = require(__DIR__ . '/params.php');
-
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-
     'language'=> 'ru',
     'defaultRoute'=>'site/index',
-
-    'language' => 'ru',
-    'defaultRoute' => 'site/index',
 
     'components' => [
         'categories' => 'app\models\Category',
@@ -22,15 +16,14 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '-2Ui2ft83t9i1SRlrgEr9635Eitauvy6',
-            'enableCsrfValidation' => false,            
             'baseURL'=>'',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
-//            'identityClass' => 'mdm\admin\models\User',
+//            'identityClass' => 'app\models\User',
+            'identityClass' => 'mdm\admin\models\User',
 //            'loginUrl' => ['site/login'],
             'loginUrl' => ['post/index'],
         ],
@@ -71,7 +64,6 @@ $config = [
                 'assignment' => [
                     'class' => 'mdm\admin\controllers\AssignmentController',
                     'userClassName' => 'app\models\User',
-
                     'idField' => 'id',
                     'usernameField' => 'username',
                 ],
@@ -82,9 +74,9 @@ $config = [
         'parser' => [
             'class' => 'app\modules\parser\ParserModule',
         ],
-        'preview' => [
-            'class' => 'app\modules\preview\PreviewModule',
-        ],
+//        'preview' => [
+//            'class' => 'app\modules\preview\PreviewModule',
+//        ],
     ],
     'as access' => [
         'class' => 'mdm\admin\components\AccessControl',
@@ -93,7 +85,7 @@ $config = [
             'article/*',
             'user/*',
             'category/*',
-            'parser/*'
+            'parser/*',
 //            'rbac/*',
 //            'post/index',
 //            'article/viev',
@@ -101,19 +93,16 @@ $config = [
     ],
     'params' => $params,
 ];
-
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
     ];
-
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
         'allowedIPs' => ['127.0.0.1', '::1', '192.168.33.1']
     ];
 }
-
 return $config;

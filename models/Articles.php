@@ -15,22 +15,25 @@ use Yii;
  * @property integer $category_id
  * @property string $Article_JSON
  * @property string $sourse
+ * @property integer $on_off
  */
-class Articles extends \yii\db\ActiveRecord {
-
+class Articles extends \yii\db\ActiveRecord
+{
     /**
      * @inheritdoc
      */
-    public static function tableName() {
+    public static function tableName()
+    {
         return 'Articles';
     }
 
     /**
      * @inheritdoc
      */
-    public function rules() {
+    public function rules()
+    {
         return [
-            [['title', 'text', 'article_create_datetime', 'link_to_article', 'category_id', 'Article_JSON', 'sourse', 'on_off'], 'required'],
+            [['title', 'text', 'article_create_datetime', 'link_to_article', 'category_id', 'sourse', 'on_off'], 'required'],
             [['text', 'Article_JSON'], 'string'],
             [['article_create_datetime'], 'safe'],
             [['category_id', 'on_off'], 'integer'],
@@ -42,7 +45,8 @@ class Articles extends \yii\db\ActiveRecord {
     /**
      * @inheritdoc
      */
-    public function attributeLabels() {
+    public function attributeLabels()
+    {
         return [
             'article_id' => 'Article ID',
             'title' => 'Title',
@@ -52,8 +56,7 @@ class Articles extends \yii\db\ActiveRecord {
             'category_id' => 'Category ID',
             'Article_JSON' => 'Article  Json',
             'sourse' => 'Sourse',
-            'on_off' => 'On Off'
+            'on_off' => 'On Off',
         ];
-    }   
-
+    }
 }

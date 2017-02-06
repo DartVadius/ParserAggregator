@@ -80,19 +80,17 @@ class ArticlesSearch extends Articles
         $articles_by_hystory = [];
         foreach ($tags as $tag) {
             $articles = (new \yii\db\Query())
-                ->select(['Articles.article_id', 'Articles.title', 'Articles.link_to_article'])
+                ->select(['Articles.article_id', 'Articles.title', 'Articles.article_create_datetime', 'Articles.link_to_article'])
                 ->from('Articles')
                 ->leftJoin('Articles_To_Tags', 'Articles.article_id = Articles_To_Tags.article_id')
                 ->leftJoin('Tags', 'Articles_To_Tags.tag_id = Tags.tag_id')
                 ->where(['Tags.tag_id' => $tag['tag_id']])
-                ->groupBy('Articles.article_id','Articles.link_to_article', 'Tags.tag_id')
+                ->groupBy('Articles.article_id')
                 ->orderBy('article_create_datetime desc')
-                ->distinct('Articles.link_to_article', 'Tags.tag_id')
                 ->all();
 
             $articles_by_hystory = array_merge($articles_by_hystory, $articles);
         }
-        $articles_by_hystory = array_map("unserialize", array_unique(array_map("serialize", $articles_by_hystory)));
         $articles_by_hystory = array_slice($articles_by_hystory, 0, 10);
         return $articles_by_hystory;
     }

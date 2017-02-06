@@ -1,12 +1,12 @@
-<?php 
+<?php
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 ?>
 
 <?php $testForm = ActiveForm::begin([
-    'options' => [        
-        'id' => 'testForm',        
-        ],    
+    'options' => [
+        'id' => 'testForm',
+        ],
     ]); ?>
 <?= $testForm->field($preview, 'url')->label('URL для тестирования') ?>
 <?= $testForm->field($preview, 'method')->label('Метод получения контента')->dropDownList(['cURL', 'Phantom']) ?>
