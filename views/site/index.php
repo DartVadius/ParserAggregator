@@ -30,16 +30,12 @@
             <ul class="nav bs-docs-sidenav">
                 <?php if (!empty($_SESSION['__id'])): ?>
                     <h4>История тегов</h4>
-                    <?php foreach ($articles_hystory as $hystory): ?>
-                        <li><a href="<?= \yii\helpers\Url::to(['article/view', 'link' => $hystory['article_id']]); ?>"><?= $hystory['title'] ?></a></li>
-                    <?php endforeach ?>
-
                 <?php else: ?>
                     <h4>Гео Новости</h4>
-                    <?php foreach ($geoCity as $city): ?>
-                        <li><a href="<?= \yii\helpers\Url::to(['article/view', 'link' => $city['article_id']]); ?>"><?= $city['title'] ?></a></li>
-                    <?php endforeach ?>
-            <?php endif; ?>
+                <?php endif; ?>
+                <?php foreach ($sides_news as $news): ?>
+                    <li><a href="<?= \yii\helpers\Url::to(['article/view', 'link' => $news['article_id']]); ?>"><?= $news['title'] ?></a></li>
+                <?php endforeach ?>
             </ul>
         </nav>
     </div>

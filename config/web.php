@@ -16,14 +16,15 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '-2Ui2ft83t9i1SRlrgEr9635Eitauvy6',
+            'enableCsrfValidation' => false,
             'baseURL'=>'',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-//            'identityClass' => 'app\models\User',
-            'identityClass' => 'mdm\admin\models\User',
+            'identityClass' => 'app\models\User',
+//            'identityClass' => 'mdm\admin\models\User',
 //            'loginUrl' => ['site/login'],
             'loginUrl' => ['post/index'],
         ],
@@ -32,10 +33,13 @@ $config = [
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
+        ],
+        'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
             // send all mails to a file by default. You have to set
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
-            'useFileTransport' => true,
+//            'useFileTransport' => true,
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -74,9 +78,9 @@ $config = [
         'parser' => [
             'class' => 'app\modules\parser\ParserModule',
         ],
-//        'preview' => [
-//            'class' => 'app\modules\preview\PreviewModule',
-//        ],
+        'preview' => [
+            'class' => 'app\modules\preview\PreviewModule',
+        ],
     ],
     'as access' => [
         'class' => 'mdm\admin\components\AccessControl',
@@ -85,7 +89,7 @@ $config = [
             'article/*',
             'user/*',
             'category/*',
-            'parser/*',
+            'parser/*'
 //            'rbac/*',
 //            'post/index',
 //            'article/viev',

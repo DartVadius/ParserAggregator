@@ -2,11 +2,6 @@
 
 namespace app\lib;
 
-/**
- * MyFunctions
- *
- * @author DartVadius
- */
 class MyFunctions {
 
     public static function setTimeStamp($timer, $format = 'Y-m-d H:i:s') {
