@@ -70,7 +70,7 @@ class GlobalController extends Controller {
                         ->where(['>', 'article_create_datetime', $date])
                         ->rightJoin('Articles_To_Tags', 'Articles_To_Tags.article_id = Articles.article_id')
                         ->rightJoin('Tags', 'Articles_To_Tags.tag_id = Tags.tag_id')
-                        ->where(['like', 'tag', "$geo%"])
+                        ->where(['like', 'tag', $geo])
                         ->groupBy('Articles.article_id')
                         ->orderBy('article_create_datetime desc')
                         ->all();
