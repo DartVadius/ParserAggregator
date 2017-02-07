@@ -80,7 +80,8 @@ class SiteController extends GlobalController {
             ->leftJoin('Articles_To_Tags', 'Articles.article_id = Articles_To_Tags.article_id')
             ->leftJoin('Tags', 'Articles_To_Tags.tag_id = Tags.tag_id')
             ->where(['Tags.tag_id' => $link])
-            ->groupBy('Articles.article_id');
+            ->groupBy('Articles.article_id')
+            ->orderBy('article_create_datetime desc');
         if (!empty($_SESSION['__id'])) {
             $tag = array(array('tag_id' => $link));
             $newTag = new UsersToTags();
