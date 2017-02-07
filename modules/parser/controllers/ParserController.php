@@ -8,12 +8,9 @@ use app\modules\parser\lib\PageParserCurl;
 use app\modules\parser\lib\PageParserPhantom;
 use app\modules\parser\lib\ContentParser;
 use app\modules\parser\lib\RssParser;
+use app\lib\MyFunctions;
 use app\modules\parser\lib\MorthySearch;
 use app\models\Sites;
-use app\models\Category;
-use app\models\PostsRss;
-use app\models\Articles;
-use app\models\Images;
 use app\models\Tags;
 use phpQuery;
 use app\models\TestForm;
@@ -89,6 +86,7 @@ class ParserController extends Controller {
             $sites = Sites::find()->where([
                         'make_parsing' => '1'
                     ])->all();
+            $rssItem = NULL;
             if (!empty($sites)) {
                 foreach ($sites as $site) {
                     //get the page content by a predetermined method
@@ -100,16 +98,14 @@ class ParserController extends Controller {
                     if (!empty($rss)) {
                         //get the unique (missing in the database) PostsRss objects from collection
                         $rss = $rss->getUniquePosts();
-
-                        //redefining the category by the database settings and save PostsRss
-                        foreach ($rss as $rssItem) {//
-                            $rssItem->setCategory();
-                            $rssItem->save();
+                        if (!empty($rss)) {
+                            //redefining the category by the database settings and save PostsRss
+                            foreach ($rss as $rssItem) {//
+                                $rssItem->setCategory();
+                                $rssItem->save();
+                            }
                         }
                     }
-                }
-                if (empty($rssItem)) {
-                    $rssItem = NULL;
                 }
                 return $this->render('index', ['info' => $rssItem]);
             }
@@ -154,7 +150,26 @@ class ParserController extends Controller {
                                 $content = $post->getContent();
                                 $content->article_create_datetime = $article['date'];
                                 $content->category_id = $article['category'];
-                                $content->on_off = $article['category'];
+                                //-- filter for not uniqe titles
+                                $content->on_off = 1;
+                                $date = MyFunctions::setTimeStamp('-5 hour');
+                                $titles = (new \yii\db\Query())
+                                        ->select(['article_id', 'title'])
+                                        ->from('Articles')
+                                        ->where(['>', 'article_create_datetime', $date])
+                                        ->andWhere(['sourse' => $content->sourse])
+                                        ->all();
+                                $titleNew = explode(' ', $content->title);                                
+                                if (!empty($titles)) {
+                                    foreach ($titles as $title) {
+                                        $titleOld = explode(' ', $title['title']);
+                                        $diff = array_diff($titleNew, $titleOld);
+                                        if (empty($diff) || (count($titleNew) / count($diff)) > 3) {
+                                            $content->on_off = 0;
+                                        }
+                                    }
+                                } 
+                                //-- end filter
                                 $content->save();
                                 $contentId = Yii::$app->db->lastInsertID;
                                 if (!empty($post->getImg())) {
@@ -232,7 +247,6 @@ class ParserController extends Controller {
                                                     $postToTag->save();
                                                 }
                                             }
-                                            
                                         }
                                     }
                                 }
@@ -280,5 +294,4 @@ class ParserController extends Controller {
 //        $this->enableCsrfValidation = false;
 //        return parent :: beforeAction($action);
 //    }
-
 }
