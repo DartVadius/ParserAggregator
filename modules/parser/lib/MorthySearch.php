@@ -72,7 +72,8 @@ class MorthySearch
             array_merge($answer, $geo);
         }
 
-        $answer = array_merge($answer,array_unique(self::selectTagsFromWords($arr)));
+        $answer = array_merge($answer, self::selectTagsFromWords($arr));
+        $answer = array_unique($answer);
         return $answer;
     }
 
