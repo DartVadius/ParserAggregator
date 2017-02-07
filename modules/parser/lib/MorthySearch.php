@@ -56,7 +56,7 @@ class MorthySearch
         $arr = self::deleteGarbageFromText($text);
 
         foreach ($arr as $word) {
-            if ($word == mb_strtoupper($word) && (strlen($word) > 2)) {
+            if (($word == mb_strtoupper($word)) && (strlen($word) > 2) && (!is_numeric($word))) {
                 $answer[] = $word;
             }
         }
@@ -72,7 +72,7 @@ class MorthySearch
             array_merge($answer, $geo);
         }
 
-        $answer = array_unique(self::selectTagsFromWords($arr));
+        $answer = array_merge($answer,array_unique(self::selectTagsFromWords($arr)));
         return $answer;
     }
 
