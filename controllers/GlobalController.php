@@ -56,7 +56,7 @@ class GlobalController extends Controller {
             $geoCountry = $this->findArtByGeo($geo['country']);
             $geoCity = array_merge($geoCity, $geoCountry);
         }        
-        $geoCity = array_slice($geoCity, 0, 10);
+        $geoCity = array_slice($geoCity, 0, 10);        
         return $geoCity;
     }
 
@@ -65,8 +65,8 @@ class GlobalController extends Controller {
         return (new Query())
                 ->select(['Articles.article_id', 'Articles.title', 'Articles.article_create_datetime'])
                 ->from('Articles')               
-                ->rightJoin('Articles_To_Tags', 'Articles_To_Tags.article_id = Articles.article_id')
-                ->rightJoin('Tags', 'Articles_To_Tags.tag_id = Tags.tag_id')
+                ->leftJoin('Articles_To_Tags', 'Articles_To_Tags.article_id = Articles.article_id')
+                ->leftJoin('Tags', 'Articles_To_Tags.tag_id = Tags.tag_id')
                 ->where(['and',['like', 'tag', $geo],['>', 'article_create_datetime', $date]])                
                 ->groupBy('Articles.article_id')
                 ->orderBy('article_create_datetime desc')
