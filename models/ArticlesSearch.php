@@ -91,6 +91,7 @@ class ArticlesSearch extends Articles
 
             $articles_by_hystory = array_merge($articles_by_hystory, $articles);
         }
+        $articles_by_hystory = array_map("unserialize",array_unique(array_map("serialize",$articles_by_hystory)));
         $articles_by_hystory = array_slice($articles_by_hystory, 0, 10);
         return $articles_by_hystory;
     }
