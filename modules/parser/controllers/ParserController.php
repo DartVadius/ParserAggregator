@@ -63,12 +63,13 @@ class ParserController extends Controller {
             }
             $text = $article->text;
             $title = $article->title;
+            
             $answer = [
                 'title' => $title,
                 'text' => $text,
                 'images' => $images,
                 'tags' => $tags,
-                'rule' => json_encode($rule, JSON_UNESCAPED_UNICODE)
+                'rule' => json_encode($rule, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT)
             ];
             echo (json_encode($answer));
             exit();

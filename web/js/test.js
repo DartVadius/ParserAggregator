@@ -23,8 +23,8 @@ $(document).ready(
                             $('#data').append($('<p>').text(newData.tags));
                         }
                         if (newData.rule !== '') {
-                            $('#rule p').remove();
-                            $('#rule').append($('<p>').text(newData.rule));
+                            $('#rule pre').remove();
+                            $('#rule').append($('<pre>').text(newData.rule));
                         }
                     }
                 });
