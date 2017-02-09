@@ -65,7 +65,7 @@ class SiteController extends GlobalController {
             $articles_hystory = new ArticlesSearch();
             $sides_news = $articles_hystory->articlesByUserHystory($tags);
         } else {
-            $geo = $this->geoLock('94.244.22.168');
+            $geo = $this->geoLock();
             $sides_news = $this->getGeoData($geo);            
         }
         $pages = new Pagination(['totalCount' => $articles->count(), 'pageSize' => 10, 'pageSizeParam' => false, 'forcePageParam' => false]);

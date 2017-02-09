@@ -48,15 +48,14 @@ class GlobalController extends Controller {
 
     protected function getGeoData($geo) {
         $geoCity = $this->findArtByGeo($geo['city']);
-//        if (count($geoCity) < 10) {
-//            $geoRegion = $this->findArtByGeo($geo['region']);
-//            $geoCity = array_merge($geoCity, $geoRegion);
-//        }
-//        if (count($geoCity) < 10) {
-//            $geoCountry = $this->findArtByGeo($geo['country']);
-//            $geoCity = array_merge($geoCity, $geoCountry);
-//        }
-//        print_r($geoCity);
+        if (count($geoCity) < 10) {
+            $geoRegion = $this->findArtByGeo($geo['region']);
+            $geoCity = array_merge($geoCity, $geoRegion);
+        }
+        if (count($geoCity) < 10) {
+            $geoCountry = $this->findArtByGeo($geo['country']);
+            $geoCity = array_merge($geoCity, $geoCountry);
+        }        
         $geoCity = array_slice($geoCity, 0, 10);
         return $geoCity;
     }
@@ -65,11 +64,10 @@ class GlobalController extends Controller {
         $date = MyFunctions::setTimeStamp('-7 days');        
         return (new Query())
                 ->select(['Articles.article_id', 'Articles.title', 'Articles.article_create_datetime'])
-                ->from('Articles')
-                ->where(['>', 'article_create_datetime', $date])
+                ->from('Articles')               
                 ->rightJoin('Articles_To_Tags', 'Articles_To_Tags.article_id = Articles.article_id')
                 ->rightJoin('Tags', 'Articles_To_Tags.tag_id = Tags.tag_id')
-                ->where(['like', 'tag', $geo])
+                ->where(['and',['like', 'tag', $geo],['>', 'article_create_datetime', $date]])                
                 ->groupBy('Articles.article_id')
                 ->orderBy('article_create_datetime desc')
                 ->all();
