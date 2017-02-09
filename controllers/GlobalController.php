@@ -57,6 +57,7 @@ class GlobalController extends Controller {
             $geoCity = array_merge($geoCity, $geoCountry);
         }        
         $geoCity = array_slice($geoCity, 0, 10);
+        print_r($geoCity);
         return $geoCity;
     }
 
@@ -68,7 +69,7 @@ class GlobalController extends Controller {
                 ->innerJoin('Articles_To_Tags', 'Articles_To_Tags.article_id = Articles.article_id')
                 ->innerJoin('Tags', 'Articles_To_Tags.tag_id = Tags.tag_id')
                 ->where(['and',['like', 'tag', $geo],['>', 'article_create_datetime', $date]])                
-                ->groupBy('Articles.article_id')
+                ->distinct()
                 ->orderBy('article_create_datetime desc')
                 ->all();
     }
