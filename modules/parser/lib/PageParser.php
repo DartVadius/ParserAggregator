@@ -28,7 +28,7 @@ class PageParser {
         $this->appConfig = ParserModule::$config;
         $this->url = $url;
         $urlArr = parse_url($url);
-        $this->source = $urlArr['host'];
+        $this->source = $urlArr['host'];        
         $this->body = '';
     }
 

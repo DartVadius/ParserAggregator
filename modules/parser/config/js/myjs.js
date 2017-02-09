@@ -9,9 +9,6 @@ page.open(address, function (status) {
     phantom.exit();
 });
 
-
-
-
 //var args = require('system').args;
 //var webPage = require('webpage');
 //var page = webPage.create();

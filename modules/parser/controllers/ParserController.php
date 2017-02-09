@@ -90,7 +90,7 @@ class ParserController extends Controller {
             if (!empty($sites)) {
                 foreach ($sites as $site) {
                     //get the page content by a predetermined method
-                    $page = $this->getPage($site->method_of_parsing, $site->source);
+                    $page = $this->getPage($site->method_of_parsing, $site->source);                    
                     //get the collection of PostsRss objects
                     if (!empty($page->getBody())) {
                         $rss = new RssParser($page);
@@ -124,7 +124,7 @@ class ParserController extends Controller {
         if ((getenv('HTTP_X_REAL_IP') == '127.0.0.1') || ((!empty($_SESSION['__id'])) && ($_SESSION['__id'] == 1))) {
             $sites = Sites::find()->where([
                         'make_parsing' => '1'
-                    ])->all();
+                    ])->all();            
             if (!empty($sites)) {
                 foreach ($sites as $site) {
                     $list = (new \yii\db\Query())
@@ -140,7 +140,7 @@ class ParserController extends Controller {
                                     ->where([
                                         'link_to_article' => null,
                                         'source' => $site->name,
-                                    ])->all();
+                                    ])->all();                    
                     foreach ($list as $article) {
                         $page = $this->getPage($site->method_of_parsing, $article['link']);
                         if (!empty($page->getBody())) {
