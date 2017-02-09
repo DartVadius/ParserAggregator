@@ -179,6 +179,7 @@ nav.top-menu {
 }
 .article_tags{
     clear: both;
+    font-size: 14px;
 }
 /*images for article */
 .img_block {
@@ -242,6 +243,7 @@ tbody tr td {
 }
 .panel-body {
     text-align: justify;
+    font-size: 16px;
 }
 /* footer */
 .footer-left{
