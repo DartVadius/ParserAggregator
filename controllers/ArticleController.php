@@ -21,6 +21,7 @@ class ArticleController extends GlobalController {
                 ->leftJoin('Articles_To_Tags', 'Articles.article_id = Articles_To_Tags.article_id')
                 ->leftJoin('Tags', 'Articles_To_Tags.tag_id = Tags.tag_id')
                 ->where("Articles.article_id = $article->article_id")
+                ->groupBy('Tags.tag_id')
                 ->all();
         if (!empty($_SESSION['__id'])) {
             $newTag = new UsersToTags();
