@@ -55,20 +55,20 @@ class GlobalController extends Controller {
         if (count($geoCity) < 10) {
             $geoCountry = $this->findArtByGeo($geo['country']);
             $geoCity = array_merge($geoCity, $geoCountry);
-        }        
-        $geoCity = array_slice($geoCity, 0, 10);
-        print_r($geoCity);
+        }
+        $geoCity = array_map("unserialize",array_unique(array_map("serialize",$geoCity)));
+        $geoCity = array_slice($geoCity, 0, 10);        
         return $geoCity;
     }
 
-    protected function findArtByGeo($geo) {        
-        $date = MyFunctions::setTimeStamp('-7 days');        
+    protected function findArtByGeo($geo) {
+        $date = MyFunctions::setTimeStamp('-7 days');
         return (new Query())
                 ->select(['Articles.article_id', 'Articles.title', 'Articles.article_create_datetime'])
-                ->from('Articles')               
+                ->from('Articles')
                 ->innerJoin('Articles_To_Tags', 'Articles_To_Tags.article_id = Articles.article_id')
                 ->innerJoin('Tags', 'Articles_To_Tags.tag_id = Tags.tag_id')
-                ->where(['and',['like', 'tag', $geo],['>', 'article_create_datetime', $date]])                
+                ->where(['and',['like', 'tag', $geo],['>', 'article_create_datetime', $date]])
                 ->distinct()
                 ->orderBy('article_create_datetime desc')
                 ->all();
