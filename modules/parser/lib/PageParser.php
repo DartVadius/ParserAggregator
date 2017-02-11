@@ -9,7 +9,7 @@ use app\modules\parser\ParserModule;
  *
  * @author DartVadius
  */
-class PageParser {
+abstract class PageParser {
 
     /**
      *
