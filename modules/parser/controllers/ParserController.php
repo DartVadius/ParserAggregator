@@ -213,14 +213,29 @@ class ParserController extends Controller {
                                 } else {
                                     if (!empty($content['text']) && !empty($content['title'])) {
 
-                                        //    do not delete!
-                                        // $tags_from_text = MorthySearch::getTagsFromText(trim($content['text']));
-                                        // $tags_from_title = MorthySearch::getTagsFromTitle(trim($content['title']));
-                                        // $tags = array_merge($tags_from_text, $tags_from_title);
+                                        $tags_from_text = MorthySearch::getTagsFromText(trim($content['text']));
 
-                                        $tags = MorthySearch::getTagsFromTitle(trim($content['title']));
+                                        foreach ($tags_from_text as $tag) {
+                                            $new_tag = new Tags();
+                                            $new_tag->tag = $tag;
+                                            $tagId = (new \yii\db\Query())
+                                                            ->select(['tag_id'])
+                                                            ->from('Tags')
+                                                            ->where([
+                                                                'tag' => $new_tag->tag,
+                                                            ])->one();
+                                            if (!empty($tagId)) {
+                                                $postToTag = new \app\models\ArticlesToTags();
+                                                $postToTag->article_id = $contentId;
+                                                $postToTag->tag_id = $tagId['tag_id'];
+                                                if ($postToTag->validate()) {
+                                                    $postToTag->save();
+                                                }
+                                            }
+                                        }
+                                        $tags_from_title = MorthySearch::getTagsFromTitle(trim($content['title']));
 
-                                        foreach ($tags as $tag) {
+                                        foreach ($tags_from_title as $tag) {
                                             $new_tag = new Tags();
                                             $new_tag->tag = $tag;
                                             $tagId = (new \yii\db\Query())

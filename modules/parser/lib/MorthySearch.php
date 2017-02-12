@@ -22,27 +22,30 @@ class MorthySearch
 
 
         $answer = [];
+        $abbr = [];
         $arr_text = self::deleteGarbageFromText($text);
         foreach ($arr_text as $word) {
-            if ($word == mb_strtoupper($word)) {
-                $answer[] = $word;
+            if (($word == mb_strtoupper($word)) && (strlen($word) > 2) && (!is_numeric($word))) {
+                $abbr[] = $word;
             }
         }
+        $abbr = array_unique($abbr);
+        $geo = array_unique(self::searchGeoLocation($arr_text));
+
 
         $arr_text = array_map('mb_strtoupper', $arr_text);
 
         $noun = self::getBaseFormForArray($arr_text, $morphy);
 
         $noun = array_count_values($noun);
-
-        if (count($noun) >= 3) {
-            $noun = array_slice($noun, 0, 3);
-        }
+        arsort($noun, SORT_NUMERIC);
+        $noun = array_slice($noun, 0, 3);
 
         $pre_answer = array_keys($noun);
-        $pre_answer = array_map('mb_strtolower', $pre_answer);
-
-        return self::selectTagsFromWords($pre_answer);
+        
+        $answer = self::selectTagsFromWords($pre_answer);
+        $answer = array_map('mb_strtolower', array_unique(array_merge($answer, $abbr, $geo)));
+        return $answer;
     }
 
     public static function getTagsFromTitle($text)
@@ -73,7 +76,7 @@ class MorthySearch
         }
 
         $answer = array_merge($answer, self::selectTagsFromWords($arr));
-        $answer = array_unique($answer);
+        $answer = array_unique(array_map('mb_strtolower', $answer));
         return $answer;
     }
 
@@ -126,7 +129,7 @@ class MorthySearch
     {
         $answer = [];
         for ($i = 0; $i < count($arr); $i++) {
-            $arr[$i] = mb_strtoupper(mb_substr($arr[$i], 0, 1)) . mb_substr($arr[$i], 1);
+            $arr[$i] = mb_strtoupper(mb_substr($arr[$i], 0, 1)) . mb_strtolower(mb_substr($arr[$i], 1));
         }
         foreach ($arr as $word) {
             $country = (new \yii\db\Query())
